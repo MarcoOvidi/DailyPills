@@ -1,0 +1,13 @@
+<ion-header>
+  <ion-toolbar color="primary" style="padding: 20px;">
+    <ion-searchbar placeholder="Cerca Medicina" animated></ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list inset *ngFor="let data of item">
+    <ion-item>
+      <ion-label>{{data.nome}}</ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

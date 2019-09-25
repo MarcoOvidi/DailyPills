@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { HTTP } from '@ionic-native/http/ngx';
+import {Component} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import {HTTP} from '@ionic-native/http/ngx';
 
 @Component({
   selector: 'app-tab2',
@@ -12,16 +12,14 @@ export class Tab2Page {
 
   constructor(private http: HttpClient, private nativeHTTP: HTTP) {
     // @ts-ignore
-    this.item = [{ nome: 'tachipriina'}, {nome: 'lexotan'}];
-
-    /*searchData() {
-      // @ts-ignore
-      const headers = new HttpHeaders();
-      headers.append('Content-Type', 'application/json' );
-      headers.append('Access-Control-Allow-Headers', 'application/json' );
-      headers.append('responseType', '\'text\' as \'json\'');
-      this.http.get('https://www.agenziafarmaco.gov.it/services/search/select?fl=sm_field_codice_farmaco,sm_field_descrizione_farmaco,sm_field_descrizione_ditta&q=bundle:confezione_farmaco+sm_field_descrizione_farmaco:tachi*&df=sm_field_descrizione_farmaco&wt=jsonp&rows=150000', { headers }).subscribe(res => { console.log(res); this.item = res; });
-    }*/
-
+    http.get('http://localhost:8000/farmaci').toPromise()
+        .then((res) => {
+            const { data } = (res as any);
+            this.item = data;
+        })
+        .catch((err) => {
+            console.log(err);
+            throw err;
+        });
   }
 }

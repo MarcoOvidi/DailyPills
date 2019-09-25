@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use http\Env\Response;
 use Illuminate\Contracts\Auth\Factory as Auth;
 
 class Authenticate
@@ -36,7 +37,7 @@ class Authenticate
     public function handle($request, Closure $next, $guard = null)
     {
         if ($this->auth->guard($guard)->guest()) {
-            return response('Unauthorized.', 401);
+            return response(["success" => false, "error" => ["code" => 401, "errors" => []], "message" => "Api Token not valid"], 401);
         }
 
         return $next($request);

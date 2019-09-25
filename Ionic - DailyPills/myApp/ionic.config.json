@@ -6,8 +6,8 @@
   "type": "angular",
   "proxies": [
     {
-      "path": "/tabs/tab2",
-      "proxyUrl": "https://www.agenziafarmaco.gov.it/services/search/select"
+      "path": "/api",
+      "proxyUrl": "http://localhost:8000"
     }
   ]
 }

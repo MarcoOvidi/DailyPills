@@ -6,23 +6,20 @@ use Illuminate\Database\Migrations\Migration;
 
 class Farmaco extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
-        //
+        Schema::create('farmacos', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('aic');
+            $table->string('nome');
+            $table->string('ptn');
+            $table->string('modalita_prescrizione');
+            $table->string('quantita_autorizzate');
+            $table->timestamps();
+        });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
-    public function down()
-    {
-        //
+    public function down() {
+        Schema::drop('farmacos');
     }
 }

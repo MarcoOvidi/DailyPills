@@ -11,9 +11,7 @@ class Device extends Model
     protected $table = "devices";
 
     protected $fillable = [
-        "auth_id",
         "api_token",
-        "device_name",
     ];
 
 

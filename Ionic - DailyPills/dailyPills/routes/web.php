@@ -11,26 +11,22 @@
 |
 */
 
-//get API version
+//get api version
 $router->get('/', function () use ($router) {
     return $router->app->version();
 });
 
 $router->group(['prefix' => 'api'], function () use ($router) {
+    //Login route
+    $router->post('/signin', 'DeviceController@signin');
 
-    $router->group(['middleware' => 'auth'], function() use ($router) {
-        //Login route
-        $router->post('signin', 'DeviceController@signin');
+    $router->group(['middleware' => 'auth'], function($router) {
 
         //Farmaci route
-        $router->post('/farmaci', ["middleware" => 'auth', "uses" => 'FarmacoController@list']);
+        $router->post('/farmaci', 'FarmacoController@list');
+        $router->post('/searchFarmaci', 'FarmacoController@search');
         $router->post('/addFarmaco', 'FarmacoController@addRecord');
     });
 
 });
-
-//$router->post('signin', 'DeviceController@signin');
-//
-//$router->post('/farmaci', ["middleware" => 'auth', "uses" => 'FarmacoController@list']);
-//$router->post('/addFarmaco', 'FarmacoController@addRecord');
 

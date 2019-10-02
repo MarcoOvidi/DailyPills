@@ -14,3 +14,16 @@ ion-searchbar {
   --color: #000;
   --placeholder-color: #000;
 }
+
+ion-toolbar {
+  --background: #0099FF;
+}
+
+.searchbar-input {
+  background: #FFF !important;
+  border-radius: 30px !important;
+  height: 40px !important;
+  max-width: 400px;
+  font-size: 1.25em !important;
+  border: 1px solid transparent;
+}

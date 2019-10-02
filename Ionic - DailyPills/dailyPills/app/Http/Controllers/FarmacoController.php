@@ -11,8 +11,9 @@ class FarmacoController extends Controller
     public function list()
     {
         $results = Farmaco::all();
-        return response()
-            ->json(["success" => true, "data" => $results], 200);
+//        return response()
+//            ->json(["success" => true, "data" => $results], 200);
+        return $results;
     }
 
     public function addRecord(Request $request) {

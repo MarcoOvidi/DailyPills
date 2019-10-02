@@ -1,6 +1,6 @@
 {
   "/api/*": {
-    "target": "http://192.168.1.8:8000",
+    "target": "http://207.180.252.160:8000",
     "secure": false,
     "logLevel": "debug",
     "changeOrigin": true

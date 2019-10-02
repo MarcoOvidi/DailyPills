@@ -22,13 +22,13 @@ export class Tab2Page implements OnInit {
     constructor(private farmacoServices: FarmacoServices) {}
 
     ngOnInit() {
-        // this.farmaci$ = this.farmacoServices.list();
-        // this.farmacoServices.list().subscribe(res => console.log(res));
-        this.farmaci$ = new Observable<Farmaco[]>(observer => {
-            observer.next(this.farmaci);
-        });
-        this.farmaci$.subscribe((val: Farmaco[]) => val.forEach((valor) => console.log(valor.nome))
-        );
+        this.farmaci$ = this.farmacoServices.list();
+        this.farmacoServices.list().subscribe(res => console.log(res));
+        // this.farmaci$ = new Observable<Farmaco[]>(observer => {
+        //     observer.next(this.farmaci);
+        // });
+        // this.farmaci$.subscribe((val: Farmaco[]) => val.forEach((valor) => console.log(valor.nome))
+        // );
     }
 
 }

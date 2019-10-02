@@ -23,8 +23,8 @@ export class FarmacoServices {
 
     list(): Observable<Farmaco[]> {
         const headers = {
-            device_id: '122323',
-            api_token: 'PxYlJVNGQsy8ubHpWEwwyC2uHwsWMAv0JqJuf2mj0CNnMJKVeg5fRhBpqzOm3oID'
+            device_id: '4H6CUSM69MF',
+            api_token: 'dvmouC18VyreZGTyojDSUWZlLv2nMxq5F5Rh8bRaL1mPQ622buwFtQ75vXSdzlGi'
         };
         const httpOptions = {
             headers: new HttpHeaders(

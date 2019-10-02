@@ -1,7 +1,9 @@
 
 export const USE_PROXY = true;
 
-export const URL_BASE = USE_PROXY ? 'api' : 'http://localhost:8000/api';
+// export const URL_BASE = USE_PROXY ? 'api' : 'http://localhost:8000/api';
+
+export const URL_BASE = USE_PROXY ? 'api' : 'http://207.180.252.160:8000/api';
 
 export const URL = {
     FARMACI: URL_BASE + '/farmaci',

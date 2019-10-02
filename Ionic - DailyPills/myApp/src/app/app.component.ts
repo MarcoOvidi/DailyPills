@@ -27,6 +27,6 @@ export class AppComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        this.utenteService.setAuthToken().subscribe(res => console.log(res));
+        // this.utenteService.setAuthToken().subscribe(res => console.log(res));
     }
 }

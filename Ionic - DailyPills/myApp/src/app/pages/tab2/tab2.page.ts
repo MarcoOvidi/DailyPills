@@ -10,14 +10,14 @@ import {Observable} from 'rxjs';
 })
 export class Tab2Page implements OnInit {
     private farmaci$: Observable<Farmaco[]>;
-    private farmaci = [{
-        id: 1,
-        nome: 'Tachipirina',
-        aic: 2002,
-        ptn: 'C',
-        modalita_prescrizione: 'OPT',
-        quantita_autorizzate: 200,
-    }];
+    // private farmaci = [{
+    //     id: 1,
+    //     nome: 'Tachipirina',
+    //     aic: 2002,
+    //     ptn: 'C',
+    //     modalita_prescrizione: 'OPT',
+    //     quantita_autorizzate: 200,
+    // }];
 
     constructor(private farmacoServices: FarmacoServices) {}
 

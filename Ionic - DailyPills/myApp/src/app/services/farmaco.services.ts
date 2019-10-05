@@ -1,9 +1,8 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import {Storage} from '@ionic/storage';
 
 
-import { URL, AUTH_TOKEN } from '../../constants';
+import { URL } from '../../constants';
 import { Farmaco } from '../models/farmaco.model';
 import { Observable } from 'rxjs';
 
@@ -12,31 +11,12 @@ import { Observable } from 'rxjs';
 })
 
 export class FarmacoServices {
-    private authToken: string;
 
-    constructor(private http: HttpClient, private storage: Storage) {
-       this.storage.get(AUTH_TOKEN).then(token => {
-           console.log(token);
-           this.authToken = token;
-       });
+    constructor(private http: HttpClient) {
     }
 
     list(): Observable<Farmaco[]> {
-        const headers = {
-            device_id: '4H6CUSM69MF',
-            api_token: 'dvmouC18VyreZGTyojDSUWZlLv2nMxq5F5Rh8bRaL1mPQ622buwFtQ75vXSdzlGi'
-        };
-        const httpOptions = {
-            headers: new HttpHeaders(
-                headers
-            )
-        };
-        return this.http.post<Farmaco[]>(URL.FARMACI, {}, httpOptions);
+        return this.http.post<Farmaco[]>(URL.FARMACI, {});
     }
-
-    // findById(notiziaId: number): Observable<Notizia> {
-    //     const apiURL = `${URL.NOTIZIE}/${notiziaId}`;
-    //     return this.http.get<Notizia>(apiURL);
-    // }
 
 }

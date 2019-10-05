@@ -5,13 +5,24 @@
 </ion-header>
 
 <ion-content>
-  <ion-list inset *ngFor="let farmaco of farmaci$ | async ">
-    <ion-item>
+  <ion-list lines="full" *ngFor="let farmaco of farmaci$ | async ">
+      <ion-item>
+        <ion-avatar slot="start">
+          <img id="icon" src="assets/icon/pill.png">
+        </ion-avatar>
+        <ion-label>
+          <h2>{{farmaco.nome}}</h2>
+          <p>{{farmaco.quantita_autorizzate}}</p>
+        </ion-label>
+        <ion-icon name="add-circle"></ion-icon>
+      </ion-item>
+  </ion-list>
+    <!--<ion-item>
       <ion-col>
         <ion-label class="farmaco-name">{{farmaco.nome}}</ion-label>
         <ion-label class="farmaco-tipo">{{farmaco.quantita_autorizzate}}</ion-label>
       </ion-col>
       <ion-icon color="secondary" name="ios-arrow-forward"></ion-icon>
     </ion-item>
-  </ion-list>
+  </ion-list>-->
 </ion-content>

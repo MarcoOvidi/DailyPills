@@ -5,6 +5,7 @@ import { Injectable } from '@angular/core';
 import { URL } from '../../constants';
 import { Farmaco } from '../models/farmaco.model';
 import { Observable } from 'rxjs';
+import {map} from 'rxjs/operators';
 
 @Injectable({
     providedIn: 'root'
@@ -15,8 +16,8 @@ export class FarmacoServices {
     constructor(private http: HttpClient) {
     }
 
-    list(): Observable<Farmaco[]> {
-        return this.http.post<Farmaco[]>(URL.FARMACI, {});
+    listFarmaci(): Observable<Farmaco[]> {
+        return this.http.get<Farmaco[]>(URL.FARMACI, {})
     }
 
 }

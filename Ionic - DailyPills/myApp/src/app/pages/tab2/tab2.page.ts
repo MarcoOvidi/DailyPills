@@ -1,10 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { FarmacoServices } from '../../services/farmaco.services';
-import { Farmaco } from '../../models/farmaco.model';
-import {observable, Observable} from 'rxjs';
-import {filter, map} from 'rxjs/operators';
-import {forEach} from '@angular-devkit/schematics';
-import {stringify} from 'querystring';
+import {Component, OnInit} from '@angular/core';
+import {FarmacoServices} from '../../services/farmaco.services';
+import {Farmaco} from '../../models/farmaco.model';
 
 @Component({
   selector: 'app-tab2',
@@ -12,20 +8,20 @@ import {stringify} from 'querystring';
   styleUrls: ['tab2.page.scss']
 })
 export class Tab2Page implements OnInit {
-    private farmaci$: Observable<Farmaco[]>;
+    private farmaciList$: Farmaco[];
+    private farmaci$: Farmaco[];
 
     constructor(private farmacoServices: FarmacoServices) {}
 
     ngOnInit() {
-        this.farmaci$ = this.farmacoServices.list();
+        this.farmacoServices.listFarmaci().subscribe((arrMed) => {
+            this.farmaciList$ = arrMed;
+            this.farmaci$ = arrMed;
+        });
     }
 
     liveMedicineFilter($event) {
-        this.farmaci$ = this.farmaci$.pipe(
-            map((res: Farmaco[]) => {
-                return res.filter((val) => val.nome.includes($event.target.value));
-            })
-        );
+        this.farmaciList$ = this.farmaci$.filter((val) => val.nome.toLowerCase().includes($event.target.value.toLowerCase()));
     }
 
 }

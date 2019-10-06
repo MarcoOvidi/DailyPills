@@ -14,4 +14,4 @@ export const URL = {
 
 export const AUTH_TOKEN = 'api_token';
 
-// export const X_AUTH = 'X-Auth';
+export const UTENTE_STORAGE = 'utente';

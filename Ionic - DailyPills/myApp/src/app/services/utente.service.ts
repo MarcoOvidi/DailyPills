@@ -2,7 +2,7 @@ import {HttpClient, HttpResponse} from '@angular/common/http';
 import {Injectable} from '@angular/core';
 import {Storage} from '@ionic/storage';
 
-import {AUTH_TOKEN, URL} from '../../constants';
+import {AUTH_TOKEN, URL, UTENTE_STORAGE} from '../../constants';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { User } from '../models/user.model';
@@ -20,6 +20,7 @@ export class UtenteService {
     private authToken: string;
     private username: string;
     private loggedIn$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+    private utente$: BehaviorSubject<User> = new BehaviorSubject<User>({} as User);
 
     constructor(private http: HttpClient, private storage: Storage) {
 
@@ -29,6 +30,10 @@ export class UtenteService {
             if (token !== null && token !== undefined && token !== '') {
                 this.loggedIn$.next(true);
             }
+        });
+        this.storage.get(UTENTE_STORAGE).then((user) => {
+            console.log(user);
+            this.utente$.next(user);
         });
     }
 
@@ -45,7 +50,7 @@ export class UtenteService {
               return res.body;
             })
         );
-        }
+    }
 
     getAuthToken(): string {
         return this.authToken;

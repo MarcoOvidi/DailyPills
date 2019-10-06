@@ -24,7 +24,7 @@ $router->group(['prefix' => 'api'], function () use ($router) {
     $router->group(['middleware' => 'auth'], function($router) {
 
         //Farmaci route
-        $router->post('/farmaci', 'FarmacoController@list');
+        $router->get('/farmaci', 'FarmacoController@list');
         $router->post('/searchFarmaci', 'FarmacoController@search');
         $router->post('/addFarmaco', 'FarmacoController@addRecord');
     });

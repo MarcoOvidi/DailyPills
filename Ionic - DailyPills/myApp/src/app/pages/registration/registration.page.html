@@ -70,7 +70,7 @@
       <ion-row>
         <ion-col size="12">
           <ion-card color="secondary" style="border-radius: 20px">
-            <ion-button color="secondary" style="box-shadow: none" type="submit" expand="full" fill="clear" (click)="registerSubmit()">
+            <ion-button color="secondary" style="box-shadow: none" type="submit" expand="full" fill="clear" (click)="registerSubmit()" [disabled]="!loginFormModel.valid">
               <ion-icon slot="start"  color="light" name="log-in"></ion-icon>
               <ion-text color="light">
                 Registrati

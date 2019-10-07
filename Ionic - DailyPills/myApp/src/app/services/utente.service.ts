@@ -12,42 +12,61 @@ export interface Account {
     password: string;
 }
 
+export interface Registrazione {
+    username: string;
+    name: string;
+    surname: string;
+    password: string;
+    password_confirmation: string;
+    email: string;
+}
+
 @Injectable({
     providedIn: 'root'
 })
 
 export class UtenteService {
     private authToken: string;
-    private username: string;
     private loggedIn$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
     private utente$: BehaviorSubject<User> = new BehaviorSubject<User>({} as User);
 
     constructor(private http: HttpClient, private storage: Storage) {
 
         this.storage.get(AUTH_TOKEN).then((token) => {
-            console.log(token);
             this.authToken = token;
+            console.log(token);
             if (token !== null && token !== undefined && token !== '') {
                 this.loggedIn$.next(true);
             }
         });
         this.storage.get(UTENTE_STORAGE).then((user) => {
-            console.log(user);
             this.utente$.next(user);
         });
     }
 
+    init() {
+
+    }
+
     // account = device_id & device_name
 
-    setAuthToken(): Observable<User> {
-        const account: Account = { userormail: 'ITh0rn97', password: 'Angelo1297'};
+    login(account: Account): Observable<User> {
         return this.http.post<User>(URL.LOGIN, account, {observe: 'response'}).pipe(
             map((res: HttpResponse<User>) => {
-              this.storage.set(AUTH_TOKEN, res.body.api_token);
-              this.authToken = res.body.api_token;
-              this.loggedIn$.next(true);
-              this.username = res.body.username;
-              return res.body;
+                this.storage.set(AUTH_TOKEN, res.body.api_token);
+                this.storage.set(UTENTE_STORAGE, res.body);
+                this.authToken = res.body.api_token;
+                this.loggedIn$.next(true);
+                this.utente$.next(res.body);
+                return res.body;
+            })
+        );
+    }
+
+    registration(account: Registrazione): Observable<User> {
+        return this.http.post<User>(URL.REGISTER, account, {observe: 'response'}).pipe(
+            map((res: HttpResponse<User>) => {
+                return res.body;
             })
         );
     }
@@ -56,7 +75,15 @@ export class UtenteService {
         return this.authToken;
     }
 
-    getUsername(): string {
-        return this.username;
+    getUser(): BehaviorSubject<User> {
+        return this.utente$;
+    }
+
+    getisLogged(): Observable<boolean> {
+        return this.loggedIn$.asObservable();
+    }
+
+    setisLog(): void {
+        this.loggedIn$.next(true);
     }
 }

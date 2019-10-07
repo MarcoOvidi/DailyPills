@@ -21,6 +21,7 @@ export class Tab2Page implements OnInit {
     }
 
     liveMedicineFilter($event) {
+        console.log('filtering');
         this.farmaciList$ = this.farmaci$.filter((val) => val.nome.toLowerCase().includes($event.target.value.toLowerCase()));
     }
 

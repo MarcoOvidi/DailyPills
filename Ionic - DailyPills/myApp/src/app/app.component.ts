@@ -1,22 +1,28 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
-import { Platform } from '@ionic/angular';
+import { NavController, Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { UtenteService } from './services/utente.service';
+import {Storage} from '@ionic/storage';
+import {AUTH_TOKEN} from '../constants';
 
 @Component({
     selector: 'app-root',
     templateUrl: 'app.component.html'
 })
 export class AppComponent implements OnInit {
+
     constructor(
       private platform: Platform,
       private splashScreen: SplashScreen,
       private utenteService: UtenteService,
-      private statusBar: StatusBar
+      private statusBar: StatusBar,
+      private navController: NavController,
+      private storage: Storage
     ) {
-      this.initializeApp();
+        this.initializeApp();
+        // this.utenteService.init();
     }
 
     initializeApp() {
@@ -27,6 +33,11 @@ export class AppComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        this.utenteService.setAuthToken().subscribe(res => console.log(res));
+        // this.storage.get(AUTH_TOKEN).then((val) => {
+        //     if (val) {
+        //         this.navController.navigateRoot('tabs');
+        //     } else { this.navController.navigateRoot('login'); }
+        // });
     }
+
 }

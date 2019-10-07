@@ -15,7 +15,7 @@ class AuthServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->app['auth']->viaRequest('api', function ($request) {
-            return User::where('username', $request->header('username'))->where('api_token', $request->header('api_token'))->first();
+            return User::where('api_token', $request->header('api_token'))->first();
         });
     }
 }

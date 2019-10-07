@@ -5,7 +5,6 @@ import { Injectable } from '@angular/core';
 import { URL } from '../../constants';
 import { Farmaco } from '../models/farmaco.model';
 import { Observable } from 'rxjs';
-import {map} from 'rxjs/operators';
 
 @Injectable({
     providedIn: 'root'

@@ -16,13 +16,11 @@ export class TokenInterceptor implements HttpInterceptor {
 
     intercept(req: HttpRequest<any>, next: HttpHandler) {
         const authToken = this.utenteService.getAuthToken();
-        const username = this.utenteService.getUsername();
         if (authToken !== null && authToken !== undefined && authToken !== '') {
             console.log('adding token into header');
             const authReq = req.clone({
                 headers: new HttpHeaders({
                 api_token:  authToken,
-                username
             })
             });
             return next.handle(authReq).pipe(

@@ -21,7 +21,7 @@ class Users extends Migration
             $table->string('username')->unique();
             $table->string('email', 200)->unique();
             $table->string('password');
-            $table->string('api_token', 64)->default(Str::random(64));
+            $table->string('api_token', 600) ;
             $table->timestamps();
         });
     }

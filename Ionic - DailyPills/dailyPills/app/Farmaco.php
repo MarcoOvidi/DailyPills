@@ -14,14 +14,19 @@ class Farmaco extends Model
         "nome",
         "ptn",
         "modalita_prescrizione",
-        "quantita_autorizzate"
+        "quantita_autorizzate",
+        "id"
+    ];
+
+    protected $hidden = [
+        'pivot'
     ];
 
     const CLASS_C_PTN = 'C', MODALITA_PRESCRIZIONE_SOP = 'SOP', MODALITA_PRESCRIZIONE_OTC = 'OTC';
 
-    public function tipologies()
+    public function users()
     {
-        $this->belongsToMany('App\Tipologia');
+        $this->belongsToMany(User::class, 'favoritesfarmacos', 'id', 'idfarmaco');
     }
 
 }

@@ -3,13 +3,12 @@
 namespace App;
 
 use Illuminate\Auth\Authenticatable;
-use Illuminate\Support\Facades\App;
 use Laravel\Lumen\Auth\Authorizable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
 
-class User extends Model implements AuthenticatableContract, AuthorizableContract
+class UserFarmaco extends Model implements AuthenticatableContract, AuthorizableContract
 {
     use Authenticatable, Authorizable;
 
@@ -19,7 +18,7 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'surname', 'username'
+
     ];
 
     /**
@@ -28,10 +27,7 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
      * @var array
      */
     protected $hidden = [
-        'password', 'created_at', 'updated_at'
+//        'iduser', 'idfarmaco'
     ];
 
-    public function favorites() {
-        return $this->belongsToMany(Farmaco::class, 'userfarmacis', 'iduser', 'idfarmaco');
-    }
 }

@@ -21,11 +21,6 @@ class Devices extends Migration
 //            $table->integer('user_id')->unsigned()->nullable();
             $table->string('device_name', 200);
             $table->timestamps();
-
-//            $table->foreign('user_id')
-//                ->references('id')
-//                ->on('users')
-//                ->onDelete('cascade');
         });
 
     }

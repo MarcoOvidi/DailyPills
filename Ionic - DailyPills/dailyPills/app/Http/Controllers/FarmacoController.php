@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use Illuminate\Http\Request;
 use App\Farmaco;
 
@@ -36,4 +37,29 @@ class FarmacoController extends Controller
         return response()
             ->json([ "success" => true,  "message" => " Farmco successfully insert", "data" => $farmaco], 200);
     }
+
+    public function userfarmaco(Request $request) {
+
+        $user = User::where('api_token', $request->header('api_token'))->first();
+        $result = User::with('favorites')->find($user->id);
+
+        return $result->favorites->toArray();
+
+    }
+
+    public function addFavoriteMedicine($medid, Request $request) {
+
+        $user = User::where('api_token', $request->header('api_token'))->first();
+
+        $user->favorites()->attach($medid);
+    }
+
+    public function remFavoriteMedicine($medid, Request $request) {
+
+        $user = User::where('api_token', $request->header('api_token'))->first();
+
+        $user->favorites()->detach($medid);
+
+    }
+
 }

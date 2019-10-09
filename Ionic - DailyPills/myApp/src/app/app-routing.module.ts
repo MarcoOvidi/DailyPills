@@ -25,7 +25,9 @@ const routes: Routes = [
   {
     path: 'registration',
     loadChildren: './pages/registration/registration.module#RegistrationPageModule'
-  }
+  },
+  { path: 'dettaglio-farmaco', loadChildren: './pages/dettaglio-farmaco/dettaglio-farmaco.module#DettaglioFarmacoPageModule' },
+  { path: 'armadietto', loadChildren: './pages/armadietto/armadietto.module#ArmadiettoPageModule' }
 ];
 @NgModule({
   imports: [

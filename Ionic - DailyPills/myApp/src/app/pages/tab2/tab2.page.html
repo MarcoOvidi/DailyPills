@@ -1,20 +1,18 @@
 <ion-header>
   <ion-toolbar color="primary" style="padding: 20px;">
-<!--    <ion-searchbar placeholder="Cerca Medicina" animated (ionChange)="liveMedicineFilter($event)"></ion-searchbar>-->
-    <ion-label>Cerca Medicine</ion-label>
+    <ion-searchbar placeholder="Cerca Medicina" animated (ionChange)="liveMedicineFilter($event)"></ion-searchbar>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-searchbar style="margin-top: 5px;" placeholder="Cerca Medicina" animated (ionChange)="liveMedicineFilter($event)"></ion-searchbar>
-  <ion-list lines="full" *ngFor="let farmaco of farmaciList$ ">
+  <ion-list lines="none" inset="true" *ngFor="let farmaco of farmaciList$ ">
       <ion-item>
         <ion-avatar slot="start">
           <img id="icon" src="assets/icon/pill.png">
         </ion-avatar>
         <ion-label>
           <h2>{{farmaco.nome}}</h2>
-          <p>{{farmaco.quantita_autorizzate}}</p>
+          <p>Formato: {{farmaco.quantita_autorizzate}} </p>
         </ion-label>
         <ion-icon name="add-circle"></ion-icon>
       </ion-item>

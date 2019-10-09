@@ -1,10 +1,12 @@
 <ion-header>
   <ion-toolbar color="primary" style="padding: 20px;">
-    <ion-searchbar placeholder="Cerca Medicina" animated (ionChange)="liveMedicineFilter($event)"></ion-searchbar>
+<!--    <ion-searchbar placeholder="Cerca Medicina" animated (ionChange)="liveMedicineFilter($event)"></ion-searchbar>-->
+    <ion-label>Cerca Medicine</ion-label>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <ion-searchbar style="margin-top: 5px;" placeholder="Cerca Medicina" animated (ionChange)="liveMedicineFilter($event)"></ion-searchbar>
   <ion-list lines="full" *ngFor="let farmaco of farmaciList$ ">
       <ion-item>
         <ion-avatar slot="start">

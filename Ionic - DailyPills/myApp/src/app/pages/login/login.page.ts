@@ -4,8 +4,7 @@ import { Account, UtenteService } from '../../services/utente.service';
 import { User } from '../../models/user.model';
 import { AlertController, NavController } from '@ionic/angular';
 import { HttpErrorResponse } from '@angular/common/http';
-import {BehaviorSubject} from 'rxjs';
-// import { TranslateService } from '@ngx-translate/core';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-login',
@@ -15,15 +14,15 @@ import {BehaviorSubject} from 'rxjs';
 export class LoginPage implements OnInit {
 
   private loginFormModel: FormGroup;
-  // private loginSubtitle: string;
-  // private loginTitle: string;
+  private loginSubtitle: string;
+  private loginTitle: string;
 
   constructor(
       private formBuilder: FormBuilder,
       private utenteService: UtenteService,
       private navController: NavController,
       private alertController: AlertController,
-      // private translateService: TranslateService,
+      private translateService: TranslateService,
   ) {
   }
 
@@ -36,7 +35,7 @@ export class LoginPage implements OnInit {
           Validators.required
       ])]
     });
-    // this.initTranslate();
+    this.initTranslate();
   }
 
   onLogin() {
@@ -66,13 +65,13 @@ export class LoginPage implements OnInit {
     await alert.present();
   }
 
-  // private initTranslate() {
-  //   this.translateService.get('LOGIN_ERROR_SUB_TITLE').subscribe((data) => {
-  //     this.loginSubtitle = data;
-  //   });
-  //   this.translateService.get('LOGIN_ERROR_TITLE').subscribe((data) => {
-  //     this.loginTitle = data;
-  //   });
-  // }
+  private initTranslate() {
+    this.translateService.get('LOGIN_ERROR_SUB_TITLE').subscribe((data) => {
+      this.loginSubtitle = data;
+    });
+    this.translateService.get('LOGIN_ERROR_TITLE').subscribe((data) => {
+      this.loginTitle = data;
+    });
+  }
 
 }

@@ -4,8 +4,8 @@ import { NavController, Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { UtenteService } from './services/utente.service';
-import {Storage} from '@ionic/storage';
-import {AUTH_TOKEN} from '../constants';
+import { LinguaService } from './services/lingua.service';
+import {TranslateService} from '@ngx-translate/core';
 
 @Component({
     selector: 'app-root',
@@ -18,26 +18,35 @@ export class AppComponent implements OnInit {
       private splashScreen: SplashScreen,
       private utenteService: UtenteService,
       private statusBar: StatusBar,
-      private navController: NavController,
-      private storage: Storage
+      private linguaservice: LinguaService,
+      private translate: TranslateService,
     ) {
         this.initializeApp();
-        // this.utenteService.init();
     }
 
     initializeApp() {
       this.platform.ready().then(() => {
+        this.initTranslate();
         this.statusBar.styleDefault();
         this.splashScreen.hide();
       });
     }
 
     ngOnInit(): void {
-        // this.storage.get(AUTH_TOKEN).then((val) => {
-        //     if (val) {
-        //         this.navController.navigateRoot('tabs');
-        //     } else { this.navController.navigateRoot('login'); }
-        // });
+
+    }
+
+    initTranslate() {
+        const linguasave = this.linguaservice.getLinguaPreferita();
+        this.translate.setDefaultLang(linguasave);
+        this.linguaservice.getLinguaAttuale().subscribe((lingua: string) => {
+            if (lingua == null) {
+                this.translate.use(linguasave);
+                this.linguaservice.updateLingua(linguasave);
+            } else {
+                this.translate.use(lingua);
+            }
+        });
     }
 
 }

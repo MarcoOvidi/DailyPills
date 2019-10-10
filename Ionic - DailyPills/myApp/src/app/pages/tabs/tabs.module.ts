@@ -23,16 +23,25 @@ const routes: Routes = [
         ]
       },
       {
-        path: 'tab2',
+        path: 'armadietto',
         children: [
           {
             path: '',
-            loadChildren: '../tab2/tab2.module#Tab2PageModule'
+            loadChildren: '../armadietto/armadietto.module#ArmadiettoPageModule'
           }
         ]
       },
       {
         path: 'tab3',
+        children: [
+          {
+            path: '',
+            loadChildren: '../tab3/tab3.module#Tab3PageModule'
+          }
+        ]
+      },
+      {
+        path: 'impostazioni',
         children: [
           {
             path: '',
@@ -47,11 +56,11 @@ const routes: Routes = [
       }
     ]
   },
-  {
-    path: '',
-    redirectTo: '/tabs/homepage',
-    pathMatch: 'full'
-  }
+  // {
+  //   path: '',
+  //   redirectTo: '/tabs/homepage',
+  //   pathMatch: 'full'
+  // }
 ];
 
 @NgModule({

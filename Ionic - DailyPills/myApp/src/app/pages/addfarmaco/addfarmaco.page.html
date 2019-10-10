@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar color="primary" style="padding: 20px;">
+    <ion-buttons slot="start">
+      <ion-back-button color="light"></ion-back-button>
+    </ion-buttons>
+    <ion-searchbar placeholder="Cerca Medicina" animated (ionChange)="liveMedicineFilter($event)"></ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list lines="full" *ngFor="let farmaco of farmaciList$">
+    <ion-item>
+      <ion-avatar slot="start">
+        <img id="icon" src="assets/icon/pill.png">
+      </ion-avatar>
+      <ion-label>
+        <h2>{{farmaco.nome}}</h2>
+        <p>Formato: {{farmaco.quantita_autorizzate}} </p>
+      </ion-label>
+      <ion-icon name="add-circle"></ion-icon>
+    </ion-item>
+  </ion-list>
+</ion-content>

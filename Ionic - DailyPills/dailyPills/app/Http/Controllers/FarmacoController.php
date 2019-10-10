@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\MedType;
 use App\User;
 use Illuminate\Http\Request;
 use App\Farmaco;
+use Illuminate\Support\Facades\DB;
 
 class FarmacoController extends Controller
 {
@@ -43,7 +45,13 @@ class FarmacoController extends Controller
         $user = User::where('api_token', $request->header('api_token'))->first();
         $result = User::with('favorites')->find($user->id);
 
-        return $result->favorites->toArray();
+        foreach ($result->favorites as $typo) {
+           $typo->farmaco;
+           $typo->specifica;
+        }
+
+
+        return $result->favorites;
 
     }
 
@@ -51,7 +59,12 @@ class FarmacoController extends Controller
 
         $user = User::where('api_token', $request->header('api_token'))->first();
 
-        $user->favorites()->attach($medid);
+        $med = new MedType();
+        $med->idtype = $request->input('idtipo');
+        $med->idfarmaco = $medid;
+        $med->save();
+
+        $user->favorites()->attach($med->id);
     }
 
     public function remFavoriteMedicine($medid, Request $request) {
@@ -59,6 +72,8 @@ class FarmacoController extends Controller
         $user = User::where('api_token', $request->header('api_token'))->first();
 
         $user->favorites()->detach($medid);
+
+        DB::table('userfarmacis')->where('idfarmacotype', $medid);
 
     }
 

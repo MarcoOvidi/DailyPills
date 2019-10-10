@@ -9,14 +9,14 @@
 </ion-header>
 
 <ion-content>
-  <ion-list lines="full">
+  <ion-list lines="full" *ngFor="let farmaco of listfavorites$">
     <ion-item>
       <ion-avatar slot="start">
         <img id="icon" src="assets/icon/pill.png">
       </ion-avatar>
       <ion-label>
-        <h2>Tachipirina</h2>
-        <p>jdhfjhdfjhfsjdkhk</p>
+        <h2>{{farmaco.farmaco.nome}}</h2>
+        <p>Formato: {{farmaco.specifica.formato}} {{farmaco.specifica.quantita}}gr</p>
       </ion-label>
       <ion-icon name="arrow-dropright"></ion-icon>
     </ion-item>

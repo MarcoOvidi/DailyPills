@@ -32,6 +32,6 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
     ];
 
     public function favorites() {
-        return $this->belongsToMany(Farmaco::class, 'userfarmacis', 'iduser', 'idfarmaco');
+        return $this->belongsToMany(MedType::class,  'userfarmacis', 'iduser', 'idfarmacotype');
     }
 }

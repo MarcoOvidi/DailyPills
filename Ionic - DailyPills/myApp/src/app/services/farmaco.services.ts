@@ -4,6 +4,7 @@ import { Injectable } from '@angular/core';
 
 import { URL } from '../../constants';
 import { Farmaco } from '../models/farmaco.model';
+import { Preferito } from '../models/preferito.model';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -16,7 +17,11 @@ export class FarmacoServices {
     }
 
     listFarmaci(): Observable<Farmaco[]> {
-        return this.http.get<Farmaco[]>(URL.FARMACI, {})
+        return this.http.get<Farmaco[]>(URL.FARMACI, {});
+    }
+
+    favoritesFarmaci(): Observable<Preferito[]> {
+        return this.http.get<Preferito[]>(URL.ARMADIETTO, {});
     }
 
 }

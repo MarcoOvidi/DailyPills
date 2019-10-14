@@ -4,14 +4,14 @@
       <ion-back-button></ion-back-button>
     </ion-buttons>
     <!--    <ion-searchbar placeholder="Cerca Medicina" animated (ionChange)="liveMedicineFilter($event)"></ion-searchbar>-->
-    <ion-label>Seleziona Formato</ion-label>
+    <ion-label>Formati disponibili</ion-label>
     <ion-buttons slot="end">
-      <ion-icon name="close" (click)="closeModal()" large></ion-icon>
+      <ion-icon name="close" (click)="closeModal()"></ion-icon>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 <ion-content>
-  <ion-label>{{firstName.toUpperCase()}}</ion-label>
+  <ion-label position="floating">{{firstName.toUpperCase()}}</ion-label>
   <ion-input (click)="formClick()" readonly="" value=""
              placeholder="{{selectedtipologianame$ != null ? selectedtipologianame$ : 'Seleziona Formato'}}">
   </ion-input>

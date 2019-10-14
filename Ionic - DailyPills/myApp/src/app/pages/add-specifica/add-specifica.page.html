@@ -5,10 +5,15 @@
     </ion-buttons>
     <!--    <ion-searchbar placeholder="Cerca Medicina" animated (ionChange)="liveMedicineFilter($event)"></ion-searchbar>-->
     <ion-label>Seleziona Formato</ion-label>
-    <ion-icon (click)="closeModal()" name="close"></ion-icon>
+    <ion-buttons slot="end">
+      <ion-icon name="close" (click)="closeModal()" large></ion-icon>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 <ion-content>
   <ion-label>{{firstName.toUpperCase()}}</ion-label>
-  <ion-input (click)="formClick()" readonly="" value="" placeholder="Selezione tipologia">{{selectedtipologianame$}}</ion-input>
+  <ion-input (click)="formClick()" readonly="" value=""
+             placeholder="{{selectedtipologianame$ != null ? selectedtipologianame$ : 'Seleziona Formato'}}">
+  </ion-input>
+  <ion-button>SALVA</ion-button>
 </ion-content>

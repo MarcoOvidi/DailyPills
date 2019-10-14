@@ -31,7 +31,7 @@ $router->group(['prefix' => 'api'], function () use ($router) {
         $router->delete('/favorite/remove/{medid}', 'FarmacoController@remFavoriteMedicine');
         $router->post('/searchFarmaci', 'FarmacoController@search');
         $router->post('/addFarmaco', 'FarmacoController@addRecord');
-        $router->post('/addType', 'TypeController@addType');
+        $router->post('/addSpecifica', 'TypeController@addType');
 
     });
 

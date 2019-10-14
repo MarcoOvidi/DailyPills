@@ -37,7 +37,7 @@ export class AddSpecificaPage implements OnInit {
           name: 'TIPOLOGIA',
           options: this.formati.map((val) => (
               {
-                text: val.formato + ' ' + val.quantita,
+                text: val.formato + ' ' + val.quantita + 'gr',
                 value: val.id
               }
               )

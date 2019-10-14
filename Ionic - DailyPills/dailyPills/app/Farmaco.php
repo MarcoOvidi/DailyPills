@@ -24,9 +24,9 @@ class Farmaco extends Model
 
     const CLASS_C_PTN = 'C', MODALITA_PRESCRIZIONE_SOP = 'SOP', MODALITA_PRESCRIZIONE_OTC = 'OTC';
 
-    public function users()
+    public function types()
     {
-        $this->belongsToMany(User::class, 'favoritesfarmacos', 'id', 'idfarmaco');
+        return $this->belongsToMany(Type::class, 'med_types', 'idfarmaco', 'idtype');
     }
 
 }

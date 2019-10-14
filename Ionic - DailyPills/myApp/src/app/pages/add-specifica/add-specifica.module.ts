@@ -5,13 +5,12 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
 
-import { AddfarmacoPage } from './addfarmaco.page';
-import { AddSpecificaPageModule } from '../add-specifica/add-specifica.module';
+import { AddSpecificaPage } from './add-specifica.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: AddfarmacoPage
+    component: AddSpecificaPage
   }
 ];
 
@@ -20,10 +19,10 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     IonicModule,
-    RouterModule.forChild(routes),
+    RouterModule.forChild(routes)
   ],
   declarations: [
-      AddfarmacoPage
-  ]
+      AddSpecificaPage
+  ],
 })
-export class AddfarmacoPageModule {}
+export class AddSpecificaPageModule {}

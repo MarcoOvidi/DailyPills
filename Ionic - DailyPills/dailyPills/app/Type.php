@@ -16,7 +16,7 @@ class Type extends Model
     ];
 
     protected $hidden = [
-        "created_at", "updated_at"
+        "created_at", "updated_at", "pivot"
     ];
 
     const OROSOLUBILE = 'Orosolubile', COMPRESSE = 'Compresse', EFFERVESCENTE = 'Effervescente';

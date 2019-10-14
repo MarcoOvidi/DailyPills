@@ -1,3 +1,4 @@
+import { Specifica } from './specifica.model';
 
 export class Farmaco {
     id: number;
@@ -6,5 +7,6 @@ export class Farmaco {
     ptn: string;
     'modalita_prescrizione': string;
     'quantita_autorizzate': number;
+    types: Specifica[];
 }
 

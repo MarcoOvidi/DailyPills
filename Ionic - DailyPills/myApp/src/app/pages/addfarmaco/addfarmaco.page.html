@@ -6,7 +6,7 @@
 
 <ion-content>
   <ion-list lines="full" *ngFor="let farmaco of farmaciList$">
-    <ion-item>
+    <ion-item (click)="presentModal(farmaco.nome, farmaco.types)">
       <ion-avatar slot="start">
         <img id="icon" src="assets/icon/pill.png">
       </ion-avatar>

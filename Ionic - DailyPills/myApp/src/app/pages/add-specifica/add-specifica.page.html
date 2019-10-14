@@ -1,0 +1,14 @@
+<ion-header>
+  <ion-toolbar color="primary" style="padding: 10px;">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <!--    <ion-searchbar placeholder="Cerca Medicina" animated (ionChange)="liveMedicineFilter($event)"></ion-searchbar>-->
+    <ion-label>Seleziona Formato</ion-label>
+    <ion-icon (click)="closeModal()" name="close"></ion-icon>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-label>{{firstName.toUpperCase()}}</ion-label>
+  <ion-input (click)="formClick()" readonly="" value="" placeholder="Selezione tipologia">{{selectedtipologianame$}}</ion-input>
+</ion-content>

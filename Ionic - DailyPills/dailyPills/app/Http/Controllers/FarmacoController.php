@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\MedType;
+use App\Type;
 use App\User;
 use Illuminate\Http\Request;
 use App\Farmaco;
@@ -13,10 +14,16 @@ class FarmacoController extends Controller
 
     public function list()
     {
-        $results = Farmaco::all();
+        $results = Farmaco::with('types')->get();
 //        return response()
 //            ->json(["success" => true, "data" => $results], 200);
         return $results;
+    }
+
+    public function specifichelist() {
+        $specifiche = Type::all();
+
+        return $specifiche;
     }
 
     public function addRecord(Request $request) {

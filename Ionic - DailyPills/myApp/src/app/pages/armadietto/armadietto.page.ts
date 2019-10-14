@@ -24,7 +24,6 @@ export class ArmadiettoPage implements OnInit {
   }
 
   addFarmaco() {
-    console.log('clciked');
     this.navController.navigateForward('addfarmaco');
   }
 

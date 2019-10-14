@@ -25,6 +25,7 @@ $router->group(['prefix' => 'api'], function () use ($router) {
 
         //Farmaci route
         $router->get('/farmaci', 'FarmacoController@list');
+        $router->get('/specifiche', 'FarmacoController@specifichelist');
         $router->get('/favorite/list', 'FarmacoController@userfarmaco');
         $router->post('/favorite/add/{medid}', 'FarmacoController@addFavoriteMedicine');
         $router->delete('/favorite/remove/{medid}', 'FarmacoController@remFavoriteMedicine');

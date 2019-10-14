@@ -9,10 +9,11 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import {HttpClient, HttpClientModule} from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { httpInterceptorProviders } from './interceptors';
-import {TranslateHttpLoader} from '@ngx-translate/http-loader';
-import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { AddSpecificaPageModule } from './pages/add-specifica/add-specifica.module';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -28,6 +29,7 @@ export function createTranslateLoader(http: HttpClient) {
     AppRoutingModule,
     HttpClientModule,
     IonicModule.forRoot(),
+    AddSpecificaPageModule,
     IonicStorageModule.forRoot({
       name: 'dailyPills__db',
       driverOrder: ['indexeddb', 'sqlite', 'websql']

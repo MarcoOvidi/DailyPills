@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Specifica } from '../models/specifica.model';
 
 
 import { URL } from '../../constants';
@@ -18,6 +19,10 @@ export class FarmacoServices {
 
     listFarmaci(): Observable<Farmaco[]> {
         return this.http.get<Farmaco[]>(URL.FARMACI, {});
+    }
+
+    listaFormati(): Observable<Specifica[]> {
+        return this.http.get<Specifica[]>(URL.SPECIFICHE, {});
     }
 
     favoritesFarmaci(): Observable<Preferito[]> {

@@ -62,16 +62,22 @@ class FarmacoController extends Controller
 
     }
 
-    public function addFavoriteMedicine($medid, Request $request) {
+    public function addFavoriteMedicine(Request $request) {
 
         $user = User::where('api_token', $request->header('api_token'))->first();
+        $medtype = MedType::where('idfarmaco', $request->input('idfarmaco'))
+            ->where('idtype', $request->input('idtipo'))->first();
 
-        $med = new MedType();
-        $med->idtype = $request->input('idtipo');
-        $med->idfarmaco = $medid;
-        $med->save();
+        $present = DB::table('userfarmacis')->where('iduser', $user->id)
+            ->where('idfarmacotype', $medtype->id )->first();
 
-        $user->favorites()->attach($med->id);
+        if($present) {
+            return response()->json(["success" => false, "data" => ["message" => "Formato già presente nel proprio armadietto"]], 200);
+        }
+
+        $user->favorites()->attach($medtype->id);
+
+        return response()->json(["success" => true, "data" => ["message" => "row add"]], 200);
     }
 
     public function remFavoriteMedicine($medid, Request $request) {
@@ -79,8 +85,6 @@ class FarmacoController extends Controller
         $user = User::where('api_token', $request->header('api_token'))->first();
 
         $user->favorites()->detach($medid);
-
-        DB::table('userfarmacis')->where('idfarmacotype', $medid);
 
     }
 

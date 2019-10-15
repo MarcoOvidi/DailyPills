@@ -8,6 +8,11 @@ import { Farmaco } from '../models/farmaco.model';
 import { Preferito } from '../models/preferito.model';
 import { Observable } from 'rxjs';
 
+export interface AggiungiFarmaco {
+    idfarmaco: number;
+    idtipo: number;
+}
+
 @Injectable({
     providedIn: 'root'
 })
@@ -27,6 +32,17 @@ export class FarmacoServices {
 
     favoritesFarmaci(): Observable<Preferito[]> {
         return this.http.get<Preferito[]>(URL.ARMADIETTO, {});
+    }
+
+    addArmadietto(idFarmaco, idType): Observable<any> {
+        const farmacotipo: AggiungiFarmaco = { idfarmaco: idFarmaco, idtipo: idType};
+        return this.http.post(URL.ADD_FARMACO, farmacotipo, {});
+    }
+
+    deleteFarmaco(idPreferito: number): void {
+        this.http.delete(`${URL.REMOVE_FARMACO}/${idPreferito}`).subscribe((val) => {
+            console.log('removed', val);
+        });
     }
 
 }

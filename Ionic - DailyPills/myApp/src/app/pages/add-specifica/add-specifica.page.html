@@ -3,17 +3,27 @@
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
+<<<<<<< HEAD
     <!--    <ion-searchbar placeholder="Cerca Medicina" animated (ionChange)="liveMedicineFilter($event)"></ion-searchbar>-->
     <ion-label>Formati disponibili</ion-label>
+=======
+    <ion-label>Seleziona Formato</ion-label>
+>>>>>>> 587b9f59b955b988644fc98178779853c828b258
     <ion-buttons slot="end">
       <ion-icon name="close" (click)="closeModal()"></ion-icon>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 <ion-content>
+<<<<<<< HEAD
   <ion-label position="floating">{{firstName.toUpperCase()}}</ion-label>
+=======
+  <ion-label>{{farmacoName.toUpperCase()}}</ion-label>
+  <ion-label>Formato: </ion-label>
+  <ion-input clearOnEdit="true" (click)="formClick()" readonly value="{{selectedtipologianame$}}" placeholder="Selezione tipologia"></ion-input>
+>>>>>>> 587b9f59b955b988644fc98178779853c828b258
   <ion-input (click)="formClick()" readonly="" value=""
              placeholder="{{selectedtipologianame$ != null ? selectedtipologianame$ : 'Seleziona Formato'}}">
   </ion-input>
-  <ion-button>SALVA</ion-button>
+  <ion-button (click)="addArmadietto(selectedtipologiaid$)">SALVA</ion-button>
 </ion-content>

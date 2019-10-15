@@ -9,7 +9,7 @@ export const URL = {
     FARMACI: URL_BASE + '/farmaci',
     ARMADIETTO: URL_BASE + '/favorite/list',
     SPECIFICHE: URL_BASE + '/specifiche',
-    ADD_FARMACO: URL_BASE + '/addFarmaco',
+    ADD_FARMACO: URL_BASE + '/favorite/add',
     LOGIN: URL_BASE + '/login',
     REGISTER: URL_BASE + '/register'
 };

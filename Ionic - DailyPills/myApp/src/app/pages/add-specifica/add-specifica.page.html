@@ -10,14 +10,11 @@
   </ion-toolbar>
 </ion-header>
 <ion-content>
-  <ion-label>{{firstName.toUpperCase()}}</ion-label>
-<<<<<<< HEAD
+  <ion-label>{{farmacoName.toUpperCase()}}</ion-label>
   <ion-label>Formato: </ion-label>
   <ion-input clearOnEdit="true" (click)="formClick()" readonly value="{{selectedtipologianame$}}" placeholder="Selezione tipologia"></ion-input>
-=======
   <ion-input (click)="formClick()" readonly="" value=""
              placeholder="{{selectedtipologianame$ != null ? selectedtipologianame$ : 'Seleziona Formato'}}">
   </ion-input>
-  <ion-button>SALVA</ion-button>
->>>>>>> c1a482b9255d5d5ba7a2a303b96f67ee4e33c0d5
+  <ion-button (click)="addArmadietto(selectedtipologiaid$)">SALVA</ion-button>
 </ion-content>

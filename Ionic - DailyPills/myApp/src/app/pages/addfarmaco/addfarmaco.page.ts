@@ -27,13 +27,14 @@ export class AddfarmacoPage implements OnInit {
     });
   }
 
-  async presentModal(farmacoName: string, formati: Specifica[]) {
+  async presentModal(farmacoName: string, formati: Specifica[], farmacoID: number) {
     const modal = await this.modalController.create({
       component: AddSpecificaPage,
       cssClass: 'dialog-modal',
       animated: true,
       componentProps: {
-        firstName: farmacoName,
+        farmacoID,
+        farmacoName,
         formati
       }
     });

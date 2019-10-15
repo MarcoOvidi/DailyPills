@@ -1,7 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ModalController, NavController } from '@ionic/angular';
+import {AlertController, ModalController} from '@ionic/angular';
 import { Specifica } from '../../models/specifica.model';
 import { PickerController } from '@ionic/angular';
+import { FarmacoServices } from '../../services/farmaco.services';
+import {HttpErrorResponse} from '@angular/common/http';
 
 @Component({
   selector: 'app-add-specifica',
@@ -10,7 +12,8 @@ import { PickerController } from '@ionic/angular';
 })
 export class AddSpecificaPage implements OnInit {
 
-  @Input() firstName: string;
+  @Input() farmacoID: number;
+  @Input() farmacoName: string;
   @Input() formati: Specifica[];
 
   private selectedtipologiaid$: number;
@@ -18,7 +21,9 @@ export class AddSpecificaPage implements OnInit {
 
   constructor(
     private modalCtrl: ModalController,
-    private pickCtrl: PickerController
+    private pickCtrl: PickerController,
+    private farmacoService: FarmacoServices,
+    private alertController: AlertController,
   ) {}
 
   ngOnInit(): void {
@@ -59,6 +64,34 @@ export class AddSpecificaPage implements OnInit {
     });
 
     await picker.present();
+  }
+
+  addArmadietto(idType) {
+    this.farmacoService.addArmadietto(this.farmacoID, idType).subscribe((val) => {
+      if (val.success) {
+        this.showAddSuccess();
+      } else { this.showAddError(); }
+    });
+  }
+
+  async showAddError() {
+    const alert = await this.alertController.create({
+      header: 'Errore inserimento',
+      message: 'Formato già presente nel proprio armadietto',
+      buttons: ['OK']
+    });
+
+    await alert.present();
+  }
+
+  async showAddSuccess() {
+    const alert = await this.alertController.create({
+      header: 'Farmaco Inserito',
+      message: 'Il formato scelto è stato inserito nel tuo armadietto',
+      buttons: ['OK']
+    });
+
+    await alert.present();
   }
 
 

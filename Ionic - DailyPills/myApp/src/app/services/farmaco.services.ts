@@ -39,4 +39,10 @@ export class FarmacoServices {
         return this.http.post(URL.ADD_FARMACO, farmacotipo, {});
     }
 
+    deleteFarmaco(idPreferito: number): void {
+        this.http.delete(`${URL.REMOVE_FARMACO}/${idPreferito}`).subscribe((val) => {
+            console.log('removed', val);
+        });
+    }
+
 }

@@ -10,6 +10,7 @@ export const URL = {
     ARMADIETTO: URL_BASE + '/favorite/list',
     SPECIFICHE: URL_BASE + '/specifiche',
     ADD_FARMACO: URL_BASE + '/favorite/add',
+    REMOVE_FARMACO: URL_BASE + '/favorite/remove',
     LOGIN: URL_BASE + '/login',
     REGISTER: URL_BASE + '/register'
 };

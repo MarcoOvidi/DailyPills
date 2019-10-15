@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { NavController } from '@ionic/angular';
-import {FarmacoServices} from '../../services/farmaco.services';
-import {Preferito} from '../../models/preferito.model';
+import { AlertController, NavController } from '@ionic/angular';
+import { FarmacoServices } from '../../services/farmaco.services';
+import { Preferito } from '../../models/preferito.model';
+import { Farmaco } from '../../models/farmaco.model';
+import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-armadietto',
@@ -10,21 +12,45 @@ import {Preferito} from '../../models/preferito.model';
 })
 export class ArmadiettoPage implements OnInit {
 
-  private listfavorites$: Preferito[];
+  private listfavorites$: Observable<Preferito[]>;
 
   constructor(
       private navController: NavController,
-      private farmacoServices: FarmacoServices
+      private farmacoServices: FarmacoServices,
+      private alertController: AlertController
   ) { }
 
   ngOnInit() {
-    this.farmacoServices.favoritesFarmaci().subscribe((res) => {
-      this.listfavorites$ = res;
-    });
+    this.listfavorites$ = this.farmacoServices.favoritesFarmaci();
   }
 
   addFarmaco() {
     this.navController.navigateForward('addfarmaco');
+  }
+
+  async delete(farmaco: Preferito) {
+    const alert = await this.alertController.create({
+      header: 'Elimina farmaco',
+      message: `Sei sicuro di voler eliminare ${farmaco.farmaco.nome} ${farmaco.specifica.formato} ${farmaco.specifica.quantita}gr?`,
+      buttons: [
+        {
+          text: 'Annulla',
+          role: 'cancel',
+          cssClass: 'secondary',
+          handler: (blah) => {
+            console.log('Confirm Cancel: blah');
+          }
+        }, {
+          text: 'Conferma',
+          handler: () => {
+            this.farmacoServices.deleteFarmaco(farmaco.id);
+            this.listfavorites$ = this.farmacoServices.favoritesFarmaci();
+          }
+        }
+      ]
+    });
+
+    await alert.present();
   }
 
 }

@@ -85,9 +85,7 @@ class FarmacoController extends Controller
         $user = User::where('api_token', $request->header('api_token'))->first();
 
         $user->favorites()->detach($medid);
-
-        DB::table('userfarmacis')->where('idfarmacotype', $medid);
-
+        
     }
 
 }

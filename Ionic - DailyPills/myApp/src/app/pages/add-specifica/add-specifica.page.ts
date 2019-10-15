@@ -82,6 +82,8 @@ export class AddSpecificaPage implements OnInit {
     });
 
     await alert.present();
+
+    alert.onDidDismiss().then(() => this.closeModal());
   }
 
   async showAddSuccess() {
@@ -92,6 +94,7 @@ export class AddSpecificaPage implements OnInit {
     });
 
     await alert.present();
+    alert.onDidDismiss().then(() => this.closeModal());
   }
 
 

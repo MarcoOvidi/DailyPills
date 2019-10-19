@@ -5,6 +5,7 @@ import { Preferito } from '../../models/preferito.model';
 import { Observable } from 'rxjs';
 import { Specifica } from '../../models/specifica.model';
 import { NavigationExtras } from '@angular/router';
+import {$EOF} from 'codelyzer/angular/styles/chars';
 
 @Component({
   selector: 'app-armadietto',
@@ -37,6 +38,13 @@ export class ArmadiettoPage implements OnInit {
     };
 
     this.navController.navigateForward(['dettaglio-farmaco'], navigationExtras);
+  }
+
+  refreshArmadietto(event) {
+    setTimeout(() => {
+      this.listfavorites$ = this.farmacoServices.favoritesFarmaci();
+      event.target.complete();
+    }, 1500);
   }
 
   async delete(farmaco: Preferito) {

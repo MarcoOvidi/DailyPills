@@ -9,6 +9,9 @@
 </ion-header>
 
 <ion-content>
+    <ion-refresher slot="fixed" (ionRefresh)="refreshArmadietto($event)">
+        <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
     <div *ngIf="listfavorites$">
       <ion-list no-padding lines="full" *ngFor="let farmaco of listfavorites$ | async" >
           <ion-item-sliding>

@@ -69,5 +69,13 @@
   "APPELLO_TIPOLOGIA_ESAME": "Tipologia",
   "APPELLO_TIPOLOGIA_ESAME_REQUIRED": "Tipologia Esame obbligatorio",
   "APPELLO_DELETE_TITLE": "Appello",
-  "APPELLO_DELETE_MESSAGE": "Vuoi cancellare l'appello?"
+  "APPELLO_DELETE_MESSAGE": "Vuoi cancellare l'appello?",
+
+  "PRINCIPIO_ATTIVO" : "Principio Attivo",
+  "DETTAGLI_DI_VENDITA" : "Dettagli di Vendita",
+  "DISPENSATO_DA" : "Dispensato da :",
+  "PREZZO": "Prezzo",
+  "PRODUTTORE": "Produttore",
+  "FORMATO": "Formato",
+  "MODALITA_PRESCRIZIONE" : "Modalità di prescrizione"
 }

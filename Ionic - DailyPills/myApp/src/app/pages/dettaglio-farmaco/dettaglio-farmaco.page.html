@@ -10,8 +10,8 @@
 
     <ion-card>
       <ion-item>
-        <ion-icon name="color-fill" slot="end"></ion-icon>
-        <ion-label>Principio Attivo</ion-label>
+        <ion-icon name="color-fill" slot="start"></ion-icon>
+        <ion-label>{{ 'PRINCIPIO_ATTIVO' | translate }}</ion-label>
       </ion-item>
 
       <ion-card-content>
@@ -22,19 +22,19 @@
     <ion-card>
       <ion-item>
         <ion-icon name="logo-euro" slot="end"></ion-icon>
-        <ion-label>Dettagli di Vendita</ion-label>
+        <ion-label>{{ 'DETTAGLI_DI_VENDITA' | translate }}</ion-label>
       </ion-item>
 
       <ion-card-content>
-        Dispensato da: SSN
-        Prezzo: {{farmacodetail$.farmaco.prezzo}}
+        <ion-text>{{ 'DISPENSATO_DA' | translate }}  SSN</ion-text><br>
+        <ion-text>{{ 'PREZZO' | translate }}: {{farmacodetail$.farmaco.prezzo}}</ion-text>
       </ion-card-content>
     </ion-card>
 
     <ion-card>
       <ion-item>
-        <ion-icon name="contact" slot="end"></ion-icon>
-        <ion-label>Produttore</ion-label>
+        <ion-icon name="contact" slot="start"></ion-icon>
+        <ion-label>{{ 'PRODUTTORE' | translate }}</ion-label>
       </ion-item>
 
       <ion-card-content>
@@ -44,20 +44,8 @@
 
     <ion-card>
       <ion-item>
-        <ion-icon name="cube" slot="end"></ion-icon>
-        <ion-label>Formato</ion-label>
-      </ion-item>
-
-      <ion-card-content>
-        Dispensato da: SSN
-        Prezzo:
-      </ion-card-content>
-    </ion-card>
-
-    <ion-card>
-      <ion-item>
         <ion-icon name="clipboard" slot="end"></ion-icon>
-        <ion-label>Modalità prescrizione</ion-label>
+        <ion-label>{{ 'MODALITA_PRESCRIZIONE' | translate }}</ion-label>
       </ion-item>
 
       <ion-card-content>

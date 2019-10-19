@@ -67,5 +67,13 @@
   "APPELLO_TIPOLOGIA_ESAME": "Type",
   "APPELLO_TIPOLOGIA_ESAME_REQUIRED": "Exam Type mandatory",
   "APPELLO_DELETE_TITLE": "Exam session",
-  "APPELLO_DELETE_MESSAGE": "Do you want to delete the exam session?"
+  "APPELLO_DELETE_MESSAGE": "Do you want to delete the exam session?",
+
+  "PRINCIPIO_ATTIVO" : "Active Principle",
+  "DETTAGLI_DI_VENDITA" : "Sale Details",
+  "DISPENSATO_DA" : "Dispensed From: ",
+  "PREZZO": "Price",
+  "PRODUTTORE": "Producer",
+  "FORMATO": "Size",
+  "MODALITA_PRESCRIZIONE" : "Prescription Mode"
 }

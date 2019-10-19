@@ -10,3 +10,18 @@ ion-item{
   --border-style: solid;
   --border-radius: 10px;
 }
+
+div {
+  width: 88%;
+  height: 88%;
+  position: absolute;
+  margin-top: -40px;
+  padding-left: 70%;
+  z-index: 1000;
+}
+
+ion-avatar {
+  width: 80px;
+  height: 80px;
+}
+

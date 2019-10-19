@@ -1,43 +1,32 @@
 <ion-header>
-  <ion-toolbar color="primary" style="padding: 10px;">
-    <ion-buttons slot="start">
-      <ion-back-button></ion-back-button>
-    </ion-buttons>
-<<<<<<< HEAD
-    <ion-label>Formati disponibili</ion-label>
-    <ion-label>Seleziona Formato</ion-label>
-=======
-    <!--    <ion-searchbar placeholder="Cerca Medicina" animated (ionChange)="liveMedicineFilter($event)"></ion-searchbar>-->
-      <ion-label class="nomeFarmaco" position="stacked">{{farmacoName.toUpperCase()}}</ion-label>
-      <br>
-      <ion-label class="descrizione">Formati Disponibili</ion-label>
+    <ion-toolbar color="primary" style="padding: 10px;">
+        <ion-buttons slot="start">
+            <ion-back-button></ion-back-button>
+        </ion-buttons>
+        <!--    <ion-searchbar placeholder="Cerca Medicina" animated (ionChange)="liveMedicineFilter($event)"></ion-searchbar>-->
+        <ion-label class="nomeFarmaco" position="stacked">{{farmacoName.toUpperCase()}}</ion-label>
+        <br>
+        <ion-label class="descrizione">Formati Disponibili</ion-label>
 
->>>>>>> e27a9e9fd952c60aa61daaec035a95fedd020d9e
-    <ion-buttons slot="end">
-      <ion-icon name="close" (click)="closeModal()"></ion-icon>
-    </ion-buttons>
-  </ion-toolbar>
+        <ion-buttons slot="end">
+            <ion-icon name="close" (click)="closeModal()"></ion-icon>
+        </ion-buttons>
+    </ion-toolbar>
 </ion-header>
-
 <ion-content>
-<<<<<<< HEAD
-  <ion-label position="floating">{{farmacoName.toUpperCase()}}</ion-label>
-  <ion-label>{{farmacoName.toUpperCase()}}</ion-label>
-  <ion-label>Formato: </ion-label>
-  <ion-input clearOnEdit="true" (click)="formClick()" readonly value="{{selectedtipologianame$}}" placeholder="Selezione tipologia"></ion-input>
-  <ion-input (click)="formClick()" readonly="" value="" placeholder="{{selectedtipologianame$ != null ? selectedtipologianame$ : 'Seleziona Formato'}}">
-  </ion-input>
-  <ion-button (click)="addArmadietto(selectedtipologiaid$)">SALVA</ion-button>
-=======
     <ion-row>
         <ion-col size="12">
             <ion-card>
                 <ion-item class="ion-item-border">
-                    <ion-input clearOnEdit="true" (click)="formClick()" readonly value="{{selectedtipologianame$}}" placeholder="Scegli Formato"></ion-input>
+                    <ion-input clearOnEdit="true" (click)="selectFormato()" readonly value="{{selectedtipologianame$}}" placeholder="Scegli Formato"></ion-input>
+                </ion-item>
+            </ion-card>
+            <ion-card>
+                <ion-item class="ion-item-border" style="margin-top: 10px">
+                    <ion-input clearOnEdit="true" (click)="selectQuantity()" readonly value="{{selectedtipologiaquantita}}" placeholder="Seleziona Quantità"></ion-input>
                 </ion-item>
             </ion-card>
         </ion-col>
     </ion-row>
-    <ion-button (click)="addArmadietto(selectedtipologiaid$)" float-right>SALVA</ion-button>
->>>>>>> e27a9e9fd952c60aa61daaec035a95fedd020d9e
+    <ion-button (click)="addArmadietto()" float-right>AGGIUNGI</ion-button>
 </ion-content>

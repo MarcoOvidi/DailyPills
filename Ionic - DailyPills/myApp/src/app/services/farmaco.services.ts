@@ -11,6 +11,7 @@ import { Observable } from 'rxjs';
 export interface AggiungiFarmaco {
     idfarmaco: number;
     idtipo: number;
+    quantita: number;
 }
 
 @Injectable({
@@ -34,8 +35,8 @@ export class FarmacoServices {
         return this.http.get<Preferito[]>(URL.ARMADIETTO, {});
     }
 
-    addArmadietto(idFarmaco, idType): Observable<any> {
-        const farmacotipo: AggiungiFarmaco = { idfarmaco: idFarmaco, idtipo: idType};
+    addArmadietto(idFarmaco, idType, quantity): Observable<any> {
+        const farmacotipo: AggiungiFarmaco = { idfarmaco: idFarmaco, idtipo: idType, quantita: quantity};
         return this.http.post(URL.ADD_FARMACO, farmacotipo, {});
     }
 

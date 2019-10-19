@@ -30,17 +30,23 @@ class FarmacoController extends Controller
 
         $this->validate($request, [
             'name' => 'required',
-            'aic' => 'required',
+            'codice' => 'required',
             'ptn' => 'required',
             'modality' => 'required',
+            'produttore' => 'required',
+            'principio' => 'required',
+            "prezzo" => 'required'
         ]);
 
         $farmaco = new Farmaco();
         $farmaco->nome = $request->input('name');
-        $farmaco->aic = $request->input('aic');
+        $farmaco->codice = $request->input('codice');
         $farmaco->ptn = $request->input('ptn');
         $farmaco->modalita_prescrizione = $request->input('modality');
         $farmaco->quantita_autorizzate = $request->input('quantity');
+        $farmaco->produttore = $request->input('produttore');
+        $farmaco->principio = $request->input('principio');
+        $farmaco->prezzo = $request->input('prezzo');
 
         $farmaco->save();
         return response()
@@ -55,6 +61,7 @@ class FarmacoController extends Controller
         foreach ($result->favorites as $typo) {
            $typo->farmaco;
            $typo->specifica;
+           $typo->numero = $typo->pivot->quantity;
         }
 
 
@@ -75,7 +82,7 @@ class FarmacoController extends Controller
             return response()->json(["success" => false, "data" => ["message" => "Formato già presente nel proprio armadietto"]], 200);
         }
 
-        $user->favorites()->attach($medtype->id);
+        $user->favorites()->attach($medtype->id, ["quantity" => $request->input('quantita')]);
 
         return response()->json(["success" => true, "data" => ["message" => "row add"]], 200);
     }

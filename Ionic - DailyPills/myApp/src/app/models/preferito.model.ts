@@ -5,4 +5,5 @@ export class Preferito {
     id: number;
     farmaco: Farmaco;
     specifica: Specifica;
+    numero: number;
 }

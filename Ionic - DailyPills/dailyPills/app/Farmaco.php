@@ -10,12 +10,15 @@ class Farmaco extends Model
     protected $table = "farmacos";
 
     protected $fillable = [
-        "aic",
+        "codice",
         "nome",
         "ptn",
         "modalita_prescrizione",
         "quantita_autorizzate",
-        "id"
+        "id",
+        "produttore",
+        "principio",
+        "prezzo"
     ];
 
     protected $hidden = [

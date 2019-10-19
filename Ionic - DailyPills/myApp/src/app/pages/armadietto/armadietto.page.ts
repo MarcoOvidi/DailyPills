@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { AlertController, NavController } from '@ionic/angular';
 import { FarmacoServices } from '../../services/farmaco.services';
 import { Preferito } from '../../models/preferito.model';
-import { Farmaco } from '../../models/farmaco.model';
-import {Observable} from 'rxjs';
+import { Observable } from 'rxjs';
+import { Specifica } from '../../models/specifica.model';
+import { NavigationExtras } from '@angular/router';
 
 @Component({
   selector: 'app-armadietto',
@@ -26,6 +27,16 @@ export class ArmadiettoPage implements OnInit {
 
   addFarmaco() {
     this.navController.navigateForward('addfarmaco');
+  }
+
+  farmacoDetailNav(farmaco: Specifica) {
+    const navigationExtras: NavigationExtras = {
+      queryParams: {
+        preferito: JSON.stringify(farmaco)
+      }
+    };
+
+    this.navController.navigateForward(['dettaglio-farmaco'], navigationExtras);
   }
 
   async delete(farmaco: Preferito) {

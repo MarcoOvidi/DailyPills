@@ -9,12 +9,15 @@ class Farmaco extends Migration
     public function up()
     {
         Schema::create('farmacos', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('aic');
-            $table->string('nome');
-            $table->string('ptn');
-            $table->string('modalita_prescrizione');
-            $table->string('quantita_autorizzate');
+            $table->increments('id')->nullable(false);;
+            $table->string('codice')->nullable(false);;
+            $table->string('nome')->nullable(false);;
+            $table->string('ptn')->nullable(false);;
+            $table->string('modalita_prescrizione')->nullable(false);;
+            $table->string('quantita_autorizzate')->nullable(false);;
+            $table->string('produttore')->nullable(false);;
+            $table->string('principio')->nullable(false);
+            $table->integer('prezzo')->nullable(false);
             $table->timestamps();
         });
     }

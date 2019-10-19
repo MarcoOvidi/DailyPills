@@ -8,7 +8,7 @@
       <img src="assets/icon/pill.png">
     </ion-thumbnail>
     -->
-    <ion-text><h2>Tachipirina</h2></ion-text>
+    <ion-text><h2>{{farmacodetail$.farmaco.nome}}</h2></ion-text>
   </ion-item>
 </ion-header>
 
@@ -21,7 +21,7 @@
       </ion-avatar>
       <ion-label>
         <h3>Principio Attivo</h3>
-        <p>Anfetamina</p>
+        <p>{{farmacodetail$.farmaco.principio}}</p>
       </ion-label>
     </ion-item>
     <ion-item color="light">
@@ -31,6 +31,7 @@
       <ion-label>
         <h3>Spesa</h3>
         <p>Dispensato da  SSN</p>
+        <p>Prezzo: {{farmacodetail$.farmaco.prezzo}} €</p>
       </ion-label>
     </ion-item>
     <ion-item>
@@ -38,8 +39,8 @@
         <ion-icon name="person"></ion-icon>
       </ion-avatar>
       <ion-label>
-        <h3>Principio Attivo</h3>
-        <p>Anfetamina</p>
+        <h3>Produttore (titolare AIC)</h3>
+        <p>{{farmacodetail$.farmaco.produttore}}</p>
       </ion-label>
     </ion-item>
     <ion-item color="light">
@@ -47,8 +48,17 @@
         <ion-icon name="airplane"></ion-icon>
       </ion-avatar>
       <ion-label>
-        <h3>Che ne so</h3>
-        <p>Bla bla bla car </p>
+        <h3>Formato</h3>
+        <p>{{farmacodetail$.specifica.formato}}</p>
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-avatar slot="start">
+        <ion-icon name="person"></ion-icon>
+      </ion-avatar>
+      <ion-label>
+        <h3>Modalità Prescrizione</h3>
+        <p>{{farmacodetail$.farmaco.modalita_prescrizione}}</p>
       </ion-label>
     </ion-item>
   </ion-list>

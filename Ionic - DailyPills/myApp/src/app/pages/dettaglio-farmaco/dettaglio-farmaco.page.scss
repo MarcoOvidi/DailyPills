@@ -11,7 +11,12 @@ ion-item{
   --border-radius: 10px;
 }
 
-ion-img {
+div {
   width: 88%;
   height: 88%;
+  position: absolute;
+  margin-top: -35px;
+  padding-left: 75%;
+  z-index: 1000;
 }
+

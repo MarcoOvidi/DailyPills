@@ -16,16 +16,19 @@ class UserPianis extends Migration
         Schema::create('userpianis', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('idpiano')->unsigned()->nullable(false)->change();
-            $table->integer('idfarmaco')->unsigned()->nullable(false)->change();
+            $table->integer('idmedtype')->unsigned()->nullable(false)->change();
+            $table->integer('quantitagg')->unsigned()->nullable(false)->change();
+            $table->dateTime('orarioassunzione')->nullable(false)->change();
+            $table->enum('giornosettimana', ['Lunedi', 'Martedi', 'Mercoledi', 'Giovedi', 'Venerdi', 'Sabato'])->nullable(false)->change();
             $table->timestamps();
 
             $table->foreign('idpiano')
                 ->references('id')
                 ->on('pianis')
                 ->onDelete('cascade');
-            $table->foreign('idfarmaco')
+            $table->foreign('idmedtype')
                 ->references('id')
-                ->on('farmacos')
+                ->on('med_types')
                 ->onDelete('cascade');
         });
     }

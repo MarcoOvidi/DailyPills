@@ -34,7 +34,8 @@ const routes: Routes = [
   },
   {
     path: 'addfarmaco', loadChildren: './pages/addfarmaco/addfarmaco.module#AddfarmacoPageModule'
-  }
+  },
+  { path: 'lista-piani', loadChildren: './pages/lista-piani/lista-piani.module#ListaPianiPageModule' }
 ];
 @NgModule({
   imports: [

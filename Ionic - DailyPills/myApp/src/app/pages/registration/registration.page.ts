@@ -56,8 +56,6 @@ export class RegistrationPage implements OnInit {
         this.navController.navigateRoot('login');
     },
         ((error: HttpErrorResponse) => {
-          console.log('Errore registrazione');
-          console.log(error);
           this.showRegistrationError(error.error.errors);
         })
     );

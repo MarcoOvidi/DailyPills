@@ -63,7 +63,8 @@ export class ArmadiettoPage implements OnInit {
           handler: (blah) => {
             console.log('Confirm Cancel: blah');
           }
-        }, {
+        },
+        {
           text: 'Conferma',
           handler: () => {
             this.farmacoServices.deleteFarmaco(farmaco.id);

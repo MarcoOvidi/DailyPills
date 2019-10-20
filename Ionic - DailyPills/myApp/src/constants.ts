@@ -12,6 +12,7 @@ export const URL = {
     ADD_FARMACO: URL_BASE + '/favorite/add',
     REMOVE_FARMACO: URL_BASE + '/favorite/remove',
     PIANI: URL_BASE + '/piani',
+    ADD_PIANO: URL_BASE + '/createpiano',
     LOGIN: URL_BASE + '/login',
     REGISTER: URL_BASE + '/register'
 };

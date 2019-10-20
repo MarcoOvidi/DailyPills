@@ -1,17 +1,17 @@
-import { HttpClient } from '@angular/common/http';
+import {HttpClient, HttpResponse} from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 
 import { URL } from '../../constants';
-import { Farmaco } from '../models/farmaco.model';
-import { Preferito } from '../models/preferito.model';
 import { Observable } from 'rxjs';
 import { Piano } from '../models/piano.model';
+import { map } from 'rxjs/operators';
 
 export interface AggiungiPiano {
-    idfarmaco: number;
-    idtipo: number;
-    quantita: number;
+    inizio: string;
+    fine: string;
+    nome: string;
+    descrizione: string;
 }
 
 @Injectable({
@@ -25,6 +25,10 @@ export class PianoServices {
 
     listPiani(): Observable<Piano[]> {
         return this.http.get<Piano[]>(URL.PIANI, {});
+    }
+
+    createPiano(piano: AggiungiPiano): Observable<any> {
+        return this.http.post<any>(URL.ADD_PIANO, piano);
     }
 
 }

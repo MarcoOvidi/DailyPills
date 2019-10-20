@@ -3,6 +3,7 @@ import { Piano } from '../../models/piano.model';
 import { PianoServices } from '../../services/piano.service';
 import { Observable } from 'rxjs';
 import { NavController } from '@ionic/angular';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-lista-piani',

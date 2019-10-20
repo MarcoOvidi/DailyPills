@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Lingua, LinguaService } from '../../services/lingua.service';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-impostazioni',
@@ -7,9 +9,30 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ImpostazioniPage implements OnInit {
 
-  constructor() { }
+  private lingue: Lingua[];
+  private profiloFormModel: FormGroup;
+
+  constructor(
+      private lingService: LinguaService,
+      private formBuilder: FormBuilder
+  ) { }
 
   ngOnInit() {
+    this.lingue = this.lingService.getLingue();
+
+    this.profiloFormModel = this.formBuilder.group({
+      linguaPreferita: ['', Validators.compose([
+        Validators.required
+      ])]
+    });
+
+    this.lingService.getLinguaAttuale().subscribe((lingua) => {
+      this.profiloFormModel.patchValue({linguaPreferita: lingua});
+    });
+  }
+
+  onSubmit(): void {
+    this.lingService.updateLingua(this.profiloFormModel.value.linguaPreferita);
   }
 
 }

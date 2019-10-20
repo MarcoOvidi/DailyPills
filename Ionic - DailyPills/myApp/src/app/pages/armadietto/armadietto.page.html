@@ -16,9 +16,9 @@
                   <ion-item-option color="danger" (click)="delete(farmaco)">{{ 'DELETE_BUTTON' | translate}}</ion-item-option>
               </ion-item-options>
               <ion-item (click)="farmacoDetailNav(farmaco)">
-                  <ion-avatar slot="start">
+                  <ion-thumbnail slot="start" style="height: 36px; !important; width: 36px; !important;">
                       <img id="icon" src="assets/icon/pill.png">
-                  </ion-avatar>
+                  </ion-thumbnail>
                   <ion-label>
                       <h2>{{farmaco.farmaco.nome}}</h2>
                       <p>{{ 'FORMATO' | translate}}: {{farmaco.specifica.formato}} {{farmaco.specifica.quantita}}gr</p>

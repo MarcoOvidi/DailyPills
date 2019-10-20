@@ -78,8 +78,8 @@
   "MODALITA_PRESCRIZIONE" : "Prescription Mode",
 
   "LISTA_PIANI_TAB" : "My therapeutic plans",
-  "DATA_INIZIO": "From:",
-  "DATA_FINE" : "To:",
+  "DATA_INIZIO": "From",
+  "DATA_FINE" : "To",
 
   "ARMADIETTO_TAB" : "My box",
   "FORMATO": "Format",

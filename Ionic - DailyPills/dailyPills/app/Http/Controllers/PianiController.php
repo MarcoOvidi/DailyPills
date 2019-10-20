@@ -40,5 +40,35 @@ class PianiController extends Controller
         return $piani->farmacipiano;
     }
 
+    public function createPiano(Request $request) {
+
+        $user = User::where('api_token', $request->header('api_token'))->first();
+
+        $messages = [
+            'required' => 'il campo :attribute non può essere vuoto',
+            'alpha' => 'il campo :attribute deve contenere solo caratteri',
+            'unique' => 'il campo :attribute è già presente nel sistema',
+            'min:8' => 'il campo :attribute deve contenere almeno 8 caratteri',
+            'alpha_num' => 'il campo :attribute deve contenere caratteri alfa-numerici',
+            'confirmed' => 'le password inserite non corrispondono'
+        ];
+
+        $this->validate($request, [
+            'inizio' => 'required',
+            'fine' => 'required',
+            'nome' => 'required',
+            'descrizione' => 'required',
+        ], $messages);
+
+        $piano = new Piani();
+        $piano->inizio = $request->input('inizio');
+        $piano->fine = $request->input('fine');
+        $piano->nome = $request->input('nome');
+        $piano->descrizione = $request->input('descrizione');
+        $piano->iduserpiano = $user->id;
+
+        $piano->save();
+    }
+
 
 }

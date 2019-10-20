@@ -32,11 +32,11 @@ const routes: Routes = [
         ]
       },
       {
-        path: 'tab3',
+        path: 'piani',
         children: [
           {
             path: '',
-            loadChildren: '../tab3/tab3.module#Tab3PageModule'
+            loadChildren: '../lista-piani/lista-piani.module#ListaPianiPageModule'
           }
         ]
       },

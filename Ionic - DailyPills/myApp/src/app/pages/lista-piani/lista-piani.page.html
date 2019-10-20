@@ -6,30 +6,30 @@
 </ion-header>
 
 <ion-content>
-  <ion-refresher slot="fixed" (ionRefresh)="refreshArmadietto($event)">
+  <ion-refresher slot="fixed" (ionRefresh)="refreshPiani($event)">
     <ion-refresher-content></ion-refresher-content>
   </ion-refresher>
-  <div *ngIf="listfavorites$">
-    <ion-list no-padding lines="full" *ngFor="let farmaco of listfavorites$ | async" >
+  <div *ngIf="pianilist$">
+    <ion-list no-padding lines="full" *ngFor="let piano of pianilist$ | async" >
       <ion-item-sliding>
         <ion-item-options side="start">
-          <ion-item-option color="danger" (click)="delete(farmaco)">{{ 'DELETE_BUTTON' | translate }}</ion-item-option>
+          <ion-item-option color="danger" (click)="delete(piano)">{{ 'DELETE_BUTTON' | translate }}</ion-item-option>
         </ion-item-options>
-        <ion-item (click)="farmacoDetailNav(farmaco)">
+        <ion-item (click)="pianoDetailNav(piano)">
           <ion-avatar slot="start">
             <img id="icon" src="assets/icon/pill.png">
           </ion-avatar>
           <ion-label>
-            <h2>NOME_PIANO_VAR</h2>
-            <p>{{ 'DATA_INIZIO' | translate }}: {{farmaco.specifica.formato}} {{farmaco.specifica.quantita}}gr</p>
-            <p>{{ 'DATA_FINE' | translate }}: {{farmaco.numero}} pezzi</p>
+            <h2>{{piano.nome}}</h2>
+            <p>{{ 'DATA_INIZIO' | translate }}: {{piano.inizio}} </p>
+            <p>{{ 'DATA_FINE' | translate }}: {{piano.fine}} </p>
           </ion-label>
           <ion-icon name="arrow-dropright"></ion-icon>
         </ion-item>
       </ion-item-sliding>
     </ion-list>
   </div>
-  <div *ngIf="!listfavorites$">
+  <div *ngIf="!pianilist$">
     <ion-list>
       <ion-item>
         <ion-avatar slot="start">
@@ -80,7 +80,7 @@
     </ion-list>
   </div>
   <ion-fab horizontal="end" vertical="bottom" slot="fixed">
-    <ion-fab-button (click)="addFarmaco()" color="primary">
+    <ion-fab-button (click)="addPiano()" color="primary">
       <ion-icon name="add"></ion-icon>
     </ion-fab-button>
   </ion-fab>

@@ -29,7 +29,7 @@ export class LinguaService {
     }
 
     getLinguaPreferita(): string {
-        return this.english.valore;
+        return this.italiano.valore;
     }
 
     getLingue(): Lingua[] {

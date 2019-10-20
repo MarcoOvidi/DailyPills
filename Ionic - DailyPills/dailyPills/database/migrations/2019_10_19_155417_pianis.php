@@ -16,8 +16,8 @@ class Pianis extends Migration
         Schema::create('pianis', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nome')->nullable(false)->change();
-            $table->dateTime('inizio')->nullable(false)->change();
-            $table->dateTime('fine')->nullable(false)->change();
+            $table->date('inizio')->nullable(false)->change();
+            $table->date('fine')->nullable(false)->change();
             $table->string('descrizione', 500);
             $table->integer('iduserpiano')->unsigned()->nullable(false)->change();
             $table->timestamps();

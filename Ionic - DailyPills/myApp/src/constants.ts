@@ -11,6 +11,7 @@ export const URL = {
     SPECIFICHE: URL_BASE + '/specifiche',
     ADD_FARMACO: URL_BASE + '/favorite/add',
     REMOVE_FARMACO: URL_BASE + '/favorite/remove',
+    PIANI: URL_BASE + '/piani',
     LOGIN: URL_BASE + '/login',
     REGISTER: URL_BASE + '/register'
 };

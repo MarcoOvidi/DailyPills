@@ -2,6 +2,7 @@
 
 namespace App;
 
+use function foo\func;
 use Illuminate\Database\Eloquent\Model;
 
 class Piani extends Model
@@ -26,6 +27,10 @@ class Piani extends Model
     {
         return $this->belongsToMany(MedType::class, 'pianisfarmaci', 'id', 'idmedtype')
             ->withPivot('quantitagg', 'orarioassunzione', 'giornosettimana');
+    }
+
+    public function user() {
+        return $this->belongsTo(User::class, 'iduserpiano')->withDefault();
     }
 
 }

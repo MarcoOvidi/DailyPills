@@ -15,6 +15,8 @@ const routes: Routes = [
   }
 ];
 
+myDate: String;
+
 @NgModule({
   imports: [
     CommonModule,
@@ -25,4 +27,6 @@ const routes: Routes = [
   ],
   declarations: [DettaglioFarmacoPage]
 })
+
+
 export class DettaglioFarmacoPageModule {}

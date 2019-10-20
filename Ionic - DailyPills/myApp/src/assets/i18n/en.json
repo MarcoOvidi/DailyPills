@@ -86,5 +86,10 @@
   "QUANTITA" : "Available quantity",
 
 
-  "NUOVO_PIANO_TAB" : "Nuovo piano Terapeutico"
+  "NUOVO_PIANO_TAB" : "Nuovo piano Terapeutico",
+  "NOME_PIANO" : "Plan's name",
+  "NOME_PIANO_STRING" : "Inserisci il nome del piano",
+  "DATA_INIZIO_PIANO" : "Start Date",
+  "DATA_FINE_PIANO" : "End Date",
+  "DESCRIZIONE_PIANO" : "Description"
 }

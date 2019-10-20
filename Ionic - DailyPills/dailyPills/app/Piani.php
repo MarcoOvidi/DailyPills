@@ -18,13 +18,14 @@ class Piani extends Model
     ];
 
     protected $hidden = [
-        "created_at", "updated_at"
+        "created_at", "updated_at", 'iduserpiano'
     ];
 
 
-//    public function users()
-//    {
-//        $this->belongsToMany(User::class, 'favoritesfarmacos', 'id', 'idfarmaco');
-//    }
+    public function farmacipiano()
+    {
+        return $this->belongsToMany(MedType::class, 'pianisfarmaci', 'id', 'idmedtype')
+            ->withPivot('quantitagg', 'orarioassunzione', 'giornosettimana');
+    }
 
 }

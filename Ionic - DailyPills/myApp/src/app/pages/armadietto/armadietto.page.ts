@@ -30,7 +30,7 @@ export class ArmadiettoPage implements OnInit {
     this.navController.navigateForward('addfarmaco');
   }
 
-  farmacoDetailNav(farmaco: Specifica) {
+  farmacoDetailNav(farmaco: Preferito) {
     const navigationExtras: NavigationExtras = {
       queryParams: {
         preferito: JSON.stringify(farmaco)
@@ -39,6 +39,10 @@ export class ArmadiettoPage implements OnInit {
 
     this.navController.navigateForward(['dettaglio-farmaco'], navigationExtras);
   }
+
+  /*
+  * Refresh handler for the pool to refresh (Refresh items inside Armadietto)
+  */
 
   refreshArmadietto(event) {
     setTimeout(() => {

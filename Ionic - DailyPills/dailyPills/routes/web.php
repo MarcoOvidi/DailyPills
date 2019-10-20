@@ -32,6 +32,8 @@ $router->group(['prefix' => 'api'], function () use ($router) {
         $router->post('/searchFarmaci', 'FarmacoController@search');
         $router->post('/addFarmaco', 'FarmacoController@addRecord');
         $router->post('/addSpecifica', 'TypeController@addType');
+        $router->get('/piani', 'PianiController@list');
+        $router->get('/farmacipiano/{idpiano}', 'PianiController@farmaciPiano');
 
     });
 

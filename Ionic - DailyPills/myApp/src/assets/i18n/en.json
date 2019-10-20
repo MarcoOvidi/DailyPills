@@ -92,5 +92,10 @@
   "DATA_INIZIO_PIANO" : "Start Date",
   "DATA_FINE_PIANO" : "End Date",
   "DESCRIZIONE_PIANO" : "Description",
-  "DESCRIZIONE_PIANO_STRING" : "Insert here others informations  ..."
+  "DESCRIZIONE_PIANO_STRING" : "Insert here others informations  ...",
+
+  "IMPOSTAZIONI_TAB" : "Settings",
+  "LINGUA_SETTING" : "Language",
+  "ENG" : "English",
+  "ITA" : "Italian"
 }

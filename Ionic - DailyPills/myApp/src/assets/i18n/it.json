@@ -93,5 +93,10 @@
   "DATA_INIZIO_PIANO" : "Data inizio",
   "DATA_FINE_PIANO" : "Data fine",
   "DESCRIZIONE_PIANO" : "Descrizione",
-  "DESCRIZIONE_PIANO_STRING" : "Inserisci altre informazioni qui ..."
+  "DESCRIZIONE_PIANO_STRING" : "Inserisci altre informazioni qui ...",
+
+  "IMPOSTAZIONI_TAB" : "Impostazioni",
+  "LINGUA_SETTING" : "Lingua",
+  "ENG" : "Inglese",
+  "ITA" : "Italiano"
 }

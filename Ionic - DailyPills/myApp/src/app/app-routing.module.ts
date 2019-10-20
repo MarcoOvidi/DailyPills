@@ -36,7 +36,8 @@ const routes: Routes = [
     path: 'addfarmaco', loadChildren: './pages/addfarmaco/addfarmaco.module#AddfarmacoPageModule'
   },
   { path: 'lista-piani', loadChildren: './pages/lista-piani/lista-piani.module#ListaPianiPageModule' },
-  { path: 'nuovo-piano', loadChildren: './pages/nuovo-piano/nuovo-piano.module#NuovoPianoPageModule' }
+  { path: 'nuovo-piano', loadChildren: './pages/nuovo-piano/nuovo-piano.module#NuovoPianoPageModule' },
+  { path: 'impostazioni', loadChildren: './pages/impostazioni/impostazioni.module#ImpostazioniPageModule' }
 ];
 @NgModule({
   imports: [

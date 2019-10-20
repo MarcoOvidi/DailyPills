@@ -18,7 +18,7 @@ export class LinguaService {
 
     italiano: Lingua = { etichetta: 'Italiano', valore: 'it' };
     english: Lingua = { etichetta: 'Inglese', valore: 'en' };
-    lingue: Lingua[] = [ this.italiano, { etichetta: 'English', valore: 'en' } ];
+    lingue: Lingua[] = [ this.italiano, this.english ];
 
     constructor(private storage: Storage) {
 
@@ -29,7 +29,7 @@ export class LinguaService {
     }
 
     getLinguaPreferita(): string {
-        return this.italiano.valore;
+        return this.english.valore;
     }
 
     getLingue(): Lingua[] {

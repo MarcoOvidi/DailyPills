@@ -19,7 +19,13 @@ class Pianis extends Migration
             $table->dateTime('inizio')->nullable(false)->change();
             $table->dateTime('fine')->nullable(false)->change();
             $table->string('descrizione', 500);
+            $table->integer('iduserpiano')->unsigned()->nullable(false)->change();
             $table->timestamps();
+
+            $table->foreign('iduserpiano')
+                ->references('id')
+                ->on('users')
+                ->onDelete('cascade');
         });
     }
 

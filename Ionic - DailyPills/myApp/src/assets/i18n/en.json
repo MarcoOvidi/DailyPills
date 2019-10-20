@@ -83,5 +83,8 @@
 
   "ARMADIETTO_TAB" : "My box",
   "FORMATO": "Format",
-  "QUANTITA" : "Available quantity"
+  "QUANTITA" : "Available quantity",
+
+
+  "NUOVO_PIANO_TAB" : "Nuovo piano Terapeutico"
 }

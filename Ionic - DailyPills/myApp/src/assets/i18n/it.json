@@ -85,5 +85,7 @@
 
   "ARMADIETTO_TAB" : "Il mio armadietto",
   "FORMATO": "Formato",
-  "QUANTITA" : "Quantità rimaste"
+  "QUANTITA" : "Quantità rimaste",
+
+  "NUOVO_PIANO_TAB" : "Nuovo piano Terapeutico"
 }

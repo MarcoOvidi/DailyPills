@@ -91,5 +91,6 @@
   "NOME_PIANO_STRING" : "Inserisci il nome del piano",
   "DATA_INIZIO_PIANO" : "Start Date",
   "DATA_FINE_PIANO" : "End Date",
-  "DESCRIZIONE_PIANO" : "Description"
+  "DESCRIZIONE_PIANO" : "Description",
+  "DESCRIZIONE_PIANO_STRING" : "Insert here others informations  ..."
 }

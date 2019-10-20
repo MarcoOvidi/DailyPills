@@ -5,13 +5,13 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
 
-import { ArmadiettoPage } from './armadietto.page';
+import { ListaPianiPage } from './lista-piani.page';
 import {TranslateModule} from '@ngx-translate/core';
 
 const routes: Routes = [
   {
     path: '',
-    component: ArmadiettoPage
+    component: ListaPianiPage
   }
 ];
 
@@ -23,6 +23,6 @@ const routes: Routes = [
     RouterModule.forChild(routes),
     TranslateModule.forChild()
   ],
-  declarations: [ArmadiettoPage]
+  declarations: [ListaPianiPage]
 })
-export class ArmadiettoPageModule {}
+export class ListaPianiPageModule {}

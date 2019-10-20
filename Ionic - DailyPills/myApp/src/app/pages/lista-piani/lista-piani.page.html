@@ -1,0 +1,87 @@
+
+<ion-header translucent text-center>
+  <ion-toolbar color="primary">
+    <ion-title color="light">{{ 'LISTA_PIANI_TAB' | translate }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-refresher slot="fixed" (ionRefresh)="refreshArmadietto($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <div *ngIf="listfavorites$">
+    <ion-list no-padding lines="full" *ngFor="let farmaco of listfavorites$ | async" >
+      <ion-item-sliding>
+        <ion-item-options side="start">
+          <ion-item-option color="danger" (click)="delete(farmaco)">{{ 'DELETE_BUTTON' | translate }}</ion-item-option>
+        </ion-item-options>
+        <ion-item (click)="farmacoDetailNav(farmaco)">
+          <ion-avatar slot="start">
+            <img id="icon" src="assets/icon/pill.png">
+          </ion-avatar>
+          <ion-label>
+            <h2>NOME_PIANO_VAR</h2>
+            <p>{{ 'DATA_INIZIO' | translate }}: {{farmaco.specifica.formato}} {{farmaco.specifica.quantita}}gr</p>
+            <p>{{ 'DATA_FINE' | translate }}: {{farmaco.numero}} pezzi</p>
+          </ion-label>
+          <ion-icon name="arrow-dropright"></ion-icon>
+        </ion-item>
+      </ion-item-sliding>
+    </ion-list>
+  </div>
+  <div *ngIf="!listfavorites$">
+    <ion-list>
+      <ion-item>
+        <ion-avatar slot="start">
+          <ion-skeleton-text animated></ion-skeleton-text>
+        </ion-avatar>
+        <ion-label>
+          <h3>
+            <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+          </h3>
+          <p>
+            <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+          </p>
+          <p>
+            <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+          </p>
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-thumbnail slot="start">
+          <ion-skeleton-text animated></ion-skeleton-text>
+        </ion-thumbnail>
+        <ion-label>
+          <h3>
+            <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+          </h3>
+          <p>
+            <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+          </p>
+          <p>
+            <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+          </p>
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-skeleton-text animated style="width: 27px; height: 27px" slot="start"></ion-skeleton-text>
+        <ion-label>
+          <h3>
+            <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+          </h3>
+          <p>
+            <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+          </p>
+          <p>
+            <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+          </p>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </div>
+  <ion-fab horizontal="end" vertical="bottom" slot="fixed">
+    <ion-fab-button (click)="addFarmaco()" color="primary">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

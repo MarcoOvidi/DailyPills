@@ -98,5 +98,9 @@
   "IMPOSTAZIONI_TAB" : "Impostazioni",
   "LINGUA_SETTING" : "Lingua",
   "ENG" : "Inglese",
-  "ITA" : "Italiano"
+  "ITA" : "Italiano",
+
+  "CERCA_MEDICINA" : "Cerca medicina",
+  "FORMATI_DISPONIBILI" : "Uno o più formati disponibili"
+
 }

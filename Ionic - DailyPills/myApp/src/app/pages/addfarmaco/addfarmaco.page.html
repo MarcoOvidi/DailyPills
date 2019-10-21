@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
-    <ion-searchbar placeholder="Cerca Medicina" animated (ionChange)="liveMedicineFilter($event)"></ion-searchbar>
+    <ion-searchbar placeholder="{{ 'CERCA_MEDICINA' | translate }}" animated (ionChange)="liveMedicineFilter($event)"></ion-searchbar>
   </ion-toolbar>
 </ion-header>
 
@@ -15,7 +15,7 @@
       </ion-thumbnail>
       <ion-label>
         <h2>{{farmaco.nome}}</h2>
-        <p>Uno o più formati disponibili</p>
+        <p>{{ 'FORMATI_DISPONIBILI' | translate}}</p>
       </ion-label>
       <ion-icon (click)="presentModal(farmaco.nome, farmaco.types, farmaco.id)" name="add-circle"></ion-icon>
     </ion-item>

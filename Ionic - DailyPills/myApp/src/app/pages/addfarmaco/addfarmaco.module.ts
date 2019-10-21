@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 
 import { AddfarmacoPage } from './addfarmaco.page';
 import { AddSpecificaPageModule } from '../add-specifica/add-specifica.module';
+import {TranslateModule} from '@ngx-translate/core';
 
 const routes: Routes = [
   {
@@ -21,6 +22,7 @@ const routes: Routes = [
     FormsModule,
     IonicModule,
     RouterModule.forChild(routes),
+    TranslateModule.forChild()
   ],
   declarations: [
       AddfarmacoPage

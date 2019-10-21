@@ -86,13 +86,13 @@
   "QUANTITA" : "Available quantity",
 
 
-  "NUOVO_PIANO_TAB" : "Nuovo piano Terapeutico",
+  "NUOVO_PIANO_TAB" : "New therapeutic plan",
   "NOME_PIANO" : "Plan's name",
-  "NOME_PIANO_STRING" : "Inserisci il nome del piano",
+  "NOME_PIANO_STRING" : "Inserte here the plan's name",
   "DATA_INIZIO_PIANO" : "Start Date",
   "DATA_FINE_PIANO" : "End Date",
   "DESCRIZIONE_PIANO" : "Description",
-  "DESCRIZIONE_PIANO_STRING" : "Insert here others informations  ...",
+  "DESCRIZIONE_PIANO_STRING" : "Insert here other informations  ...",
 
   "IMPOSTAZIONI_TAB" : "Settings",
   "LINGUA_SETTING" : "Language",
@@ -100,5 +100,7 @@
   "ITA" : "Italian",
 
   "CERCA_MEDICINA" : "Search medicine",
-  "FORMATI_DISPONIBILI" : "One or more formats available"
+  "FORMATI_DISPONIBILI" : "One or more formats available",
+
+  "DETTAGLI_PIANO" : "Plan's details"
 }

@@ -101,6 +101,8 @@
   "ITA" : "Italiano",
 
   "CERCA_MEDICINA" : "Cerca medicina",
-  "FORMATI_DISPONIBILI" : "Uno o più formati disponibili"
+  "FORMATI_DISPONIBILI" : "Uno o più formati disponibili",
+
+  "DETTAGLI_PIANO" : "Dettagli piano terapeutico"
 
 }

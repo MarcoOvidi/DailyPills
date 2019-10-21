@@ -14,6 +14,7 @@
       <ion-item-sliding>
         <ion-item-options side="start">
           <ion-item-option color="danger" (click)="delete(piano)">{{ 'DELETE_BUTTON' | translate }}</ion-item-option>
+          <ion-item-option color="warning" (click)="update(piano)">{{ 'MODIFY_BUTTON' | translate }}</ion-item-option>
         </ion-item-options>
         <ion-item (click)="pianoDetailNav(piano)">
           <ion-thumbnail slot="start" style="height: 36px; !important; width: 36px; !important;">

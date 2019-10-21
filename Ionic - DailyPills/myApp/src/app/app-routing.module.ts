@@ -56,7 +56,11 @@ const routes: Routes = [
     loadChildren: './pages/impostazioni/impostazioni.module#ImpostazioniPageModule',
     canActivateChild: [AuthGuard]
   },
-  { path: 'dettaglio-piano', loadChildren: './pages/dettaglio-piano/dettaglio-piano.module#DettaglioPianoPageModule' }
+  {
+    path: 'dettaglio-piano',
+    loadChildren: './pages/dettaglio-piano/dettaglio-piano.module#DettaglioPianoPageModule',
+    canActivateChild: [AuthGuard]
+  }
 ];
 @NgModule({
   imports: [

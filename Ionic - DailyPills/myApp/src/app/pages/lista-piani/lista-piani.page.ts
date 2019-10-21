@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Piano } from '../../models/piano.model';
 import { PianoServices } from '../../services/piano.service';
 import { Observable } from 'rxjs';
-import { NavController } from '@ionic/angular';
-import * as moment from 'moment';
+import {AlertController, NavController} from '@ionic/angular';
+import {NavigationExtras} from '@angular/router';
+import {Preferito} from '../../models/preferito.model';
 
 @Component({
   selector: 'app-lista-piani',
@@ -16,7 +17,8 @@ export class ListaPianiPage implements OnInit {
 
   constructor(
       private pianoService: PianoServices,
-      private navController: NavController
+      private navController: NavController,
+      private alertCtrl: AlertController
   ) { }
 
   ngOnInit() {
@@ -31,15 +33,47 @@ export class ListaPianiPage implements OnInit {
   }
 
   pianoDetailNav(piano: Piano) {
-    console.log('clicked');
+   const navigationExtras: NavigationExtras = {
+          queryParams: {
+              preferito: JSON.stringify(piano)
+          }
+      };
+
+   this.navController.navigateForward(['dettaglio-piano'], navigationExtras);
   }
 
-  delete(piano: Piano) {
-    console.log('deleted');
-  }
+    async delete(piano: Piano) {
+        const alert = await this.alertCtrl.create({
+            header: 'Elimina piano',
+            message: `Sei sicuro di voler eliminare il piano "${piano.nome}"?`,
+            buttons: [
+                {
+                    text: 'Annulla',
+                    role: 'cancel',
+                    cssClass: 'secondary',
+                    handler: (blah) => {
+                        console.log('Confirm Cancel: blah');
+                    }
+                },
+                {
+                    text: 'Conferma',
+                    handler: () => {
+                        this.pianoService.removePiano(piano.id);
+                        this.pianilist$ = this.pianoService.listPiani();
+                    }
+                }
+            ]
+        });
+
+        await alert.present();
+    }
 
   addPiano() {
     this.navController.navigateForward('nuovo-piano');
+  }
+
+  update(piano: Piano) {
+      console.log('updated');
   }
 
 }

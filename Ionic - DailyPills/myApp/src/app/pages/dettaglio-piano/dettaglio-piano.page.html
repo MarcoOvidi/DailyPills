@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
-    <ion-title color="light">NOME_PIANO_VAR</ion-title>
+    <ion-title color="light">{{pianodetail.nome}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -16,7 +16,7 @@
           <ion-label color="primary" position="floating">{{ 'DATA_INIZIO_PIANO' | translate }}</ion-label>
         </ion-col>
         <ion-col size="5">
-          kjkjkjkj
+          {{pianodetail.inizio}}
         </ion-col>
         <ion-col size="2">
           <ion-icon name="calendar" color="primary"></ion-icon>
@@ -28,7 +28,7 @@
           <ion-label color="primary" position="floating">{{ 'DATA_FINE_PIANO' | translate }}</ion-label>
         </ion-col>
         <ion-col size="5">
-          kjkjkjkj
+          {{pianodetail.fine}}
         </ion-col>
         <ion-col size="2">
           <ion-icon name="calendar" color="primary"></ion-icon>
@@ -40,7 +40,7 @@
           <ion-label color="primary" position="floating">{{ 'DESCRIZIONE_PIANO' | translate}}</ion-label>
         </ion-col>
         <ion-col size="5">
-          kjkjkjkj
+          {{pianodetail.descrizione}}
         </ion-col>
         <ion-col size="2">
           <ion-icon name="calendar" color="primary"></ion-icon>
@@ -49,13 +49,29 @@
     </ion-grid>
   </ion-card>
 
-  <ion-card>
-    medi 1
-    <br>
-    medi 2
-    <br>
-    medi 3
-  </ion-card>
+<!--  <ion-card>-->
+<!--   -->
+<!--  </ion-card>-->
+  <ion-list no-padding lines="full" *ngFor="let farmaco of farmacipiani$ | async" >
+    <ion-item-sliding>
+      <ion-item-options side="start">
+        <ion-item-option color="danger" (click)="delete(farmaco.farmaco)">{{ 'DELETE_BUTTON' | translate}}</ion-item-option>
+      </ion-item-options>
+      <ion-item (click)="farmacoDetailNav(farmaco.farmaco)">
+        <ion-thumbnail slot="start" style="height: 36px; !important; width: 36px; !important;">
+          <img id="icon" src="assets/icon/pill.png">
+        </ion-thumbnail>
+        <ion-label>
+          <h2>{{farmaco.farmaco.nome}}</h2>
+          <p>{{ 'FORMATO' | translate}}: {{farmaco.specifica.formato}} {{farmaco.specifica.quantita}}gr</p>
+          <p>Quantità giornaliera: {{farmaco.quantitagiorno}} pezzi</p>
+          <p>Giorno Settimana: {{farmaco.giornosettimana}}</p>
+          <p>Orario assunzione: {{farmaco.orarioassunzione}}</p>
+        </ion-label>
+        <ion-icon name="arrow-dropright"></ion-icon>
+      </ion-item>
+    </ion-item-sliding>
+  </ion-list>
 
   <ion-fab horizontal="end" vertical="bottom" slot="fixed">
     <ion-fab-button color="primary">

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import {Preferito} from '../../models/preferito.model';
+import { Preferito } from '../../models/preferito.model';
 
 @Component({
   selector: 'app-dettaglio-farmaco',

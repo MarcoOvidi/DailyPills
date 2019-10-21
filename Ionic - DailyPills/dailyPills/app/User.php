@@ -35,4 +35,8 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
         return $this->belongsToMany(MedType::class,  'userfarmacis', 'iduser', 'idfarmacotype')
             ->withPivot('quantity');
     }
+
+    public function piani() {
+        return $this->hasMany(Piani::class, 'iduserpiano');
+    }
 }

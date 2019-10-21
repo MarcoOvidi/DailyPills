@@ -15,8 +15,6 @@ const routes: Routes = [
   }
 ];
 
-myDate: String;
-
 @NgModule({
   imports: [
     CommonModule,

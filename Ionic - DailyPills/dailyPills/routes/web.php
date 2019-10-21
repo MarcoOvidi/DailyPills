@@ -37,6 +37,7 @@ $router->group(['prefix' => 'api'], function () use ($router) {
         $router->get('/piani', 'PianiController@list');
         $router->get('/farmacipiano/{idpiano}', 'PianiController@farmaciPiano');
         $router->post('/createpiano', 'PianiController@createPiano');
+        $router->delete('/removepiano/{idpiano}', 'PianiController@removepiano');
 
     });
 

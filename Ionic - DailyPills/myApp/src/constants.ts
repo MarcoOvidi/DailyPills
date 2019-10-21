@@ -14,7 +14,9 @@ export const URL = {
     PIANI: URL_BASE + '/piani',
     ADD_PIANO: URL_BASE + '/createpiano',
     LOGIN: URL_BASE + '/login',
-    REGISTER: URL_BASE + '/register'
+    REGISTER: URL_BASE + '/register',
+    PIANO_FARMACIS: URL_BASE + '/farmacipiano',
+    REMOVE_PIANO: URL_BASE + '/removepiano'
 };
 
 export const AUTH_TOKEN = 'api_token';

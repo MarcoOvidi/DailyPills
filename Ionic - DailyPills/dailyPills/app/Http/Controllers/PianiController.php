@@ -70,5 +70,20 @@ class PianiController extends Controller
         $piano->save();
     }
 
+    public function removepiano($idpiano, Request $request) {
+
+        $user = User::where('api_token', $request->header('api_token'))->first();
+        $piano = Piani::where('id', $idpiano)
+            ->where('iduserpiano', $user->id)
+            ->first();
+
+        if(!$piano) {
+            return response()->json(["success" => false, "message" => "Piano not found"], 200);
+        }
+
+        $piano->delete();
+
+        return response()->json(["success" => true, "message" => ["piano" => $piano->nome, "operation" => "Piano has been removed"]], 200);
+        }
 
 }

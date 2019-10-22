@@ -84,6 +84,6 @@ class PianiController extends Controller
         $piano->delete();
 
         return response()->json(["success" => true, "message" => ["piano" => $piano->nome, "operation" => "Piano has been removed"]], 200);
-        }
+    }
 
 }

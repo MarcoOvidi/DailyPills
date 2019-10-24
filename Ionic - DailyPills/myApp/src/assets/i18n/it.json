@@ -113,6 +113,9 @@
 
   "DETTAGLI_AGGIUNTA_TAB" : "Dettagli assunzione",
   "QUANTITA_ASSUNZIONE" : "Quantità",
-  "ORARIO_ASSUNZIONE" : "Orario"
+  "ORARIO_ASSUNZIONE" : "Orario",
+
+  "SCEGLI_FORMATO" :  "Scegli formato",
+  "SELEZIONA_QUANTITA" : "Seleziona quantità"
 
 }

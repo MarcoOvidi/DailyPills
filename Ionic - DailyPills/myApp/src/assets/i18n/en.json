@@ -112,5 +112,8 @@
 
   "DETTAGLI_AGGIUNTA_TAB" : "Assumption details",
   "QUANTITA_ASSUNZIONE" : "Quantity",
-  "ORARIO_ASSUNZIONE" : "Time"
+  "ORARIO_ASSUNZIONE" : "Time",
+
+  "SCEGLI_FORMATO" :  "Choose Format",
+  "SELEZIONA_QUANTITA" : "Select Quantity"
 }

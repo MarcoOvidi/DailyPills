@@ -6,6 +6,7 @@
   "SAVE_BUTTON": "Save",
   "CANCEL_BUTTON": "Cancel",
   "DELETE_BUTTON": "Delete",
+  "ADD_BUTTON" : "Add",
 
   "LOGIN_TITLE": "Login",
   "LOGIN_ERROR_TITLE": "Login error",
@@ -105,5 +106,11 @@
 
   "DETTAGLI_PIANO" : "Plan's details",
 
-  "SCEGLI_FARMACO_TAB" : "Add Medicine"
+  "SCEGLI_FARMACO_TAB" : "Add Medicine",
+
+  "ADD_SPECIFICA_TAB" : "Available Formats",
+
+  "DETTAGLI_AGGIUNTA_TAB" : "Assumption details",
+  "QUANTITA_ASSUNZIONE" : "Quantity",
+  "ORARIO_ASSUNZIONE" : "Time"
 }

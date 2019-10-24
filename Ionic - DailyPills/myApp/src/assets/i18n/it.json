@@ -7,6 +7,7 @@
   "CANCEL_BUTTON": "Annulla",
   "DELETE_BUTTON": "Elimina",
   "UPDATE_BUTTON": "Modifica",
+  "ADD_BUTTON" : "Aggiungi",
 
   "LOGIN_TITLE": "Login",
   "LOGIN_ERROR_TITLE": "Errore Login",
@@ -106,6 +107,12 @@
 
   "DETTAGLI_PIANO" : "Dettagli piano terapeutico",
 
-  "SCEGLI_FARMACO_TAB" : "Aggiungi Farmaco"
+  "SCEGLI_FARMACO_TAB" : "Aggiungi Farmaco",
+
+  "ADD_SPECIFICA_TAB" : "Formati Disponibili",
+
+  "DETTAGLI_AGGIUNTA_TAB" : "Dettagli assunzione",
+  "QUANTITA_ASSUNZIONE" : "Quantità",
+  "ORARIO_ASSUNZIONE" : "Orario"
 
 }

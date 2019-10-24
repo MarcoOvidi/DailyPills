@@ -5,13 +5,13 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
 
-import { AddSpecificaPage } from './add-specifica.page';
+import { PopupPage } from './popup.page';
 import {TranslateModule} from '@ngx-translate/core';
 
 const routes: Routes = [
   {
     path: '',
-    component: AddSpecificaPage
+    component: PopupPage
   }
 ];
 
@@ -23,8 +23,6 @@ const routes: Routes = [
     RouterModule.forChild(routes),
     TranslateModule.forChild()
   ],
-  declarations: [
-      AddSpecificaPage
-  ],
+  declarations: [PopupPage]
 })
-export class AddSpecificaPageModule {}
+export class PopupPageModule {}

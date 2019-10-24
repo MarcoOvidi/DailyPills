@@ -104,6 +104,8 @@
   "CERCA_MEDICINA" : "Cerca medicina",
   "FORMATI_DISPONIBILI" : "Uno o più formati disponibili",
 
-  "DETTAGLI_PIANO" : "Dettagli piano terapeutico"
+  "DETTAGLI_PIANO" : "Dettagli piano terapeutico",
+
+  "SCEGLI_FARMACO_TAB" : "Aggiungi Farmaco"
 
 }

@@ -60,7 +60,8 @@ const routes: Routes = [
     path: 'dettaglio-piano',
     loadChildren: './pages/dettaglio-piano/dettaglio-piano.module#DettaglioPianoPageModule',
     canActivateChild: [AuthGuard]
-  }
+  },
+  { path: 'scegli-farmaco', loadChildren: './pages/scegli-farmaco/scegli-farmaco.module#ScegliFarmacoPageModule' }
 ];
 @NgModule({
   imports: [

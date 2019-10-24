@@ -103,5 +103,7 @@
   "CERCA_MEDICINA" : "Search medicine",
   "FORMATI_DISPONIBILI" : "One or more formats available",
 
-  "DETTAGLI_PIANO" : "Plan's details"
+  "DETTAGLI_PIANO" : "Plan's details",
+
+  "SCEGLI_FARMACO_TAB" : "Add Medicine"
 }

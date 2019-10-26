@@ -61,8 +61,11 @@ const routes: Routes = [
     loadChildren: './pages/dettaglio-piano/dettaglio-piano.module#DettaglioPianoPageModule',
     canActivateChild: [AuthGuard]
   },
-  { path: 'scegli-farmaco', loadChildren: './pages/scegli-farmaco/scegli-farmaco.module#ScegliFarmacoPageModule' },
-  { path: 'popup', loadChildren: './pages/popup/popup.module#PopupPageModule' }
+  {
+    path: 'scegli-farmaco',
+    loadChildren: './pages/scegli-farmaco/scegli-farmaco.module#ScegliFarmacoPageModule' ,
+    canActivateChild: [AuthGuard]
+  },
 ];
 @NgModule({
   imports: [

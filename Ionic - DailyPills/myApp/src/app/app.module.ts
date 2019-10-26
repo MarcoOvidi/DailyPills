@@ -14,6 +14,7 @@ import { httpInterceptorProviders } from './interceptors';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { AddSpecificaPageModule } from './pages/add-specifica/add-specifica.module';
+import { PopupPageModule } from './pages/popup/popup.module';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -30,6 +31,7 @@ export function createTranslateLoader(http: HttpClient) {
     HttpClientModule,
     IonicModule.forRoot(),
     AddSpecificaPageModule,
+    PopupPageModule,
     IonicStorageModule.forRoot({
       name: 'dailyPills__db',
       driverOrder: ['indexeddb', 'sqlite', 'websql']

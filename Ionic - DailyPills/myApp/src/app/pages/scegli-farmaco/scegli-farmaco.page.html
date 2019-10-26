@@ -6,9 +6,6 @@
 </ion-header>
 
 <ion-content>
-  <ion-refresher slot="fixed" (ionRefresh)="refreshArmadietto($event)">
-    <ion-refresher-content></ion-refresher-content>
-  </ion-refresher>
   <div *ngIf="listfavorites$">
     <ion-list no-padding lines="full" *ngFor="let farmaco of listfavorites$ | async" >
       <ion-item-sliding>
@@ -21,7 +18,7 @@
             <p>{{ 'FORMATO' | translate}}: {{farmaco.specifica.formato}} {{farmaco.specifica.quantita}}gr</p>
             <p>{{ 'QUANTITA' | translate}}: {{farmaco.numero}} pezzi</p>
           </ion-label>
-          <ion-icon name="add-circle-outline"></ion-icon>
+          <ion-icon (click)="addFarmacoPiano(farmaco)" name="add-circle-outline"></ion-icon>
         </ion-item>
       </ion-item-sliding>
     </ion-list>

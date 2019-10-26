@@ -21,15 +21,16 @@ class PianiController extends Controller
         return $piani;
     }
 
-    public function farmaciPiano($idpiano)
+    public function farmaciPiano($idpiano, Request $request)
     {
-        $piani = Piani::with('farmacipiano')->find($idpiano);
+        $user = User::where('api_token', $request->header('api_token'))->first();
+        $piani = Piani::with('farmaci')->find($idpiano);
 
         if (!$piani) {
             return response()->json(["success" => false, "message" => ["error" => "piano not found"]], 200);
         }
 
-        foreach ($piani->farmacipiano as $farmaco) {
+        foreach ($piani->farmaci as $farmaco) {
             $farmaco->farmaco;
             $farmaco->specifica;
             $farmaco->quantitagiorno = $farmaco->pivot->quantitagg;
@@ -37,7 +38,7 @@ class PianiController extends Controller
             $farmaco->giornosettimana = $farmaco->pivot->giornosettimana;
         }
 
-        return $piani->farmacipiano;
+        return $piani->farmaci;
     }
 
     public function createPiano(Request $request) {

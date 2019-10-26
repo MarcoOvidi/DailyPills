@@ -51,48 +51,59 @@
 
   <!-- PROVIAMO -->
 
-
   <ion-card>
     <ion-virtual-scroll [items]="items" approxItemHeight="320px">
-      <ion-item *virtualItem="let item; let itemBounds = bounds;">
-          <!--QUI CI VA TUTTO lo <ion-item-sliding> CHE VIENE CICLATO PER OGNI MEDICINA, LA DIRETTIVA virtualItem è la sostituta di ngFOR
-              per ciclare, items è l'array che riceve di medicine-->
+      <ion-item *virtualItem="let item">
+        <ion-item-sliding>
+          <ion-item-options side="start">
+            <ion-item-option color="danger" (click)="delete(item.farmaco)">{{ 'DELETE_BUTTON' | translate}}</ion-item-option>
+          </ion-item-options>
+          <ion-item (click)="farmacoDetailNav(item.farmaco)">
+            <ion-thumbnail slot="start" style="height: 36px; !important; width: 36px; !important;">
+              <img id="icon" src="assets/icon/pill.png">
+            </ion-thumbnail>
+            <ion-label>
+              <h2>{{item.farmaco.nome}}</h2>
+              <p>{{ 'FORMATO' | translate}}: {{item.specifica.formato}} {{item.specifica.quantita}}gr</p>
+              <p>Quantità giornaliera: {{item.quantitagiorno}} pezzi</p>
+              <p>Giorno Settimana: {{item.giornosettimana}}</p>
+              <p>Orario assunzione: {{item.orarioassunzione}}</p>
+            </ion-label>
+            <ion-icon name="arrow-dropright"></ion-icon>
+          </ion-item>
+        </ion-item-sliding>
       </ion-item>
     </ion-virtual-scroll>
   </ion-card>
 
-
-
-
-
   <!--  DA DEPRECARE BEGIN -->
-  <ion-card>
-    <ion-list no-padding lines="full" *ngFor="let farmaco of farmacipiani$ | async" >
-      <ion-item-sliding>
-        <ion-item-options side="start">
-          <ion-item-option color="danger" (click)="delete(farmaco.farmaco)">{{ 'DELETE_BUTTON' | translate}}</ion-item-option>
-        </ion-item-options>
-        <ion-item (click)="farmacoDetailNav(farmaco.farmaco)">
-          <ion-thumbnail slot="start" style="height: 36px; !important; width: 36px; !important;">
-            <img id="icon" src="assets/icon/pill.png">
-          </ion-thumbnail>
-          <ion-label>
-            <h2>{{farmaco.farmaco.nome}}</h2>
-            <p>{{ 'FORMATO' | translate}}: {{farmaco.specifica.formato}} {{farmaco.specifica.quantita}}gr</p>
-            <p>Quantità giornaliera: {{farmaco.quantitagiorno}} pezzi</p>
-            <p>Giorno Settimana: {{farmaco.giornosettimana}}</p>
-            <p>Orario assunzione: {{farmaco.orarioassunzione}}</p>
-          </ion-label>
-          <ion-icon name="arrow-dropright"></ion-icon>
-        </ion-item>
-      </ion-item-sliding>
-    </ion-list>
-  </ion-card>
+<!--  <ion-card>-->
+<!--    <ion-list no-padding lines="full" *ngFor="let farmaco of farmacipiani$ | async" >-->
+<!--      <ion-item-sliding>-->
+<!--        <ion-item-options side="start">-->
+<!--          <ion-item-option color="danger" (click)="delete(farmaco.farmaco)">{{ 'DELETE_BUTTON' | translate}}</ion-item-option>-->
+<!--        </ion-item-options>-->
+<!--        <ion-item (click)="farmacoDetailNav(farmaco.farmaco)">-->
+<!--          <ion-thumbnail slot="start" style="height: 36px; !important; width: 36px; !important;">-->
+<!--            <img id="icon" src="assets/icon/pill.png">-->
+<!--          </ion-thumbnail>-->
+<!--          <ion-label>-->
+<!--            <h2>{{farmaco.farmaco.nome}}</h2>-->
+<!--            <p>{{ 'FORMATO' | translate}}: {{farmaco.specifica.formato}} {{farmaco.specifica.quantita}}gr</p>-->
+<!--            <p>Quantità giornaliera: {{farmaco.quantitagiorno}} pezzi</p>-->
+<!--            <p>Giorno Settimana: {{farmaco.giornosettimana}}</p>-->
+<!--            <p>Orario assunzione: {{farmaco.orarioassunzione}}</p>-->
+<!--          </ion-label>-->
+<!--          <ion-icon name="arrow-dropright"></ion-icon>-->
+<!--        </ion-item>-->
+<!--      </ion-item-sliding>-->
+<!--    </ion-list>-->
+<!--  </ion-card>-->
   <!--  DA DEPRECARE END -->
 
 
   <ion-fab horizontal="end" vertical="bottom" slot="fixed">
-    <ion-fab-button color="primary">
+    <ion-fab-button (click)="addFarmacoPianoNavigate()" color="primary">
       <ion-icon name="add"></ion-icon>
     </ion-fab-button>
   </ion-fab>

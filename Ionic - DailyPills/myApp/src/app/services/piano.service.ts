@@ -14,6 +14,13 @@ export interface AggiungiPiano {
     descrizione: string;
 }
 
+export interface AggiungiMedicina {
+    idmedtype: number;
+    orario: string;
+    quantita: string;
+    days: string[];
+}
+
 @Injectable({
     providedIn: 'root'
 })
@@ -37,6 +44,18 @@ export class PianoServices {
 
     removePiano(idpiano: number): void {
         this.http.delete<any>(`${URL.REMOVE_PIANO}/${idpiano}`, {}).subscribe((val) => {
+            console.log('removed', val);
+        });
+    }
+
+    addFarmacoPiano(idpiano: number, medicina: AggiungiMedicina) {
+        this.http.post(`${URL.INSERT_FARMACO_PIANO}/${idpiano}`, medicina, {}).subscribe((val) => {
+           console.log('add', val);
+        });
+    }
+
+    removeFarmaco(idpiano: number, idmedtype: number) {
+        this.http.delete<any>(`${URL.REMOVE_FARMACO_PIANO}/${idpiano}/${idmedtype}`, {}).subscribe((val) => {
             console.log('removed', val);
         });
     }

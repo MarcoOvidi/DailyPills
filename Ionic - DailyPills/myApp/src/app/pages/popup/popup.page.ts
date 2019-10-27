@@ -1,7 +1,9 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {Specifica} from '../../models/specifica.model';
-import {AlertController, ModalController, PickerController} from '@ionic/angular';
-import {FarmacoServices} from '../../services/farmaco.services';
+import { Component, Input, OnInit } from '@angular/core';
+import { Specifica} from '../../models/specifica.model';
+import { AlertController, ModalController, PickerController } from '@ionic/angular';
+import { FarmacoServices } from '../../services/farmaco.services';
+import * as moment from 'moment';
+import { AggiungiMedicina, PianoServices } from '../../services/piano.service';
 
 @Component({
   selector: 'app-popup',
@@ -12,25 +14,74 @@ export class PopupPage implements OnInit {
 
   @Input() idmedtype: number;
   @Input() farmacoName: string;
-  @Input() specifica: Specifica[];
+  @Input() specifica: Specifica;
+  @Input() pianoName: string;
+  @Input() idpiano: number;
 
-  private selectedtipologiaid$: number;
-  private selectedtipologianame$: string;
-  private selectedtipologiaquantita: number;
+  private selectedorarioassunzione$: string;
+  private selectedquantitaassunzione$: string;
+  private selectedDays$: string[];
 
   constructor(
       private modalCtrl: ModalController,
       private pickCtrl: PickerController,
       private farmacoService: FarmacoServices,
       private alertController: AlertController,
+      private pianoServices: PianoServices,
   ) {}
 
   ngOnInit(): void {
-
+    this.selectedorarioassunzione$ = moment(new Date(), 'YYYY-MM-DD HH:mm').format('HH:mm');
+    this.selectedquantitaassunzione$ = '1';
+    this.selectedDays$ = ['Lunedi'];
   }
 
   closeModal() {
+    this.modalCtrl.dismiss('error');
+  }
 
+  selectOrario($event) {
+    this.selectedorarioassunzione$ = moment($event.detail.value, 'HH:mm').format('HH:mm');
+  }
+
+  selectQuantita($event) {
+    this.selectedquantitaassunzione$ = $event.detail.value;
+  }
+
+  selectedMultipleDays($event) {
+    this.selectedDays$ = $event.detail.value;
+  }
+
+  async addFarmacoPiano() {
+    const addAlert = await this.alertController.create({
+      header: 'Aggiungi farmaco',
+      message: `Vuoi aggiungere "${this.farmacoName} ${this.specifica.formato} ${this.specifica.quantita}gr" al piano?`,
+      buttons: [
+        {
+          text: 'Annulla',
+          role: 'cancel',
+          cssClass: 'secondary',
+          handler: (blah) => {
+            console.log('Confirm Cancel: ', blah);
+          }
+        },
+        {
+          text: 'Conferma',
+          handler: () => {
+            const medicina: AggiungiMedicina = {
+              idmedtype: this.idmedtype,
+              orario: this.selectedorarioassunzione$,
+              quantita: this.selectedquantitaassunzione$,
+              days: this.selectedDays$
+            };
+            this.pianoServices.addFarmacoPiano(this.idpiano, medicina);
+            this.modalCtrl.dismiss();
+          }
+        }
+      ]
+    });
+
+    await addAlert.present();
   }
 
   // async selectFormato() {

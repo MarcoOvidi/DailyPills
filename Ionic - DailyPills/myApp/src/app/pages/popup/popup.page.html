@@ -3,10 +3,10 @@
     <!--    <ion-searchbar placeholder="Cerca Medicina" animated (ionChange)="liveMedicineFilter($event)"></ion-searchbar>-->
     <ion-label class="nomeFarmaco" position="stacked">{{ farmacoName }}</ion-label>
     <br>
-    <ion-label class="descrizione">{{'DETTAGLI_AGGIUNTA_TAB' | translate }}</ion-label>
+    <ion-label class="descrizione">{{specifica.formato}} {{specifica.quantita}}gr</ion-label>
 
     <ion-buttons slot="end">
-      <ion-icon name="close"></ion-icon>
+      <ion-icon (click)="closeModal()" name="close"></ion-icon>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
@@ -16,24 +16,36 @@
       <ion-card>
         <ion-item>
           <ion-label>{{'ORARIO_ASSUNZIONE' | translate}}</ion-label>
-          <ion-datetime display-format="h:mm A" picker-format="h:mm A" value="1990-02-19T07:43Z"></ion-datetime>
+          <ion-datetime (ionChange)="selectOrario($event)" display-format="HH:mm" picker-format="HH:mm" value="{{selectedorarioassunzione$}}"></ion-datetime>
         </ion-item>
       </ion-card>
       <ion-card>
         <ion-item>
           <ion-label>{{'QUANTITA_ASSUNZIONE' | translate}}</ion-label>
-          <ion-select>
+          <ion-select (ionChange)="selectQuantita($event)">
             <ion-select-option>1/4</ion-select-option>
             <ion-select-option>1/3</ion-select-option>
+            <ion-select-option>1/2</ion-select-option>
             <ion-select-option selected>1</ion-select-option>
             <ion-select-option>2</ion-select-option>
             <ion-select-option>3</ion-select-option>
-            <ion-select-option>4</ion-select-option>
-            <ion-select-option>5</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-card><ion-card>
+        <ion-item>
+          <ion-label>{{'GIORNO_ASSUNZIONE' | translate}}</ion-label>
+          <ion-select (ionChange)="selectedMultipleDays($event)" multiple>
+            <ion-select-option selected>Lunedi</ion-select-option>
+            <ion-select-option>Martedi</ion-select-option>
+            <ion-select-option>Mercoledi</ion-select-option>
+            <ion-select-option>Giovedi</ion-select-option>
+            <ion-select-option>Venerdi</ion-select-option>
+            <ion-select-option>Sabato</ion-select-option>
+            <ion-select-option>Domenica</ion-select-option>
           </ion-select>
         </ion-item>
       </ion-card>
     </ion-col>
   </ion-row>
-  <ion-button  float-right>{{'ADD_BUTTON' | translate}}</ion-button>
+  <ion-button (click)="addFarmacoPiano()"  float-right>{{'ADD_BUTTON' | translate}}</ion-button>
 </ion-content>

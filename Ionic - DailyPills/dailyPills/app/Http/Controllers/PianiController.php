@@ -87,4 +87,45 @@ class PianiController extends Controller
         return response()->json(["success" => true, "message" => ["piano" => $piano->nome, "operation" => "Piano has been removed"]], 200);
     }
 
+    public function insertFarmaco($idpiano, Request $request) {
+
+        $messages = [
+            'required' => 'il campo :attribute non può essere vuoto',
+            'alpha' => 'il campo :attribute deve contenere solo caratteri',
+            'unique' => 'il campo :attribute è già presente nel sistema',
+            'min:8' => 'il campo :attribute deve contenere almeno 8 caratteri',
+            'alpha_num' => 'il campo :attribute deve contenere caratteri alfa-numerici',
+            'confirmed' => 'le password inserite non corrispondono'
+        ];
+
+        $this->validate($request, [
+            'idmedtype' => 'required',
+            'orario' => 'required',
+            'quantita' => 'required',
+            'days' => 'required',
+        ], $messages);
+
+        $user = User::where('api_token', $request->header('api_token'))->first();
+        $piano = Piani::where('id', $idpiano)
+            ->where('iduserpiano', $user->id)
+            ->first();
+
+        $piano->farmaci()->attach($request->input('idmedtype'), ["quantitagg" => $request->input('quantita'), "orarioassunzione" => $request->input('orario'), "giornosettimana" => "lunedi"]);
+
+        return response()->json(["success" => true, "message" => ["mess" => "Farmaco inserito correttamente"]], 200);
+
+    }
+
+    public function removeFarmaco($idpiano, $medid, Request $request) {
+        
+        $user = User::where('api_token', $request->header('api_token'))->first();
+        $idpiano = Piani::where('iduserpiano', $user->id)
+            ->where('id', $idpiano)
+            ->first();
+
+        $idpiano->farmaci()->detach($medid);
+
+        return response()->json(["success" => true, "message" => ["message" => "Farmaco rimosso correttamente"]], 200);
+    }
+
 }

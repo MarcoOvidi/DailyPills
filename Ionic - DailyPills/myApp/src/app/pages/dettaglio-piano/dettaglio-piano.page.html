@@ -8,8 +8,10 @@
 </ion-header>
 
 <ion-content color="light">
+  <ion-refresher slot="fixed" (ionRefresh)="refreshArmadietto($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
   <ion-card>
-
     <ion-grid>
       <ion-row>
         <ion-col size="5">
@@ -56,7 +58,7 @@
       <ion-item *virtualItem="let item">
         <ion-item-sliding>
           <ion-item-options side="start">
-            <ion-item-option color="danger" (click)="delete(item.farmaco)">{{ 'DELETE_BUTTON' | translate}}</ion-item-option>
+            <ion-item-option color="danger" (click)="delete(item)">{{ 'DELETE_BUTTON' | translate}}</ion-item-option>
           </ion-item-options>
           <ion-item (click)="farmacoDetailNav(item.farmaco)">
             <ion-thumbnail slot="start" style="height: 36px; !important; width: 36px; !important;">

@@ -37,7 +37,7 @@ export class ListaPianiPage implements OnInit {
           queryParams: {
               preferito: JSON.stringify(piano)
           }
-      };
+    };
 
    this.navController.navigateForward(['dettaglio-piano'], navigationExtras);
   }

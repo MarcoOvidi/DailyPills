@@ -27,7 +27,7 @@ export class ArmadiettoPage implements OnInit {
   }
 
   addFarmaco() {
-    this.navController.navigateForward('addfarmaco');
+    this.navController.navigateForward('tabs/armadietto/addFarmaco');
   }
 
   farmacoDetailNav(farmaco: Preferito) {
@@ -37,7 +37,7 @@ export class ArmadiettoPage implements OnInit {
       }
     };
 
-    this.navController.navigateForward(['dettaglio-farmaco'], navigationExtras);
+    this.navController.navigateForward(['tabs/armadietto/dettaglio'], navigationExtras);
   }
 
   /*

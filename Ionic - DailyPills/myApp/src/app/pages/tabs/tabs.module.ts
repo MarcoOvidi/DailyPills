@@ -32,6 +32,24 @@ const routes: Routes = [
         ]
       },
       {
+        path: 'armadietto/dettaglio',
+        children: [
+          {
+            path: '',
+            loadChildren: '../dettaglio-farmaco/dettaglio-farmaco.module#DettaglioFarmacoPageModule'
+          }
+        ]
+      },
+      {
+        path: 'armadietto/addFarmaco',
+        children: [
+          {
+            path: '',
+            loadChildren: '../addfarmaco/addfarmaco.module#AddfarmacoPageModule'
+          }
+        ]
+      },
+      {
         path: 'piani',
         children: [
           {

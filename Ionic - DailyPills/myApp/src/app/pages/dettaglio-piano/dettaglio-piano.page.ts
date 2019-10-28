@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute, NavigationExtras} from '@angular/router';
+import { ActivatedRoute, NavigationExtras } from '@angular/router';
 import { Piano } from '../../models/piano.model';
-import {AggiungiMedicina, PianoServices} from '../../services/piano.service';
+import { AggiungiMedicina, PianoServices } from '../../services/piano.service';
 import { Observable } from 'rxjs';
 import { FarmacoPiano } from '../../models/farmacopiano.model';
 import { Farmaco } from '../../models/farmaco.model';
@@ -39,7 +39,6 @@ export class DettaglioPianoPage implements OnInit {
     console.log(this.items);
   }
 
-  /*
   async delete(farmaco: FarmacoPiano) {
     const removeAlert = await this.alertCtrl.create({
       header: 'Rimuovi Farmaco',
@@ -66,12 +65,7 @@ export class DettaglioPianoPage implements OnInit {
     });
 
     await removeAlert.present();
-<<<<<<< HEAD
   }
-=======
-    this.pianoService.removeFarmaco(this.pianodetail.id, id);
-  }*/
->>>>>>> 25268c5c12d2709b0b76a7bdc436e8119f6628c1
 
   refreshArmadietto($event) {
     setTimeout(() => {

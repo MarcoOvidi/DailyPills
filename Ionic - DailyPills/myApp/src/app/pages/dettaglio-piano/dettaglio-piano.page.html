@@ -84,7 +84,7 @@
     <ion-list no-padding lines="full" *ngFor="let farmaco of farmacipiani$ | async" >
       <ion-item-sliding>
         <ion-item-options side="start">
-          <ion-item-option color="danger" (click)="delete(farmaco.farmaco)">{{ 'DELETE_BUTTON' | translate}}</ion-item-option>
+          <ion-item-option color="danger" (click)="delete(farmaco)">{{ 'DELETE_BUTTON' | translate}}</ion-item-option>
         </ion-item-options>
         <ion-item (click)="farmacoDetailNav(farmaco.farmaco)">
           <ion-thumbnail slot="start" style="height: 36px; !important; width: 36px; !important;">

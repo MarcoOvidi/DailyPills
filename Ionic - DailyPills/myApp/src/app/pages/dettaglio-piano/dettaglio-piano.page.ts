@@ -39,6 +39,7 @@ export class DettaglioPianoPage implements OnInit {
     console.log(this.items);
   }
 
+  /*
   async delete(farmaco: FarmacoPiano) {
     const removeAlert = await this.alertCtrl.create({
       header: 'Rimuovi Farmaco',
@@ -66,7 +67,7 @@ export class DettaglioPianoPage implements OnInit {
 
     await removeAlert.present();
     this.pianoService.removeFarmaco(this.pianodetail.id, id);
-  }
+  }*/
 
   refreshArmadietto($event) {
     setTimeout(() => {

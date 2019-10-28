@@ -116,5 +116,7 @@
   "GIORNO_ASSUNZIONE" : "Day/s",
 
   "SCEGLI_FORMATO" :  "Choose Format",
-  "SELEZIONA_QUANTITA" : "Select Quantity"
+  "SELEZIONA_QUANTITA" : "Select Quantity",
+
+  "EDIT_PIANO_TAB" : "Modifica Piano"
 }

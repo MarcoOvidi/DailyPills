@@ -1,17 +1,17 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
 
-import { NuovoPianoPage } from './nuovo-piano.page';
+import { EditInfoPianoPage } from './edit-info-piano.page';
 import {TranslateModule} from '@ngx-translate/core';
 
 const routes: Routes = [
   {
     path: '',
-    component: NuovoPianoPage
+    component: EditInfoPianoPage
   }
 ];
 
@@ -21,10 +21,8 @@ const routes: Routes = [
     FormsModule,
     IonicModule,
     RouterModule.forChild(routes),
-    TranslateModule.forChild(),
-    ReactiveFormsModule,
     TranslateModule.forChild()
   ],
-  declarations: [NuovoPianoPage]
+  declarations: [EditInfoPianoPage]
 })
-export class NuovoPianoPageModule {}
+export class EditInfoPianoPageModule {}

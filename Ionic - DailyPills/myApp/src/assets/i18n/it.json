@@ -117,6 +117,9 @@
   "GIORNO_ASSUNZIONE" : "Giorno/i",
 
   "SCEGLI_FORMATO" :  "Scegli formato",
-  "SELEZIONA_QUANTITA" : "Seleziona quantità"
+  "SELEZIONA_QUANTITA" : "Seleziona quantità",
+
+
+  "EDIT_PIANO_TAB" : "Modifica Piano"
 
 }

@@ -66,6 +66,7 @@ const routes: Routes = [
     loadChildren: './pages/scegli-farmaco/scegli-farmaco.module#ScegliFarmacoPageModule' ,
     canActivateChild: [AuthGuard]
   },
+  { path: 'edit-info-piano', loadChildren: './pages/edit-info-piano/edit-info-piano.module#EditInfoPianoPageModule' },
 ];
 @NgModule({
   imports: [

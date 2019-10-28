@@ -34,6 +34,10 @@ export class PianoServices {
         return this.http.get<Piano[]>(URL.PIANI, {});
     }
 
+    allfarmaci(): Observable<FarmacoPiano[]> {
+        return this.http.get<FarmacoPiano[]>(URL.ALL_FARMACI, {});
+    }
+
     createPiano(piano: AggiungiPiano): Observable<any> {
         return this.http.post<any>(URL.ADD_PIANO, piano);
     }

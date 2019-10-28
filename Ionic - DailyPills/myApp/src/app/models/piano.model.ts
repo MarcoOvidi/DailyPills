@@ -1,4 +1,4 @@
-import { Preferito } from './preferito.model';
+import { FarmacoPiano } from './farmacopiano.model';
 
 export class Piano {
     id: number;
@@ -6,6 +6,6 @@ export class Piano {
     fine: string;
     nome: string;
     descrizione: string;
-    farmaci: Preferito[];
+    farmaci: FarmacoPiano[];
 }
 

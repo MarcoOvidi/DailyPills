@@ -65,7 +65,6 @@ export class DettaglioPianoPage implements OnInit {
     });
 
     await removeAlert.present();
-    this.pianoService.removeFarmaco(this.pianodetail.id, id);
   }
 
   refreshArmadietto($event) {

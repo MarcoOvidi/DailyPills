@@ -21,6 +21,34 @@ class PianiController extends Controller
         return $piani;
     }
 
+    public function allFarmaciPianis(Request $request)
+    {
+        $user = User::where('api_token', $request->header('api_token'))->first();
+        $piani = Piani::where('iduserpiano', $user->id)->get();
+
+        $farmaci = array();
+
+        foreach ($piani as $piano) {
+            foreach ($piano->farmaci as $farmaco) {
+                $farmaco->farmaco;
+                $farmaco->specifica;
+                $farmaco->quantitagiorno = $farmaco->pivot->quantitagg;
+                $farmaco->orarioassunzione = $farmaco->pivot->orarioassunzione;
+                $farmaco->giornosettimana = $farmaco->pivot->giornosettimana;
+                $farmaci[] = $farmaco;
+            }
+        }
+
+        usort($farmaci, function($a, $b) {
+            $v1 = strtotime($a['orarioassunzione']);
+            $v2 = strtotime($b['orarioassunzione']);
+            return $v1 - $v2;
+        });
+
+        return $farmaci;
+    }
+
+
     public function farmaciPiano($idpiano, Request $request)
     {
         $user = User::where('api_token', $request->header('api_token'))->first();

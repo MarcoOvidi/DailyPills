@@ -118,5 +118,10 @@
   "SCEGLI_FORMATO" :  "Choose Format",
   "SELEZIONA_QUANTITA" : "Select Quantity",
 
-  "EDIT_PIANO_TAB" : "Modifica Piano"
+  "EDIT_PIANO_TAB" : "Edit Plan",
+
+  "TAB_1" : "Med Box",
+  "TAB_2" : "Plans",
+  "TAB_3" : "Home",
+  "TAB_4" : "Settings"
 }

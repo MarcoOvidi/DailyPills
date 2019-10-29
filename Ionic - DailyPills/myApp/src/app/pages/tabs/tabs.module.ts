@@ -6,6 +6,7 @@ import {Routes, RouterModule} from '@angular/router';
 import {IonicModule} from '@ionic/angular';
 
 import {TabsPage} from './tabs.page';
+import {TranslateModule} from '@ngx-translate/core';
 // import {TranslateModule} from '@ngx-translate/core';
 
 const routes: Routes = [
@@ -108,8 +109,8 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     IonicModule,
-    // TranslateModule.forChild(),
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    TranslateModule.forChild()
   ],
   declarations: [TabsPage]
 })

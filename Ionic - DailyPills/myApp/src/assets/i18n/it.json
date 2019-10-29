@@ -120,6 +120,11 @@
   "SELEZIONA_QUANTITA" : "Seleziona quantità",
 
 
-  "EDIT_PIANO_TAB" : "Modifica Piano"
+  "EDIT_PIANO_TAB" : "Modifica Piano",
+
+  "TAB_1" : "Armadietto",
+  "TAB_2" : "Piani",
+  "TAB_3" : "Home",
+  "TAB_4" : "Impostazioni"
 
 }

@@ -123,5 +123,8 @@
   "TAB_1" : "Med Box",
   "TAB_2" : "Plans",
   "TAB_3" : "Home",
-  "TAB_4" : "Settings"
+  "TAB_4" : "Settings",
+
+  "DETTAGLIO_PIANO_SUB_LEFT" : "Details",
+  "DETTAGLIO_PIANO_SUB_RIGHT" : "Medicines"
 }

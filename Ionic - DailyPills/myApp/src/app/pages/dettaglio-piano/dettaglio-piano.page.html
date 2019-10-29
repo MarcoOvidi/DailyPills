@@ -12,20 +12,16 @@
 
 <ion-tabs>
   <ion-tab-bar slot="top">
-    <ion-tab-button tab="schedule">
+    <ion-tab-button tab="left">
       <ion-icon name="calendar"></ion-icon>
-      <ion-label>Dettagli</ion-label>
+      <ion-label>{{'DETTAGLIO_PIANO_SUB_LEFT' | translate}}</ion-label>
     </ion-tab-button>
 
-    <ion-tab-button tab="speakers">
+    <ion-tab-button tab="right">
       <ion-icon name="list"></ion-icon>
-      <ion-label>Medicinali</ion-label>
+      <ion-label>{{'DETTAGLIO_PIANO_SUB_RIGHT' | translate}}</ion-label>
       <ion-badge>{{countFarmaci}}</ion-badge>
     </ion-tab-button>
   </ion-tab-bar>
 </ion-tabs>
-
-
-
-
 </ion-content>

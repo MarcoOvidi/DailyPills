@@ -1,6 +1,6 @@
 
 <ion-header translucent text-center>
-    <ion-toolbar color="primary">
+    <ion-toolbar color="primary" mode="ios">
         <ion-title color="light">{{'ARMADIETTO_TAB' | translate}}</ion-title>
     </ion-toolbar>
 </ion-header>
@@ -20,9 +20,9 @@
                       <img id="icon" src="assets/icon/pill.png">
                   </ion-thumbnail>
                   <ion-label>
-                      <h2>{{farmaco.farmaco.nome}}</h2>
-                      <p>{{ 'FORMATO' | translate}}: {{farmaco.specifica.formato}} {{farmaco.specifica.quantita}}gr</p>
-                      <p>{{ 'QUANTITA' | translate}}: {{farmaco.numero}} pezzi</p>
+                      <ion-text color="primary"><h2>{{farmaco.farmaco.nome}}</h2></ion-text>
+                      <p><ion-text color="dark">{{ 'FORMATO' | translate}}: </ion-text> <ion-text color="secondary">{{farmaco.specifica.formato}} {{farmaco.specifica.quantita}}gr </ion-text></p>
+                      <p><ion-text color="dark">{{ 'QUANTITA' | translate}}: </ion-text>  <ion-text color="secondary">{{farmaco.numero}} pezzi </ion-text></p>
                   </ion-label>
                   <ion-icon name="arrow-dropright"></ion-icon>
               </ion-item>

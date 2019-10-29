@@ -23,6 +23,15 @@ const routes: Routes = [
         ]
       },
       {
+        path: 'medicinePiano',
+        children: [
+          {
+            path: '',
+            loadChildren: '../dettaglio-piano-sub-tab-right/dettaglio-piano-sub-tab-right.module#DettaglioPianoSubTabRightPageModule'
+          }
+        ]
+      },
+      {
         path: '',
         redirectTo: '/tabs/piani/dettaglio-piano/dettaglio',
         pathMatch: 'full'

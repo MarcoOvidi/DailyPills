@@ -18,6 +18,7 @@ export class DettaglioPianoPage implements OnInit {
 
   private pianodetail: Piano;
   private farmacipiani$: Observable<FarmacoPiano[]>;
+  private countFarmaci : number;
 
   constructor(
       private route: ActivatedRoute,
@@ -31,7 +32,8 @@ export class DettaglioPianoPage implements OnInit {
       this.pianodetail = JSON.parse(params.preferito);
     });
     this.farmacipiani$ = this.pianoService.pianoFarmacis(this.pianodetail.id);
-    this.farmacipiani$.subscribe(val => this.items = val);
+    // this.farmacipiani$.subscribe(val => this.items = val);
+    this.farmacipiani$.subscribe(val => { this.items = val; this.countFarmaci = this.items.length });
   }
 
   farmacoDetailNav(farmaco: Farmaco) {

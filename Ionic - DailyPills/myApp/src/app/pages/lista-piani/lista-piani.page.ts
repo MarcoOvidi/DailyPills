@@ -69,7 +69,7 @@ export class ListaPianiPage implements OnInit {
     }
 
   addPiano() {
-    this.navController.navigateForward('nuovo-piano');
+    this.navController.navigateForward('tabs/piani/nuovo-piano');
   }
 
   update(piano: Piano) {

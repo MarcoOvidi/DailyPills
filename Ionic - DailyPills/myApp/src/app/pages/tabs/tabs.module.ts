@@ -68,6 +68,24 @@ const routes: Routes = [
         ]
       },
       {
+        path: 'piani/nuovo-piano',
+        children: [
+          {
+            path: '',
+            loadChildren: '../nuovo-piano/nuovo-piano.module#NuovoPianoPageModule'
+          }
+        ]
+      },
+      {
+        path: 'piani/dettaglio-piano/scegli-farmaco',
+        children: [
+          {
+            path: '',
+            loadChildren: '../scegli-farmaco/scegli-farmaco.module#ScegliFarmacoPageModule'
+          }
+        ]
+      },
+      {
         path: 'impostazioni',
         children: [
           {

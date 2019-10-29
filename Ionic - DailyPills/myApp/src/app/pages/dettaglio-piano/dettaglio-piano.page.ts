@@ -81,7 +81,7 @@ export class DettaglioPianoPage implements OnInit {
         preferito: JSON.stringify(this.pianodetail.id)
       }
     };
-    this.navCtrl.navigateForward(['/scegli-farmaco'], navigationExtras);
+    this.navCtrl.navigateForward(['tabs/piani/dettaglio-piano/scegli-farmaco'], navigationExtras);
   }
 
 }

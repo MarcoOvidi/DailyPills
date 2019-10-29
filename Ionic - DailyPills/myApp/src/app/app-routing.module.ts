@@ -27,11 +27,6 @@ const routes: Routes = [
     loadChildren: './pages/registration/registration.module#RegistrationPageModule'
   },
   {
-    path: 'dettaglio-farmaco',
-    loadChildren: './pages/dettaglio-farmaco/dettaglio-farmaco.module#DettaglioFarmacoPageModule',
-    canActivateChild: [AuthGuard]
-  },
-  {
     path: 'armadietto',
     loadChildren: './pages/armadietto/armadietto.module#ArmadiettoPageModule',
     canActivateChild: [AuthGuard]
@@ -54,11 +49,6 @@ const routes: Routes = [
   {
     path: 'impostazioni',
     loadChildren: './pages/impostazioni/impostazioni.module#ImpostazioniPageModule',
-    canActivateChild: [AuthGuard]
-  },
-  {
-    path: 'dettaglio-piano',
-    loadChildren: './pages/dettaglio-piano/dettaglio-piano.module#DettaglioPianoPageModule',
     canActivateChild: [AuthGuard]
   },
   {

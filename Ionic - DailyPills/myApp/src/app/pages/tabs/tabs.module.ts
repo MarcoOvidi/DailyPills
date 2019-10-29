@@ -59,6 +59,15 @@ const routes: Routes = [
         ]
       },
       {
+        path: 'piani/dettaglio-piano',
+        children: [
+          {
+            path: '',
+            loadChildren: '../dettaglio-piano/dettaglio-piano.module#DettaglioPianoPageModule'
+          }
+        ]
+      },
+      {
         path: 'impostazioni',
         children: [
           {

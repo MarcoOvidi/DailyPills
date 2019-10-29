@@ -10,7 +10,7 @@ import { TranslateModule } from '@ngx-translate/core';
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'piani/dettaglio-piano',
     component: DettaglioPianoPage,
     children: [
       {
@@ -23,11 +23,7 @@ const routes: Routes = [
         ]
       },
       {
-<<<<<<< HEAD
         path: 'farmaci',
-=======
-        path: 'medicinePiano',
->>>>>>> b4cf4ebaf9240ea5c2efbb0670088ac3843f5358
         children: [
           {
             path: '',
@@ -37,7 +33,7 @@ const routes: Routes = [
       },
       {
         path: '',
-        redirectTo: '/tabs/piani/dettaglio-piano/dettaglio',
+        redirectTo: 'tabs/piani/dettaglio-piano/dettaglio',
         pathMatch: 'full'
       }
   ]

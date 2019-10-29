@@ -10,6 +10,7 @@ export class DettaglioPianoSubTabRightPage implements OnInit {
   constructor() { }
 
   ngOnInit() {
+
   }
 
 }

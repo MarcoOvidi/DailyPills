@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
-    <ion-title color="light">{{pianodetail.nome}}</ion-title>
+    <ion-title color="light">Prova</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -12,15 +12,15 @@
 
 <ion-tabs>
   <ion-tab-bar slot="top">
-    <ion-tab-button tab="left">
+    <ion-tab-button tab="dettaglio">
       <ion-icon name="calendar"></ion-icon>
       <ion-label>{{'DETTAGLIO_PIANO_SUB_LEFT' | translate}}</ion-label>
     </ion-tab-button>
 
-    <ion-tab-button tab="right">
+    <ion-tab-button tab="farmaci">
       <ion-icon name="list"></ion-icon>
       <ion-label>{{'DETTAGLIO_PIANO_SUB_RIGHT' | translate}}</ion-label>
-      <ion-badge>{{countFarmaci}}</ion-badge>
+      <ion-badge>{{1}}</ion-badge>
     </ion-tab-button>
   </ion-tab-bar>
 </ion-tabs>

@@ -23,7 +23,11 @@ const routes: Routes = [
         ]
       },
       {
+<<<<<<< HEAD
         path: 'farmaci',
+=======
+        path: 'medicinePiano',
+>>>>>>> b4cf4ebaf9240ea5c2efbb0670088ac3843f5358
         children: [
           {
             path: '',

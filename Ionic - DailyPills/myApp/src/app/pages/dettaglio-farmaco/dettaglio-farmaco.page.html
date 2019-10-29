@@ -8,56 +8,46 @@
 
 </ion-header>
 
-<ion-content fullscreen color="light" padding-top="20">
+<ion-content fullscreen padding-top="20">
 
+  <!--
   <ion-avatar>
     <img  src="assets/icon/pillolaDettaglio.png">
-  </ion-avatar>
+  </ion-avatar>-->
   <ion-list lines="none">
 
-    <ion-card>
-      <ion-item>
-        <ion-icon name="color-fill" slot="start"></ion-icon>
-        <ion-label>{{ 'PRINCIPIO_ATTIVO' | translate }}</ion-label>
-      </ion-item>
+    <ion-item>
+      <!--<ion-icon name="color-fill" slot="end" color="primary"></ion-icon>-->
+      <ion-label>
+        <ion-label color="primary"><h2>{{ 'PRINCIPIO_ATTIVO' | translate }}</h2></ion-label>
+        <ion-label color="medium"><p>©: {{farmacodetail$.farmaco.principio}}</p></ion-label>
+      </ion-label>
+    </ion-item>
 
-      <ion-card-content>
-        {{farmacodetail$.farmaco.principio}}
-      </ion-card-content>
-    </ion-card>
+    <ion-item>
+      <!--<ion-icon name="logo-euro" slot="start" color="primary"></ion-icon>-->
+      <ion-label>
+        <ion-label color="primary"><h2>{{ 'DETTAGLI_DI_VENDITA' | translate }}</h2></ion-label>
+        <ion-label color="medium"><p>{{ 'DISPENSATO_DA' | translate }}  SSN</p></ion-label>
+        <ion-label color="medium"><p>{{ 'PREZZO' | translate }}: {{farmacodetail$.farmaco.prezzo}} €</p></ion-label>
+      </ion-label>
+    </ion-item>
 
-    <ion-card>
-      <ion-item>
-        <ion-icon name="logo-euro" slot="end"></ion-icon>
-        <ion-label>{{ 'DETTAGLI_DI_VENDITA' | translate }}</ion-label>
-      </ion-item>
+    <ion-item>
+      <!--<ion-icon name="contact" slot="start" color="primary"></ion-icon>-->
+      <ion-label>
+        <ion-label color="primary"><h2>{{ 'PRODUTTORE' | translate }}</h2></ion-label>
+        <ion-label color="medium"><p>{{farmacodetail$.farmaco.produttore}}</p></ion-label>
+      </ion-label>
+    </ion-item>
 
-      <ion-card-content>
-        <ion-text>{{ 'DISPENSATO_DA' | translate }}  SSN</ion-text><br>
-        <ion-text>{{ 'PREZZO' | translate }}: {{farmacodetail$.farmaco.prezzo}} €</ion-text>
-      </ion-card-content>
-    </ion-card>
+    <ion-item>
+      <!--<<ion-icon name="clipboard" slot="start" color="primary"></ion-icon>-->
+      <ion-label>
+        <ion-label color="primary"><h2>{{ 'MODALITA_PRESCRIZIONE' | translate }}</h2></ion-label>
+        <ion-label color="medium"><p>{{farmacodetail$.farmaco.modalita_prescrizione}}</p></ion-label>
+      </ion-label>
+    </ion-item>
 
-    <ion-card>
-      <ion-item>
-        <ion-icon name="contact" slot="start"></ion-icon>
-        <ion-label>{{ 'PRODUTTORE' | translate }}</ion-label>
-      </ion-item>
-
-      <ion-card-content>
-        {{farmacodetail$.farmaco.produttore}}
-      </ion-card-content>
-    </ion-card>
-
-    <ion-card>
-      <ion-item>
-        <ion-icon name="clipboard" slot="end"></ion-icon>
-        <ion-label>{{ 'MODALITA_PRESCRIZIONE' | translate }}</ion-label>
-      </ion-item>
-
-      <ion-card-content>
-        {{farmacodetail$.farmaco.modalita_prescrizione}}
-      </ion-card-content>
-    </ion-card>
   </ion-list>
 </ion-content>

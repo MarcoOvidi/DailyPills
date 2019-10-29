@@ -4,7 +4,7 @@
       <ion-col text-center="true">
         <div>
           <ion-label color="primary" align="center">Data Inizio</ion-label><br/>
-          <ion-label color="medium" style="font-size: 15px" align="center">10-11-2019</ion-label>
+          <ion-label color="medium" style="font-size: 15px" align="center">{{pianodetail.inizio}}</ion-label>
         </div>
       </ion-col>
       <ion-col size="2" text-center>
@@ -13,14 +13,16 @@
       <ion-col text-center="true">
         <div>
           <ion-label color="primary" align="center">Data Fine</ion-label><br/>
-          <ion-label color="medium"  align="center" style="font-size: 15px">10-11-2019</ion-label>
+          <ion-label color="medium"  align="center" style="font-size: 15px">{{pianodetail.fine}}</ion-label>
         </div>
       </ion-col>
     </ion-row>
     <ion-row>
       <ion-col text-center="true" size="5">
         <ion-label color="primary">Descrizione</ion-label><br/>
+        <ion-text>{{pianodetail.descrizione}}</ion-text>
       </ion-col>
+
     </ion-row>
     <ion-button size="large" expand="full">EDIT</ion-button>
   </ion-grid>

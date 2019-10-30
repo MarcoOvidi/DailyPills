@@ -39,7 +39,7 @@ export class ListaPianiPage implements OnInit {
           }
     };
 
-   this.navController.navigateForward(['piani/dettaglio-piano'], navigationExtras);
+   this.navController.navigateForward(['tabs/piani/dettaglio-piano']);
   }
 
     async delete(piano: Piano) {

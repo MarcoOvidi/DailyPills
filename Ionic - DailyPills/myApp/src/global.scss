@@ -37,3 +37,11 @@ ion-toolbar {
 .bold {
   font-weight: bold;
 }
+
+.slider {
+  height: 100%;
+}
+.slide-container {
+  height: 100vh;
+  // height: calc(100vh - 43px) if you have a header bar that is 43px tall
+}

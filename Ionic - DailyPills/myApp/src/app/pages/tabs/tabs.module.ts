@@ -29,23 +29,13 @@ const routes: Routes = [
           {
             path: '',
             loadChildren: '../armadietto/armadietto.module#ArmadiettoPageModule'
-          }
-        ]
-      },
-      {
-        path: 'armadietto/dettaglio',
-        children: [
+          },
           {
-            path: '',
+            path: 'dettaglio',
             loadChildren: '../dettaglio-farmaco/dettaglio-farmaco.module#DettaglioFarmacoPageModule'
-          }
-        ]
-      },
-      {
-        path: 'armadietto/addFarmaco',
-        children: [
+          },
           {
-            path: '',
+            path: 'addFarmaco',
             loadChildren: '../addfarmaco/addfarmaco.module#AddfarmacoPageModule'
           }
         ]
@@ -56,45 +46,35 @@ const routes: Routes = [
           {
             path: '',
             loadChildren: '../lista-piani/lista-piani.module#ListaPianiPageModule'
-          }
-        ]
-      },
-      {
-        path: 'piani/dettaglio-piano',
-        children: [
+          },
           {
-            path: '',
+            path: 'dettaglio-piano',
             loadChildren: '../dettaglio-piano/dettaglio-piano.module#DettaglioPianoPageModule'
-          }
-        ]
-      },
-      {
-        path: 'piani/nuovo-piano',
-        children: [
+          },
           {
-            path: '',
+            path: 'nuovo-piano',
             loadChildren: '../nuovo-piano/nuovo-piano.module#NuovoPianoPageModule'
           }
         ]
       },
-      {
-        path: 'piani/dettaglio-piano/farmaci',
-        children: [
-          {
-            path: '',
-            loadChildren: '../dettaglio-piano-sub-tab-right/dettaglio-piano-sub-tab-right.module#DettaglioPianoSubTabRightPageModule'
-          }
-        ]
-      },
-      {
-        path: 'piani/dettaglio-piano/dettaglio',
-        children: [
-          {
-            path: '',
-            loadChildren: '../dettaglio-piano-sub-tab-left/dettaglio-piano-sub-tab-left.module#DettaglioPianoSubTabLeftPageModule'
-          }
-        ]
-      },
+      // {
+      //   path: 'piani/dettaglio-piano/farmaci',
+      //   children: [
+      //     {
+      //       path: '',
+      //       loadChildren: '../dettaglio-piano-sub-tab-right/dettaglio-piano-sub-tab-right.module#DettaglioPianoSubTabRightPageModule'
+      //     }
+      //   ]
+      // },
+      // {
+      //   path: 'piani/dettaglio-piano/dettaglio',
+      //   children: [
+      //     {
+      //       path: '',
+      //       loadChildren: '../dettaglio-piano-sub-tab-left/dettaglio-piano-sub-tab-left.module#DettaglioPianoSubTabLeftPageModule'
+      //     }
+      //   ]
+      // },
       {
         path: 'piani/dettaglio-piano/scegli-farmaco',
         children: [

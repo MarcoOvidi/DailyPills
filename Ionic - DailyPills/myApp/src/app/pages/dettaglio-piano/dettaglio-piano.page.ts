@@ -28,6 +28,7 @@ export class DettaglioPianoPage implements OnInit{
   ) {}
 
   ngOnInit() {
+    console.log("VARIABILE",this.pianodetail)
     this.route.queryParams.subscribe(params => {
       this.pianodetail = JSON.parse(params.preferito);
     });

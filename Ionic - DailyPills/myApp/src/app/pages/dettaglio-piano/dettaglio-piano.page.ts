@@ -35,7 +35,6 @@ export class DettaglioPianoPage implements OnInit {
       console.log(params.preferito);
     });
     this.farmacipiani$ = this.pianoService.pianoFarmacis(this.pianodetail.id);
-    // this.farmacipiani$.subscribe(val => this.items = val);
     this.farmacipiani$.subscribe(val => { this.items = val; this.countFarmaci = this.items.length; });
     this.showLeftTab = true;
   }

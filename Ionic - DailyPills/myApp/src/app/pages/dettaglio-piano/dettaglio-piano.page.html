@@ -4,43 +4,6 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content fullscreen>
-  <ion-slides pager="true" [options]="slideOpts">
-    <ion-slide>
-        <ion-grid>
-          <ion-row>
-            <ion-col text-center="true">
-              <div>
-                <ion-label color="primary" align="center">Data Inizio</ion-label><br/>
-                <ion-label color="medium" style="font-size: 15px" align="center">{{'2019-20-12'}}</ion-label>
-              </div>
-            </ion-col>
-            <ion-col size="2" text-center>
-              <ion-icon id="calendario" name="calendar" color="primary"></ion-icon>
-            </ion-col>
-            <ion-col text-center="true">
-              <div>
-                <ion-label color="primary" align="center">Data Fine</ion-label><br/>
-                <ion-label color="medium"  align="center" style="font-size: 15px">{{'2019-20-12'}}</ion-label>
-              </div>
-            </ion-col>
-          </ion-row>
-          <ion-row>
-            <ion-col text-center="true" size="5">
-              <ion-label color="primary">Descrizione</ion-label><br/>
-              <ion-text>{{'descrizione'}}</ion-text>
-            </ion-col>
-
-<<<<<<< HEAD
-          </ion-row>
-          <ion-button size="large" expand="full">EDIT</ion-button>
-        </ion-grid>
-    </ion-slide>
-    <ion-slide>
-      <h1>Slide 2</h1>
-    </ion-slide>
-  </ion-slides>
-=======
 <ion-content>
 
   <ion-grid>
@@ -67,7 +30,7 @@
         <ion-col text-center="true">
           <div>
             <ion-label color="primary" align="center">Data Inizio</ion-label><br/>
-            <ion-label color="medium" style="font-size: 15px" align="center">{{pianodetail.inizio}}</ion-label>
+            <ion-label color="medium" style="font-size: 15px" align="center">{{visualizeDate(pianodetail.inizio)}}</ion-label>
           </div>
         </ion-col>
         <ion-col size="2" text-center>
@@ -76,7 +39,7 @@
         <ion-col text-center="true">
           <div>
             <ion-label color="primary" align="center">Data Fine</ion-label><br/>
-            <ion-label color="medium"  align="center" style="font-size: 15px">{{pianodetail.fine}}</ion-label>
+            <ion-label color="medium"  align="center" style="font-size: 15px">{{visualizeDate(pianodetail.fine)}}</ion-label>
           </div>
         </ion-col>
       </ion-row>
@@ -172,8 +135,4 @@
     </ion-tab-button>
   </ion-tab-bar>
 </ion-tabs>-->
-
-
-
->>>>>>> c548a2ab93df3f2b5859e69ee6702b146bb0ebed
 </ion-content>

@@ -31,6 +31,7 @@
               <ion-text>{{'descrizione'}}</ion-text>
             </ion-col>
 
+<<<<<<< HEAD
           </ion-row>
           <ion-button size="large" expand="full">EDIT</ion-button>
         </ion-grid>
@@ -39,4 +40,140 @@
       <h1>Slide 2</h1>
     </ion-slide>
   </ion-slides>
+=======
+<ion-content>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col text-center="true">
+        <ion-tab-button (click)="changeTab(true)">
+          <ion-icon name="calendar"></ion-icon>
+          <ion-label>{{'DETTAGLIO_PIANO_SUB_LEFT' | translate}}</ion-label>
+        </ion-tab-button>
+      </ion-col>
+      <ion-col text-center="true">
+        <ion-tab-button (click)="changeTab(false)">
+          <ion-icon name="list"></ion-icon>
+          <ion-label>{{'DETTAGLIO_PIANO_SUB_RIGHT' | translate}}</ion-label>
+          <ion-badge>{{1}}</ion-badge>
+        </ion-tab-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <div *ngIf="showLeftTab">
+    <ion-grid>
+      <ion-row style="border-bottom: 1px solid black">
+        <ion-col text-center="true">
+          <div>
+            <ion-label color="primary" align="center">Data Inizio</ion-label><br/>
+            <ion-label color="medium" style="font-size: 15px" align="center">{{pianodetail.inizio}}</ion-label>
+          </div>
+        </ion-col>
+        <ion-col size="2" text-center>
+          <ion-icon id="calendario" name="calendar" color="primary"></ion-icon>
+        </ion-col>
+        <ion-col text-center="true">
+          <div>
+            <ion-label color="primary" align="center">Data Fine</ion-label><br/>
+            <ion-label color="medium"  align="center" style="font-size: 15px">{{pianodetail.fine}}</ion-label>
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col text-center="true" size="5">
+          <ion-label color="primary">Descrizione</ion-label><br/>
+          <ion-text>{{pianodetail.descrizione}}</ion-text>
+        </ion-col>
+
+      </ion-row>
+      <ion-button size="large" expand="full">EDIT</ion-button>
+    </ion-grid>
+
+
+    <ion-card>
+      <ion-grid>
+        <ion-row>
+          <ion-col size="5">
+            <ion-label color="primary" position="floating">{{ 'DATA_INIZIO_PIANO' | translate }}</ion-label>
+          </ion-col>
+          <ion-col size="5">
+            {{pianodetail.inizio}}
+          </ion-col>
+          <ion-col size="2">
+            <ion-icon name="calendar" color="primary"></ion-icon>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col size="5">
+            <ion-label color="primary" position="floating">{{ 'DATA_FINE_PIANO' | translate }}</ion-label>
+          </ion-col>
+          <ion-col size="5">
+            {{pianodetail.fine}}
+          </ion-col>
+          <ion-col size="2">
+            <ion-icon name="calendar" color="primary"></ion-icon>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col size="5">
+            <ion-label color="primary" position="floating">{{ 'DESCRIZIONE_PIANO' | translate}}</ion-label>
+          </ion-col>
+          <ion-col size="5">
+            {{pianodetail.descrizione}}
+          </ion-col>
+          <ion-col size="2">
+            <ion-icon name="calendar" color="primary"></ion-icon>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card>
+  </div>
+
+  <div *ngIf="!showLeftTab">
+    <ion-list no-padding lines="full" *ngFor="let farmaco of farmacipiani$ | async" >
+      <ion-item-sliding>
+        <ion-item-options side="start">
+          <ion-item-option color="danger" (click)="delete(farmaco)">{{ 'DELETE_BUTTON' | translate}}</ion-item-option>
+        </ion-item-options>
+        <ion-item (click)="farmacoDetailNav(farmaco.farmaco)">
+          <ion-thumbnail slot="start" style="height: 36px; !important; width: 36px; !important;">
+            <img id="icon" src="assets/icon/pill.png">
+          </ion-thumbnail>
+          <ion-label>
+            <h2>{{farmaco.farmaco.nome}}</h2>
+            <p>{{ 'FORMATO' | translate}}: {{farmaco.specifica.formato}} {{farmaco.specifica.quantita}}gr</p>
+            <p>Quantità giornaliera: {{farmaco.quantitagiorno}} pezzi</p>
+            <p>Giorno Settimana: {{farmaco.giornosettimana}}</p>
+            <p>Orario assunzione: {{farmaco.orarioassunzione}}</p>
+          </ion-label>
+          <ion-icon name="arrow-dropright"></ion-icon>
+        </ion-item>
+      </ion-item-sliding>
+    </ion-list>
+  </div>
+
+
+
+  <!-- NON CANCELLARE
+<ion-tabs>
+  <ion-tab-bar slot="top">
+    <ion-tab-button tab="dettaglio">
+      <ion-icon name="calendar"></ion-icon>
+      <ion-label>{{'DETTAGLIO_PIANO_SUB_LEFT' | translate}}</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="medicinePiano">
+      <ion-icon name="list"></ion-icon>
+      <ion-label>{{'DETTAGLIO_PIANO_SUB_RIGHT' | translate}}</ion-label>
+      <ion-badge>{{1}}</ion-badge>
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-tabs>-->
+
+
+
+>>>>>>> c548a2ab93df3f2b5859e69ee6702b146bb0ebed
 </ion-content>

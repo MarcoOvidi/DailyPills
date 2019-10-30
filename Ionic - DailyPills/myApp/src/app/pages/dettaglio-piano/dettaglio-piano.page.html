@@ -1,13 +1,15 @@
 <ion-header translucent text-center>
   <ion-toolbar color="primary" mode="ios">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
     <ion-title color="light">{{'ARMADIETTO_TAB' | translate}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-
+<ion-content scrollY="false">
   <ion-grid>
-    <ion-row>
+    <ion-row style="box-shadow: 0 8px 6px -6px #eee;">
       <ion-col text-center="true">
         <ion-tab-button (click)="changeTab(true)">
           <ion-icon name="calendar"></ion-icon>
@@ -24,9 +26,11 @@
     </ion-row>
   </ion-grid>
 
+
+<ion-content>
   <div *ngIf="showLeftTab">
     <ion-grid>
-      <ion-row style="border-bottom: 1px solid black">
+      <ion-row>
         <ion-col text-center="true">
           <div>
             <ion-label color="primary" align="center">Data Inizio</ion-label><br/>
@@ -54,45 +58,6 @@
     </ion-grid>
 
 
-    <ion-card>
-      <ion-grid>
-        <ion-row>
-          <ion-col size="5">
-            <ion-label color="primary" position="floating">{{ 'DATA_INIZIO_PIANO' | translate }}</ion-label>
-          </ion-col>
-          <ion-col size="5">
-            {{pianodetail.inizio}}
-          </ion-col>
-          <ion-col size="2">
-            <ion-icon name="calendar" color="primary"></ion-icon>
-          </ion-col>
-        </ion-row>
-
-        <ion-row>
-          <ion-col size="5">
-            <ion-label color="primary" position="floating">{{ 'DATA_FINE_PIANO' | translate }}</ion-label>
-          </ion-col>
-          <ion-col size="5">
-            {{pianodetail.fine}}
-          </ion-col>
-          <ion-col size="2">
-            <ion-icon name="calendar" color="primary"></ion-icon>
-          </ion-col>
-        </ion-row>
-
-        <ion-row>
-          <ion-col size="5">
-            <ion-label color="primary" position="floating">{{ 'DESCRIZIONE_PIANO' | translate}}</ion-label>
-          </ion-col>
-          <ion-col size="5">
-            {{pianodetail.descrizione}}
-          </ion-col>
-          <ion-col size="2">
-            <ion-icon name="calendar" color="primary"></ion-icon>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-    </ion-card>
   </div>
 
   <div *ngIf="!showLeftTab">
@@ -106,18 +71,19 @@
             <img id="icon" src="assets/icon/pill.png">
           </ion-thumbnail>
           <ion-label>
-            <h2>{{farmaco.farmaco.nome}}</h2>
-            <p>{{ 'FORMATO' | translate}}: {{farmaco.specifica.formato}} {{farmaco.specifica.quantita}}gr</p>
-            <p>Quantità giornaliera: {{farmaco.quantitagiorno}} pezzi</p>
-            <p>Giorno Settimana: {{farmaco.giornosettimana}}</p>
-            <p>Orario assunzione: {{farmaco.orarioassunzione}}</p>
+            <ion-text color="primary"><h2>{{farmaco.farmaco.nome}}</h2></ion-text>
+            <p><ion-text color="dark">{{ 'FORMATO' | translate}} : </ion-text> <ion-text color="medium"> {{farmaco.specifica.formato}} {{farmaco.specifica.quantita}}gr</ion-text></p>
+            <p><ion-text color="dark">Quantità giornaliera : </ion-text> <ion-text color="medium">{{farmaco.quantitagiorno}} pezzi </ion-text></p>
+            <p><ion-text color="dark">Giorno Settimana : </ion-text> <ion-text color="medium">{{farmaco.giornosettimana}}</ion-text></p>
+            <p><ion-text color="dark">Orario assunzione : </ion-text> <ion-text color="medium">{{farmaco.orarioassunzione}}</ion-text></p>
           </ion-label>
           <ion-icon name="arrow-dropright"></ion-icon>
         </ion-item>
       </ion-item-sliding>
     </ion-list>
-  </div>
 
+  </div>
+</ion-content></ion-content>
 
 
   <!-- NON CANCELLARE
@@ -135,4 +101,3 @@
     </ion-tab-button>
   </ion-tab-bar>
 </ion-tabs>-->
-</ion-content>

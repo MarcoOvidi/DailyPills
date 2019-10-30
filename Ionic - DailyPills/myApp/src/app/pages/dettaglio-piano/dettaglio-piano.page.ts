@@ -8,6 +8,7 @@ import { AlertController, NavController } from '@ionic/angular';
 import { Farmaco } from '../../models/farmaco.model';
 import * as moment from 'moment';
 
+
 @Component({
   selector: 'app-dettaglio-piano',
   templateUrl: './dettaglio-piano.page.html',

@@ -20,6 +20,10 @@ const routes: Routes = [
           {
             path: '',
             loadChildren: '../homepage/homepage.module#HomepagePageModule'
+          },
+          {
+            path: 'dettaglio-assunzione',
+            loadChildren: '../dettaglio-assunzione/dettaglio-assunzione.module#DettaglioAssunzionePageModule'
           }
         ]
       },

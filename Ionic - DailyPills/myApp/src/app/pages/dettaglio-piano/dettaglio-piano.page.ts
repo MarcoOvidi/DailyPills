@@ -5,7 +5,6 @@ import { Observable } from 'rxjs';
 import { ActivatedRoute, NavigationExtras } from '@angular/router';
 import { PianoServices } from '../../services/piano.service';
 import { AlertController, NavController } from '@ionic/angular';
-import { Farmaco } from '../../models/farmaco.model';
 import * as moment from 'moment';
 
 
@@ -45,10 +44,16 @@ export class DettaglioPianoPage implements OnInit {
     this.showLeftTab = left;
   }
 
-  farmacoDetailNav(farmaco: Farmaco) {
-    console.log('detail');
-    console.log(this.items);
+  farmacoDetailNav(farmaco: FarmacoPiano) {
+    const navigationExtras: NavigationExtras = {
+      queryParams: {
+        farmacoPiano: JSON.stringify(farmaco)
+      }
+    };
+
+    this.navCtrl.navigateForward(['tabs/homepage/dettaglio-assunzione'], navigationExtras);
   }
+
 
   async delete(farmaco: FarmacoPiano) {
     const removeAlert = await this.alertCtrl.create({
@@ -78,13 +83,13 @@ export class DettaglioPianoPage implements OnInit {
     await removeAlert.present();
   }
 
-  refreshArmadietto($event) {
-    setTimeout(() => {
-      this.farmacipiani$ = this.pianoService.pianoFarmacis(this.pianodetail.id);
-      this.farmacipiani$.subscribe(val => this.items = val);
-      $event.target.complete();
-    }, 1500);
-  }
+  // refreshArmadietto($event) {
+  //   setTimeout(() => {
+  //     this.farmacipiani$ = this.pianoService.pianoFarmacis(this.pianodetail.id);
+  //     this.farmacipiani$.subscribe(val => this.items = val);
+  //     $event.target.complete();
+  //   }, 1500);
+  // }
 
   addFarmacoPianoNavigate() {
     const navigationExtras: NavigationExtras = {

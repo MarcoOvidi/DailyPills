@@ -19,8 +19,8 @@
     <ion-item>
       <!--<ion-icon name="contact" slot="start" color="primary"></ion-icon>-->
       <ion-label>
-        <ion-label color="primary"><h2>{{'NOME'| translate}}</h2></ion-label>x
-        <ion-label color="medium"><p>Tachipirina</p></ion-label>
+        <ion-label color="primary"><h2>{{'NOME'| translate}}</h2></ion-label>
+        <ion-label color="medium"><p>{{farmacoassunzionedetail$.farmaco.nome}}</p></ion-label>
       </ion-label>
     </ion-item>
 
@@ -28,7 +28,7 @@
         <!--<<ion-icon name="clipboard" slot="start" color="primary"></ion-icon>-->
         <ion-label>
           <ion-label color="primary"><h2>{{'FORMATO'| translate}}</h2></ion-label>
-          <ion-label color="medium"><p>bho bho bho </p></ion-label>
+          <ion-label color="medium"><p>{{farmacoassunzionedetail$.specifica.formato}} {{farmacoassunzionedetail$.specifica.quantita}}gr</p></ion-label>
         </ion-label>
       </ion-item>
 
@@ -36,7 +36,7 @@
       <!--<<ion-icon name="clipboard" slot="start" color="primary"></ion-icon>-->
       <ion-label>
         <ion-label color="primary"><h2>{{'ORARIO'| translate}}</h2></ion-label>
-        <ion-label color="medium"><p>18:00</p></ion-label>
+        <ion-label color="medium"><p>{{farmacoassunzionedetail$.orarioassunzione}}</p></ion-label>
       </ion-label>
     </ion-item>
 
@@ -44,7 +44,7 @@
         <!--<<ion-icon name="clipboard" slot="start" color="primary"></ion-icon>-->
         <ion-label>
           <ion-label color="primary"><h2>{{'QUANTITA'| translate}}</h2></ion-label>
-          <ion-label color="medium"><p>2pz</p></ion-label>
+          <ion-label color="medium"><p>{{farmacoassunzionedetail$.quantitagiorno}}pz</p></ion-label>
         </ion-label>
       </ion-item>
 
@@ -52,7 +52,7 @@
         <!--<<ion-icon name="clipboard" slot="start" color="primary"></ion-icon>-->
         <ion-label>
           <ion-label color="primary"><h2>{{'GIORNO'| translate}}</h2></ion-label>
-          <ion-label color="medium"><p>lunedi</p></ion-label>
+          <ion-label color="medium"><p>{{farmacoassunzionedetail$.giornosettimana}}</p></ion-label>
         </ion-label>
       </ion-item>
 

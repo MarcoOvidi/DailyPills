@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
+import {FarmacoPiano} from '../../models/farmacopiano.model';
 
 @Component({
   selector: 'app-dettaglio-assunzione',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DettaglioAssunzionePage implements OnInit {
 
-  constructor() { }
+  private farmacoassunzionedetail$: FarmacoPiano;
+
+  constructor(
+      private route: ActivatedRoute,
+  ) { }
 
   ngOnInit() {
+    this.route.queryParams.subscribe(params => {
+      this.farmacoassunzionedetail$ = JSON.parse(params.farmacoPiano);
+    });
   }
 
 }

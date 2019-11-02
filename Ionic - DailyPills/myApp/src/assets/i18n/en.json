@@ -126,5 +126,12 @@
   "TAB_4" : "Settings",
 
   "DETTAGLIO_PIANO_SUB_LEFT" : "Details",
-  "DETTAGLIO_PIANO_SUB_RIGHT" : "Medicines"
+  "DETTAGLIO_PIANO_SUB_RIGHT" : "Medicines",
+
+  "DETTAGLIO_ASSUNZIONE_TAB" : "Details",
+  "NOME" : "Medicine",
+  "FORMATO" : "Format",
+  "ORARIO" : "Schedule",
+  "QUANTITA" : "Quantity",
+  "GIORNO" : "Day"
 }

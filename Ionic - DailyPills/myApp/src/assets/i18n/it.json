@@ -128,6 +128,13 @@
   "TAB_4" : "Impostazioni",
 
   "DETTAGLIO_PIANO_SUB_LEFT" : "Dettagli",
-  "DETTAGLIO_PIANO_SUB_RIGHT" : "Medicine"
+  "DETTAGLIO_PIANO_SUB_RIGHT" : "Medicine",
+
+  "DETTAGLIO_ASSUNZIONE_TAB" : "Dettagli",
+  "NOME" : "Farmaco",
+  "FORMATO" : "Formato",
+  "ORARIO" : "Orario di Assunzione",
+  "QUANTITA" : "Quantità",
+  "GIORNO" : "Giorno"
 
 }

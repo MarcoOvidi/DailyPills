@@ -1,0 +1,34 @@
+
+#ih {
+  background-color: var(--ion-color-primary)
+}
+#it {
+  font-size: 20px;
+}
+
+ion-item{
+  --border-color: #F00;
+  --border-style: solid;
+  --border-radius: 10px;
+}
+
+div {
+  width: 88%;
+  height: 88%;
+  position: absolute;
+  z-index: 1000;
+}
+
+ion-thumbnail {
+  width: 90px;
+  height: 90px;
+  margin: auto;
+}
+
+ion-list {
+  background-color: transparent;
+}
+
+ion-card-content {
+  background-color: white;
+}

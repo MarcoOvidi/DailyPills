@@ -85,6 +85,24 @@ const routes: Routes = [
         ]
       },
       {
+        path: 'homepage/dettaglio-assunzione',
+        children: [
+          {
+            path: '',
+            loadChildren: '../dettaglio-assunzione/dettaglio-assunzione.module#DettaglioAssunzionePageModule'
+          }
+        ]
+      },
+      {
+        path: 'piani/dettaglio-piano/dettaglio-assunzione',
+        children: [
+          {
+            path: '',
+            loadChildren: '../dettaglio-assunzione/dettaglio-assunzione.module#DettaglioAssunzionePageModule'
+          }
+        ]
+      },
+      {
         path: 'impostazioni',
         children: [
           {

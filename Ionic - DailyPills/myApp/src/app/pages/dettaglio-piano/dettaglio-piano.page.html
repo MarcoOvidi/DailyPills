@@ -107,12 +107,18 @@
     </div>
 
     <div *ngIf="(farmacipiani$ | async)?.length==0 && !showLeftTab">
-      <ion-thumbnail padding-top="5">
-        <img  src="assets/icon/medication.png">
-      </ion-thumbnail>
-      <ion-text text-center="true" color="medium">
-        Non hai medicinali collegati al piano, premi il + per aggiungerne uno!
-      </ion-text>
+      <ion-item lines="none" text-center="true">
+        <ion-text text-center="true" color="primary">
+          Non hai medicinali collegati al piano
+        </ion-text>
+      </ion-item>
+      <ion-item lines="none" text-center="true">
+        <ion-text text-center="true" color="medium">
+          Premi il <ion-icon name="add-circle"></ion-icon> per aggiungerne uno.
+        </ion-text>
+      </ion-item>
+
+
     </div>
   <ion-fab horizontal="end" vertical="bottom" slot="fixed" *ngIf="!showLeftTab">
     <ion-fab-button (click)="addFarmacoPianoNavigate()" color="primary">

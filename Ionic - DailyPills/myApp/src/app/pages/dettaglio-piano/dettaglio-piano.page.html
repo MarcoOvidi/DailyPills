@@ -106,7 +106,7 @@
       </ion-list>
     </div>
 
-    <div *ngIf="(farmacipiani$ | async)?.length==0">
+    <div *ngIf="(farmacipiani$ | async)?.length==0 && !showLeftTab">
       Non ci sono medicinali collegati al piano. Aggiungili !
     </div>
   <ion-fab horizontal="end" vertical="bottom" slot="fixed" *ngIf="!showLeftTab">

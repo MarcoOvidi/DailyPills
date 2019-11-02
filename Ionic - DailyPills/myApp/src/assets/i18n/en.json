@@ -134,5 +134,7 @@
   "FORMATO" : "Format",
   "ORARIO" : "Schedule",
   "QUANTITA" : "Quantity",
-  "GIORNO" : "Day"
+  "GIORNO" : "Day",
+
+  "NO_MED_PIANO" : "No medicines in the plan ... add one"
 }

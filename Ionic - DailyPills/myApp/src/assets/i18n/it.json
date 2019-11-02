@@ -136,6 +136,8 @@
   "FORMATO" : "Formato",
   "ORARIO" : "Orario di Assunzione",
   "QUANTITA" : "Quantità",
-  "GIORNO" : "Giorno"
+  "GIORNO" : "Giorno",
+
+  "NO_MED_PIANO" : "Non hai medicinali nel piano ... aggiungine uno"
 
 }

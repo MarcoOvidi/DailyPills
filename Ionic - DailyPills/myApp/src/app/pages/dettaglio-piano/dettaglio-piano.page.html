@@ -107,7 +107,12 @@
     </div>
 
     <div *ngIf="(farmacipiani$ | async)?.length==0 && !showLeftTab">
-      Non ci sono medicinali collegati al piano. Aggiungili !
+      <ion-thumbnail padding-top="5">
+        <img  src="assets/icon/medication.png">
+      </ion-thumbnail>
+      <ion-text text-center="true" color="medium">
+        Non hai medicinali collegati al piano, premi il + per aggiungerne uno!
+      </ion-text>
     </div>
   <ion-fab horizontal="end" vertical="bottom" slot="fixed" *ngIf="!showLeftTab">
     <ion-fab-button (click)="addFarmacoPianoNavigate()" color="primary">

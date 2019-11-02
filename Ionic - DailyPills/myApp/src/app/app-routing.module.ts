@@ -68,6 +68,7 @@ const routes: Routes = [
     path: 'dettaglio-piano-sub-tab-right',
     loadChildren: './pages/dettaglio-piano-sub-tab-right/dettaglio-piano-sub-tab-right.module#DettaglioPianoSubTabRightPageModule'
   },
+  { path: 'dettaglio-assunzione', loadChildren: './pages/dettaglio-assunzione/dettaglio-assunzione.module#DettaglioAssunzionePageModule' },
 ];
 @NgModule({
   imports: [

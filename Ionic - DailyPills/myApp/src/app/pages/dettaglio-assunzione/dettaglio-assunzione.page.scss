@@ -32,3 +32,15 @@ ion-list {
 ion-card-content {
   background-color: white;
 }
+
+
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+li {
+  -webkit-padding-start: 0;
+  padding: 0;
+  list-style-type: none;
+  color: #989aa2;
+}

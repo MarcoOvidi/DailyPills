@@ -8,6 +8,7 @@
   "DELETE_BUTTON": "Elimina",
   "UPDATE_BUTTON": "Modifica",
   "ADD_BUTTON" : "Aggiungi",
+  "EDIT_BUTTON" : "Modifica",
 
   "LOGIN_TITLE": "Login",
   "LOGIN_ERROR_TITLE": "Errore Login",

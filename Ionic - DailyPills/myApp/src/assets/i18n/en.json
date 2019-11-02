@@ -7,6 +7,7 @@
   "CANCEL_BUTTON": "Cancel",
   "DELETE_BUTTON": "Delete",
   "ADD_BUTTON" : "Add",
+  "EDIT_BUTTON" : "Edit",
 
   "LOGIN_TITLE": "Login",
   "LOGIN_ERROR_TITLE": "Login error",

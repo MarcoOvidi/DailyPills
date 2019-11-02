@@ -42,50 +42,48 @@
 <ion-content>
     <div *ngIf="showLeftTab">
       <ion-grid>
-        <ion-row>
+        <ion-row padding-top="3">
           <ion-col text-center="true">
-            <ion-text color="primary" style="font-size: 12px;">Piano Terapeutico</ion-text>
+            <ion-text class="labelPiano" color="primary">Piano Terapeutico</ion-text>
           </ion-col>
         </ion-row>
         <ion-row style="box-shadow: 0 8px 6px -6px #eee;">
           <ion-col text-center="true">
-            <ion-text color="medium" style="font-size: 20px; font-weight: 400;">{{pianodetail.nome}}</ion-text>
+            <ion-text color="medium"class="data">{{pianodetail.nome}}</ion-text>
           </ion-col>
         </ion-row>
-        <ion-row style="box-shadow: 0 8px 6px -6px #eee;">
+        <ion-row style="box-shadow: 0 8px 6px -6px #eee;" padding-top="3">
           <ion-col text-center="true">
             <div>
-              <ion-label color="primary" align="center" style="font-size: 14px;">Data Inizio</ion-label><br/>
-              <ion-label color="medium" style="font-size: 13px" align="center">{{visualizeDate(pianodetail.inizio)}}</ion-label>
+              <ion-label color="primary" align="center" class="labelPiano">Data Inizio</ion-label><br/>
+              <ion-label color="medium" class="data" align="center">{{visualizeDate(pianodetail.inizio)}}</ion-label>
             </div>
           </ion-col>
           <ion-col size="2" text-center>
-            <ion-icon id="calendario" name="calendar" style="font-size: 45px" color="medium"></ion-icon>
+            <ion-icon id="calendario" name="calendar" class="icon" color="medium"></ion-icon>
           </ion-col>
           <ion-col text-center="true">
             <div>
-              <ion-label color="primary" align="center" style="font-size: 14px;">Data Fine</ion-label><br/>
-              <ion-label color="medium"  align="center" style="font-size: 13px">{{visualizeDate(pianodetail.fine)}}</ion-label>
+              <ion-label color="primary" align="center" class="labelPiano">Data Fine</ion-label><br/>
+              <ion-label color="medium"  align="center" class="data">{{visualizeDate(pianodetail.fine)}}</ion-label>
             </div>
           </ion-col>
         </ion-row>
-        <ion-row>
-          <ion-col size="5" text-center>
-            <ion-label color="primary" style="font-size: 14px;">Descrizione</ion-label><br/>
-
+        <ion-row padding-top="3">
+          <ion-col text-center>
+            <ion-label color="primary" class="labelPiano">Descrizione</ion-label><br/>
           </ion-col>
-          <ion-col size="12">
+          <ion-col size="12" text-center="true">
             <ion-text color="medium">{{pianodetail.descrizione}}</ion-text>
-
           </ion-col>
         </ion-row>
-        <ion-button  style="position: absolute; left: 0; right: 0; bottom: 20px" size="large" expand="full">EDIT</ion-button>
+        <ion-button id="editB">EDIT</ion-button>
       </ion-grid>
 
 
     </div>
 
-    <div *ngIf="!showLeftTab">
+    <div *ngIf="!showLeftTab && farmacipiani$">
       <ion-list no-padding lines="full" *ngFor="let farmaco of farmacipiani$ | async" >
         <ion-item-sliding>
           <ion-item-options side="start">
@@ -106,6 +104,10 @@
           </ion-item>
         </ion-item-sliding>
       </ion-list>
+    </div>
+
+    <div *ngIf="(farmacipiani$ | async)?.length==0">
+      Non ci sono medicinali collegati al piano. Aggiungili !
     </div>
   <ion-fab horizontal="end" vertical="bottom" slot="fixed" *ngIf="!showLeftTab">
     <ion-fab-button (click)="addFarmacoPianoNavigate()" color="primary">

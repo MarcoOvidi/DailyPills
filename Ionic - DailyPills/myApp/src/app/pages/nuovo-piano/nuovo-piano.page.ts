@@ -60,7 +60,7 @@ export class NuovoPianoPage implements OnInit {
             parameters.inizio = moment(parameters.inizio, 'YYYY-MM-DD').format('YYYY-MM-DD');
             parameters.fine =  moment(parameters.fine, 'YYYY-MM-DD').format('YYYY-MM-DD');
             this.pianoService.createPiano(parameters).subscribe((val) => {
-              this.navCtrl.navigateBack('lista-piani');
+              this.navCtrl.navigateBack('/tabs/piani');
             }, ((err: HttpErrorResponse) => {
               alert.dismiss();
               this.showInsertPianoErrore(err);

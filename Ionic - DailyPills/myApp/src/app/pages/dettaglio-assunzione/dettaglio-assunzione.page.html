@@ -52,7 +52,11 @@
         <!--<<ion-icon name="clipboard" slot="start" color="primary"></ion-icon>-->
         <ion-label>
           <ion-label color="primary"><h2>{{'GIORNO'| translate}}</h2></ion-label>
-          <ion-label color="medium"><p>{{farmacoassunzionedetail$.giornosettimana}}</p></ion-label>
+          <ul>
+            <li *ngFor="let giorno of days$">
+              {{ giorno }}
+            </li>
+          </ul>
         </ion-label>
       </ion-item>
 

@@ -103,4 +103,8 @@ export class DettaglioPianoPage implements OnInit {
   visualizeDate(date: string) {
     return moment(date, 'YYYY-MM-DD').format('LL');
   }
+
+  replace(giorni: string) {
+    return giorni.replace(/;/gi, ', ');
+  }
 }

@@ -18,7 +18,7 @@ export interface AggiungiMedicina {
     idmedtype: number;
     orario: string;
     quantita: string;
-    days: string[];
+    days: string;
 }
 
 @Injectable({

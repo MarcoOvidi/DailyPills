@@ -97,7 +97,7 @@
               <ion-text color="primary"><h2>{{farmaco.farmaco.nome}}</h2></ion-text>
               <p><ion-text color="dark">{{ 'FORMATO' | translate}} : </ion-text> <ion-text color="medium"> {{farmaco.specifica.formato}} {{farmaco.specifica.quantita}}gr</ion-text></p>
               <p><ion-text color="dark">Quantità giornaliera : </ion-text> <ion-text color="medium">{{farmaco.quantitagiorno}} pezzi </ion-text></p>
-              <p><ion-text color="dark">Giorno Settimana : </ion-text> <ion-text color="medium">{{farmaco.giornosettimana}}</ion-text></p>
+              <p><ion-text color="dark">Giorno Settimana : </ion-text> <ion-text color="medium">{{replace(farmaco.giornosettimana)}}</ion-text></p>
               <p><ion-text color="dark">Orario assunzione : </ion-text> <ion-text color="medium">{{farmaco.orarioassunzione}}</ion-text></p>
             </ion-label>
             <ion-icon name="arrow-dropright"></ion-icon>

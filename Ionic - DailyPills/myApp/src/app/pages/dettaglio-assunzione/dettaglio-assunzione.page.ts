@@ -10,6 +10,7 @@ import {FarmacoPiano} from '../../models/farmacopiano.model';
 export class DettaglioAssunzionePage implements OnInit {
 
   private farmacoassunzionedetail$: FarmacoPiano;
+  private days$: string[];
 
   constructor(
       private route: ActivatedRoute,
@@ -19,6 +20,7 @@ export class DettaglioAssunzionePage implements OnInit {
     this.route.queryParams.subscribe(params => {
       this.farmacoassunzionedetail$ = JSON.parse(params.farmacoPiano);
     });
+    this.days$ = this.farmacoassunzionedetail$.giornosettimana.split(';');
   }
 
 }

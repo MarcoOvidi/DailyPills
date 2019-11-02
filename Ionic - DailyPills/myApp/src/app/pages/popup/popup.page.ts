@@ -20,7 +20,7 @@ export class PopupPage implements OnInit {
 
   private selectedorarioassunzione$: string;
   private selectedquantitaassunzione$: string;
-  private selectedDays$: string[];
+  private selectedDays$: string;
 
   constructor(
       private modalCtrl: ModalController,
@@ -33,7 +33,6 @@ export class PopupPage implements OnInit {
   ngOnInit(): void {
     this.selectedorarioassunzione$ = moment(new Date(), 'YYYY-MM-DD HH:mm').format('HH:mm');
     this.selectedquantitaassunzione$ = '1';
-    this.selectedDays$ = ['Lunedi'];
   }
 
   closeModal() {
@@ -49,7 +48,12 @@ export class PopupPage implements OnInit {
   }
 
   selectedMultipleDays($event) {
-    this.selectedDays$ = $event.detail.value;
+    let stringBuilder = '';
+    const last = $event.detail.value.pop();
+    $event.detail.value.forEach((day) => {
+      stringBuilder = stringBuilder.concat(`${day};`);
+    });
+    this.selectedDays$ = stringBuilder.concat(last);
   }
 
   async addFarmacoPiano() {

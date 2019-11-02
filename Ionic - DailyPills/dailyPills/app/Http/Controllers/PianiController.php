@@ -138,7 +138,7 @@ class PianiController extends Controller
             ->where('iduserpiano', $user->id)
             ->first();
 
-        $piano->farmaci()->attach($request->input('idmedtype'), ["quantitagg" => $request->input('quantita'), "orarioassunzione" => $request->input('orario'), "giornosettimana" => "lunedi"]);
+        $piano->farmaci()->attach($request->input('idmedtype'), ["quantitagg" => $request->input('quantita'), "orarioassunzione" => $request->input('orario'), "giornosettimana" => $request->input('days')]);
 
         return response()->json(["success" => true, "message" => ["mess" => "Farmaco inserito correttamente"]], 200);
 

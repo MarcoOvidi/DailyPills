@@ -12,16 +12,18 @@
     <ion-list-header>
       <ion-text color="primary">{{farmaco.orarioassunzione}}</ion-text>
     </ion-list-header>
-    <ion-item (click)="farmacoDetailNav(farmaco)">
-      <ion-thumbnail slot="start" style="height: 36px; !important; width: 36px; !important;">
+    <ion-item>
+      <ion-thumbnail slot="start" style="height: 36px; !important; width: 36px; !important;" (click)="farmacoDetailNav(farmaco)">
         <img id="icon" src="assets/icon/pill.png">
       </ion-thumbnail>
-      <ion-label>
+      <ion-label (click)="farmacoDetailNav(farmaco)">
         <h2>{{farmaco.farmaco.nome}}</h2>
         <p>©: {{farmaco.specifica.formato}} {{farmaco.specifica.quantita}}gr</p>
         <p>#: {{farmaco.quantitagiorno}} pezzi</p>
       </ion-label>
-      <ion-icon name="arrow-dropright"></ion-icon>
+      <ion-item>
+        <ion-checkbox></ion-checkbox>
+      </ion-item>
     </ion-item>
   </ion-list>
 </ion-content>

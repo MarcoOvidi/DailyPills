@@ -42,6 +42,10 @@ export class PianoServices {
         return this.http.post<any>(URL.ADD_PIANO, piano);
     }
 
+    modifyPiano(piano: AggiungiPiano, idpiano): Observable<any> {
+        return this.http.post<any>(`${URL.MODIFY_PIANO}/${idpiano}`, piano);
+    }
+
     pianoFarmacis(idpiano: number): Observable<FarmacoPiano[]> {
         return this.http.get<FarmacoPiano[]>(`${URL.PIANO_FARMACIS}/${idpiano}`, {});
     }

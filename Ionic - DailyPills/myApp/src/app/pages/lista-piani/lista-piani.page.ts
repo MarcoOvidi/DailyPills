@@ -73,7 +73,13 @@ export class ListaPianiPage implements OnInit {
   }
 
   update(piano: Piano) {
-      console.log('updated');
+      const navigationExtras: NavigationExtras = {
+          queryParams: {
+              preferito: JSON.stringify(piano)
+          }
+      };
+
+      this.navController.navigateForward(['tabs/piani/update'], navigationExtras);
   }
 
 }

@@ -83,14 +83,6 @@ export class DettaglioPianoPage implements OnInit {
     await removeAlert.present();
   }
 
-  // refreshArmadietto($event) {
-  //   setTimeout(() => {
-  //     this.farmacipiani$ = this.pianoService.pianoFarmacis(this.pianodetail.id);
-  //     this.farmacipiani$.subscribe(val => this.items = val);
-  //     $event.target.complete();
-  //   }, 1500);
-  // }
-
   addFarmacoPianoNavigate() {
     const navigationExtras: NavigationExtras = {
       queryParams: {
@@ -107,4 +99,15 @@ export class DettaglioPianoPage implements OnInit {
   replace(giorni: string) {
     return giorni.replace(/;/gi, ', ');
   }
+
+   update(piano: Piano) {
+        const navigationExtras: NavigationExtras = {
+            queryParams: {
+                preferito: JSON.stringify(piano)
+            }
+        };
+
+        this.navCtrl.navigateForward(['tabs/piani/update'], navigationExtras);
+    }
+
 }

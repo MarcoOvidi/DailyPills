@@ -58,27 +58,13 @@ const routes: Routes = [
           {
             path: 'nuovo-piano',
             loadChildren: '../nuovo-piano/nuovo-piano.module#NuovoPianoPageModule'
+          },
+          {
+            path: 'update',
+            loadChildren: '../edit-info-piano/edit-info-piano.module#EditInfoPianoPageModule'
           }
         ]
       },
-      // {
-      //   path: 'piani/dettaglio-piano/farmaci',
-      //   children: [
-      //     {
-      //       path: '',
-      //       loadChildren: '../dettaglio-piano-sub-tab-right/dettaglio-piano-sub-tab-right.module#DettaglioPianoSubTabRightPageModule'
-      //     }
-      //   ]
-      // },
-      // {
-      //   path: 'piani/dettaglio-piano/dettaglio',
-      //   children: [
-      //     {
-      //       path: '',
-      //       loadChildren: '../dettaglio-piano-sub-tab-left/dettaglio-piano-sub-tab-left.module#DettaglioPianoSubTabLeftPageModule'
-      //     }
-      //   ]
-      // },
       {
         path: 'piani/dettaglio-piano/scegli-farmaco',
         children: [

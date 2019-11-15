@@ -13,26 +13,7 @@ const routes: Routes = [
   {
     path: '',
     component: DettaglioPianoPage,
-    children: [
-      {
-        path: 'dettaglio',
-        children: [
-          {
-            path: '',
-            loadChildren: '../dettaglio-piano-sub-tab-left/dettaglio-piano-sub-tab-left.module#DettaglioPianoSubTabLeftPageModule'
-          }
-        ]
-      },
-      {
-        path: 'farmaci',
-        children: [
-          {
-            path: '',
-            loadChildren: '../dettaglio-piano-sub-tab-right/dettaglio-piano-sub-tab-right.module#DettaglioPianoSubTabRightPageModule'
-          }
-        ]
-      },
-    ]
+    children: []
     }
 ];
 

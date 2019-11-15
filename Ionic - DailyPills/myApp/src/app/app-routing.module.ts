@@ -61,14 +61,7 @@ const routes: Routes = [
     loadChildren: './pages/edit-info-piano/edit-info-piano.module#EditInfoPianoPageModule'
   },
   {
-    path: 'dettaglio-piano-sub-tab-left',
-    loadChildren: './pages/dettaglio-piano-sub-tab-left/dettaglio-piano-sub-tab-left.module#DettaglioPianoSubTabLeftPageModule'
-  },
-  {
-    path: 'dettaglio-piano-sub-tab-right',
-    loadChildren: './pages/dettaglio-piano-sub-tab-right/dettaglio-piano-sub-tab-right.module#DettaglioPianoSubTabRightPageModule'
-  },
-  { path: 'dettaglio-assunzione',
+    path: 'dettaglio-assunzione',
     loadChildren: './pages/dettaglio-assunzione/dettaglio-assunzione.module#DettaglioAssunzionePageModule'
   },
 ];

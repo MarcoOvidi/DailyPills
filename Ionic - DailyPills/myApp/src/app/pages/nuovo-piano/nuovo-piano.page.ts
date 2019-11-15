@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import {AlertController, NavController} from '@ionic/angular';
+import { AlertController, NavController } from '@ionic/angular';
 import { AggiungiPiano, PianoServices } from '../../services/piano.service';
-import {HttpErrorResponse} from '@angular/common/http';
+import { HttpErrorResponse } from '@angular/common/http';
 import * as moment from 'moment';
 
 @Component({

@@ -77,7 +77,7 @@
             <ion-text color="medium">{{pianodetail.descrizione}}</ion-text>
           </ion-col>
         </ion-row>
-        <ion-button id="editB">{{'EDIT_BUTTON'| translate}}</ion-button>
+        <ion-button (click)="update(pianodetail)" id="editB">{{'EDIT_BUTTON'| translate}}</ion-button>
       </ion-grid>
 
 

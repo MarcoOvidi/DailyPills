@@ -20,7 +20,8 @@ export const URL = {
     INSERT_FARMACO_PIANO: URL_BASE + '/insertfarmaco',
     REMOVE_FARMACO_PIANO: URL_BASE + '/removefarmaco',
     ALL_FARMACI: URL_BASE + '/allfarmacipiano',
-    MODIFY_PIANO: URL_BASE + '/modifypiano'
+    MODIFY_PIANO: URL_BASE + '/modifypiano',
+    CONFIRM: URL_BASE + '/assunzione'
 };
 
 export const AUTH_TOKEN = 'api_token';

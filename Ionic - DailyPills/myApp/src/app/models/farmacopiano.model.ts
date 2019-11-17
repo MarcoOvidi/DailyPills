@@ -7,6 +7,6 @@ export class FarmacoPiano {
     orarioassunzione: string;
     giornosettimana: string;
     farmaco: Farmaco;
-    assunto: boolean;
+    assunto: number;
     specifica: Specifica;
 }

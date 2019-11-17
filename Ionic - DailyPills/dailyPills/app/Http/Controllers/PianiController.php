@@ -34,6 +34,7 @@ class PianiController extends Controller
             foreach ($piano->farmaci as $farmaco) {
                 $farmaco->farmaco;
                 $farmaco->specifica;
+                $farmaco->id = $farmaco->pivot->id;
                 $farmaco->quantitagiorno = $farmaco->pivot->quantitagg;
                 $farmaco->orarioassunzione = $farmaco->pivot->orarioassunzione;
                 $farmaco->giornosettimana = $farmaco->pivot->giornosettimana;

@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import * as moment from 'moment';
-import { PianoServices } from '../../services/piano.service';
+import { PianoServices} from '../../services/piano.service';
 import { Observable } from 'rxjs';
 import { FarmacoPiano } from '../../models/farmacopiano.model';
 import { NavigationExtras } from '@angular/router';
-import { NavController } from '@ionic/angular';
-import {map} from 'rxjs/operators';
+import { AlertController, NavController } from '@ionic/angular';
+import {HttpErrorResponse} from '@angular/common/http';
+import {validate} from 'codelyzer/walkerFactory/walkerFn';
 
 @Component({
   selector: 'app-homepage',
@@ -16,10 +17,13 @@ export class HomepagePage implements OnInit {
 
   private todaystring$: string;
   private farmacipiani$: Observable<FarmacoPiano[]>;
+  private arrayFarmaci: FarmacoPiano[];
+  private progressBar: number;
 
   constructor(
       private pianoService: PianoServices,
-      private navController: NavController
+      private navController: NavController,
+      private altCtrl: AlertController
   ) {
     this.farmacipiani$ = this.pianoService.allfarmaci();
   }
@@ -27,12 +31,20 @@ export class HomepagePage implements OnInit {
   ngOnInit() {
     moment.locale('it');
     this.todaystring$ = moment(new Date()).format('LL');
-    this.farmacipiani$.subscribe((val) => val);
+    this.farmacipiani$.subscribe((val) => {
+      this.arrayFarmaci = val;
+      this.progressCounter();
+    });
+    this.progressBar = 0;
   }
 
   refreshHome(event) {
     setTimeout(() => {
       this.farmacipiani$ = this.pianoService.allfarmaci();
+      this.farmacipiani$.subscribe((val) => {
+        this.arrayFarmaci = val;
+        this.progressCounter();
+      });
       event.target.complete();
     }, 1500);
   }
@@ -48,17 +60,65 @@ export class HomepagePage implements OnInit {
   }
 
     addAssunzione(id: number) {
-      console.log(id);
-      this.farmacipiani$.pipe(
-            map((farmaco: FarmacoPiano[]) => {
-              return farmaco.map((farmacosin) => {
-                // if (farmacosin.id === id) {
-                //   farmacosin.assunto = true;
-                // }
-              });
-            })
-        );
+    console.log(id);
+    this.arrayFarmaci.map((farm) => {
+        if (farm.id === id) {
+          farm.assunto = 1;
+        }
+        console.log(farm.assunto);
+        return farm;
+      });
+    this.progressCounter();
     }
+
+    async alertAssunzione(id: number) {
+      const alert = await this.altCtrl.create({
+        header: 'Conferma assunzione',
+        message: 'Sei sicuro di voler confermare l\'assunzione?',
+        buttons: [
+          {
+            text: 'Annulla',
+            role: 'cancel',
+            cssClass: 'secondary',
+            handler: () => {
+              console.log('Piano non inserito');
+            }
+          },
+          {
+            text: 'Conferma',
+            handler: () => {
+              this.addAssunzione(id);
+              this.pianoService.confirmAssunzione(id).subscribe((val) => {
+                console.log('Assunto', val);
+              }, (err: HttpErrorResponse) => {
+                alert.dismiss();
+                this.showAssunzioneError(err);
+              });
+            }
+          }
+        ]
+      });
+
+      await alert.present();
+    }
+
+    progressCounter() {
+      let count = 0;
+      this.arrayFarmaci.forEach((val) => {
+          if (val.assunto === 1) { count += 1; }
+      });
+      this.progressBar = (count === 0) ? 0 : (((100 / this.arrayFarmaci.length) * count) / 100);
+    }
+
+  async showAssunzioneError(error: HttpErrorResponse) {
+    const errorAlert = await this.altCtrl.create({
+      header: 'Errore conferma assunzione',
+      message: Object.values(error).toLocaleString(),
+      buttons: ['OK']
+    });
+
+    await errorAlert.present();
+  }
 
 
 }

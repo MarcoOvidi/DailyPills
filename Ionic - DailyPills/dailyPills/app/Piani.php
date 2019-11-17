@@ -26,7 +26,7 @@ class Piani extends Model
     public function farmaci()
     {
         return $this->belongsToMany(MedType::class, 'pianisfarmaci', 'idpiano', 'idmedtype')
-            ->withPivot('quantitagg', 'orarioassunzione', 'giornosettimana', 'assunto');
+            ->withPivot('quantitagg', 'orarioassunzione', 'giornosettimana', 'assunto', 'id');
     }
 
     public function user() {

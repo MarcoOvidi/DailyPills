@@ -71,7 +71,7 @@ export class HomepagePage implements OnInit {
     this.progressCounter();
     }
 
-    async alertAssunzione(id: number) {
+    async alertAssunzione(id: number, medtype: number) {
       const alert = await this.altCtrl.create({
         header: 'Conferma assunzione',
         message: 'Sei sicuro di voler confermare l\'assunzione?',
@@ -88,7 +88,7 @@ export class HomepagePage implements OnInit {
             text: 'Conferma',
             handler: () => {
               this.addAssunzione(id);
-              this.pianoService.confirmAssunzione(id).subscribe((val) => {
+              this.pianoService.confirmAssunzione(id, medtype).subscribe((val) => {
                 console.log('Assunto', val);
               }, (err: HttpErrorResponse) => {
                 alert.dismiss();

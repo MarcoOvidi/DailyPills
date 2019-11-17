@@ -68,8 +68,8 @@ export class PianoServices {
         });
     }
 
-    confirmAssunzione(idMed: number): Observable<any> {
-        return this.http.get<any>(`${URL.CONFIRM}/${idMed}`, {});
+    confirmAssunzione(idMed: number, medtype: number): Observable<any> {
+        return this.http.get<any>(`${URL.CONFIRM}/${idMed}/${medtype}`, {});
     }
 
 }

@@ -9,4 +9,5 @@ export class FarmacoPiano {
     farmaco: Farmaco;
     assunto: number;
     specifica: Specifica;
+    medtype: number;
 }

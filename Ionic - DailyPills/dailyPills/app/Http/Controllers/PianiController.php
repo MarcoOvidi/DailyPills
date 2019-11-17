@@ -34,6 +34,7 @@ class PianiController extends Controller
             foreach ($piano->farmaci as $farmaco) {
                 $farmaco->farmaco;
                 $farmaco->specifica;
+                $farmaco->medtype = $farmaco->id;
                 $farmaco->id = $farmaco->pivot->id;
                 $farmaco->quantitagiorno = $farmaco->pivot->quantitagg;
                 $farmaco->orarioassunzione = $farmaco->pivot->orarioassunzione;
@@ -193,11 +194,19 @@ class PianiController extends Controller
         return response()->json(["success" => true, "message" => ["message" => "Farmaco rimosso correttamente"]], 200);
     }
 
-    public function confirmAssunzione($idfarmacopiano, Request $request) {
+    public function confirmAssunzione($idfarmacopiano, $medtype, Request $request) {
+
+        $user = User::where('api_token', $request->header('api_token'))->first();
 
         DB::table('pianisfarmaci')
             ->where('id', $idfarmacopiano)
             ->update(array("assunto" => 1));
+
+        DB::table('userfarmacis')
+            ->where('idfarmacotype', $medtype)
+            ->where('iduser', $user->id)
+            ->decrement('quantity', 1 );
+
 
         return response()->json(["success" => true, "message" => ["mess" => "Farmaco assunto"]], 200);
 

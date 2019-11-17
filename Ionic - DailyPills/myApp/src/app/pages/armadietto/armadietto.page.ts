@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
 import { Specifica } from '../../models/specifica.model';
 import { NavigationExtras } from '@angular/router';
 import {$EOF} from 'codelyzer/angular/styles/chars';
+import {TranslateService} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-armadietto',
@@ -19,7 +20,8 @@ export class ArmadiettoPage implements OnInit {
   constructor(
       private navController: NavController,
       private farmacoServices: FarmacoServices,
-      private alertController: AlertController
+      private alertController: AlertController,
+      private tsService: TranslateService,
   ) { }
 
   ngOnInit() {
@@ -53,11 +55,11 @@ export class ArmadiettoPage implements OnInit {
 
   async delete(farmaco: Preferito) {
     const alert = await this.alertController.create({
-      header: 'Elimina farmaco',
-      message: `Sei sicuro di voler eliminare ${farmaco.farmaco.nome} ${farmaco.specifica.formato} ${farmaco.specifica.quantita}gr?`,
+      header: this.tsService.instant('ELIMINA_FARMACO_ARMADIETTO'),
+      message: `${this.tsService.instant('MSG_ELIMINA_FARMACO_ARMADIETTO')} ${farmaco.farmaco.nome} ${farmaco.specifica.formato} ${farmaco.specifica.quantita}gr?`,
       buttons: [
         {
-          text: 'Annulla',
+          text: this.tsService.instant('CANCEL_BUTTON'),
           role: 'cancel',
           cssClass: 'secondary',
           handler: (blah) => {
@@ -65,7 +67,7 @@ export class ArmadiettoPage implements OnInit {
           }
         },
         {
-          text: 'Conferma',
+          text: this.tsService.instant('CONFIRMATION_BUTTON'),
           handler: () => {
             this.farmacoServices.deleteFarmaco(farmaco.id);
             this.listfavorites$ = this.farmacoServices.favoritesFarmaci();

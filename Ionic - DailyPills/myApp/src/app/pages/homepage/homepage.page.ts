@@ -7,6 +7,7 @@ import { NavigationExtras } from '@angular/router';
 import { AlertController, NavController } from '@ionic/angular';
 import {HttpErrorResponse} from '@angular/common/http';
 import {validate} from 'codelyzer/walkerFactory/walkerFn';
+import {TranslateService} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-homepage',
@@ -23,7 +24,8 @@ export class HomepagePage implements OnInit {
   constructor(
       private pianoService: PianoServices,
       private navController: NavController,
-      private altCtrl: AlertController
+      private altCtrl: AlertController,
+      private tsService: TranslateService,
   ) {
     this.farmacipiani$ = this.pianoService.allfarmaci();
   }
@@ -73,11 +75,11 @@ export class HomepagePage implements OnInit {
 
     async alertAssunzione(id: number) {
       const alert = await this.altCtrl.create({
-        header: 'Conferma assunzione',
-        message: 'Sei sicuro di voler confermare l\'assunzione?',
+        header: this.tsService.instant('CONFERMA_ASSUNZIONE'),
+        message: this.tsService.instant('MSG_CONFERMA_ASSUNZIONE'),
         buttons: [
           {
-            text: 'Annulla',
+            text: this.tsService.instant('CANCEL_BUTTON'),
             role: 'cancel',
             cssClass: 'secondary',
             handler: () => {
@@ -85,7 +87,7 @@ export class HomepagePage implements OnInit {
             }
           },
           {
-            text: 'Conferma',
+            text: this.tsService.instant('CONFIRMATION_BUTTON'),
             handler: () => {
               this.addAssunzione(id);
               this.pianoService.confirmAssunzione(id).subscribe((val) => {
@@ -112,9 +114,9 @@ export class HomepagePage implements OnInit {
 
   async showAssunzioneError(error: HttpErrorResponse) {
     const errorAlert = await this.altCtrl.create({
-      header: 'Errore conferma assunzione',
+      header: this.tsService.instant('ERRORE_CONFERMA_ASSUNZIONE')
       message: Object.values(error).toLocaleString(),
-      buttons: ['OK']
+      buttons: [this.tsService.instant('OK_BTN')]
     });
 
     await errorAlert.present();

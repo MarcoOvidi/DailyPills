@@ -6,6 +6,7 @@ import { ActivatedRoute, NavigationExtras } from '@angular/router';
 import { PianoServices } from '../../services/piano.service';
 import { AlertController, NavController } from '@ionic/angular';
 import * as moment from 'moment';
+import {TranslateService} from '@ngx-translate/core';
 
 
 @Component({
@@ -25,7 +26,8 @@ export class DettaglioPianoPage implements OnInit {
       private route: ActivatedRoute,
       private pianoService: PianoServices,
       private navCtrl: NavController,
-      private alertCtrl: AlertController
+      private alertCtrl: AlertController,
+      private tsService: TranslateService,
   ) {}
 
   ngOnInit() {
@@ -58,12 +60,12 @@ export class DettaglioPianoPage implements OnInit {
 
   async delete(farmaco: FarmacoPiano) {
     const removeAlert = await this.alertCtrl.create({
-      header: 'Rimuovi Farmaco',
+      header: this.tsService.instant('ELIMINA_FARMACO_ARMADIETTO'),
       // tslint:disable-next-line:max-line-length
-      message: `Sei sicuro di voler rimuovere "${farmaco.farmaco.nome} ${farmaco.specifica.formato} ${farmaco.specifica.quantita}gr" dal piano "${this.pianodetail.nome}"?`,
+      message: `${this.tsService.instant('MSG_ELIMINA_FARMACO_ARMADIETTO')} "${farmaco.farmaco.nome} ${farmaco.specifica.formato} ${farmaco.specifica.quantita}gr" dal piano "${this.pianodetail.nome}"?`,
       buttons: [
         {
-          text: 'Annulla',
+          text: this.tsService.instant('CANCEL_BUTTON'),
           role: 'cancel',
           cssClass: 'secondary',
           handler: (blah) => {
@@ -71,7 +73,7 @@ export class DettaglioPianoPage implements OnInit {
           }
         },
         {
-          text: 'Conferma',
+          text: this.tsService.instant('CONFIRMATION_BUTTON'),
           handler: () => {
             this.pianoService.removeFarmaco(this.pianodetail.id, farmaco.id);
             this.farmacipiani$ = this.pianoService.pianoFarmacis(this.pianodetail.id);

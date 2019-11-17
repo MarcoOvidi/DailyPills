@@ -106,7 +106,7 @@
   "CERCA_MEDICINA" : "Cerca medicina",
   "FORMATI_DISPONIBILI" : "Uno o più formati disponibili",
 
-  "DETTAGLI_PIANO" : "Dettagli piano terapeutico",
+  "DETTAGLI_PIANO" : "Dettagli piano",
 
   "SCEGLI_FARMACO_TAB" : "Aggiungi Farmaco",
 
@@ -138,6 +138,9 @@
   "QUANTITA" : "Quantità",
   "GIORNO" : "Giorno",
 
-  "NO_MED_PIANO" : "Non hai medicinali nel piano ... aggiungine uno"
-
+  "NO_MED_PIANO" : "Non hai medicinali nel piano ... aggiungine uno!",
+  "NO_MED_OGGI" : "Oggi non devi assumere nessun medicinale!",
+  "NO_PIANI" : "Non hai piani terapeutici ... aggiungine uno!",
+  "NO_MED_ARMADIETTO" : "Non hai medicine nel tuo armadietto ... aggiungine una!",
+  "NO_MED_ARMADIETTO_SCEGLI_FARMACO" : "Non hai medicine da aggiungere al piano perchè il tuo armadietto è vuoto!"
 }

@@ -30,6 +30,11 @@
       </ion-item-sliding>
     </ion-list>
   </div>
+  <div *ngIf="(pianilist$ | async)?.length==0">
+    <ion-item lines="none" text-center="true" style="padding-top: 50%">
+      <ion-text color="medium">{{'NO_PIANI' | translate}}</ion-text>
+    </ion-item>
+  </div>
   <div *ngIf="!pianilist$">
     <ion-list>
       <ion-item>

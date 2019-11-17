@@ -5,9 +5,16 @@
 </ion-header>
 
 <ion-progress-bar color="secondary" value="0.3">30</ion-progress-bar>
-<!--<ion-label>{{todaystring$}}</ion-label>-->
+
 
 <ion-content>
+  <ion-refresher slot="fixed" (ionRefresh)="refreshHome($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <ion-item lines="none" text-center="true">
+    <ion-label color="primary">{{todaystring$}}</ion-label>
+  </ion-item>
+
   <ion-list no-padding lines="none" *ngFor="let farmaco of farmacipiani$ | async" >
     <ion-list-header>
       <ion-text color="primary">{{farmaco.orarioassunzione}}</ion-text>
@@ -26,4 +33,10 @@
       </ion-item>
     </ion-item>
   </ion-list>
+
+  <div *ngIf="(farmacipiani$ | async)?.length==0">
+    <ion-item lines="none" text-center="true" style="padding-top: 50%">
+      <ion-text color="medium">{{'NO_MED_OGGI' | translate}}</ion-text>
+    </ion-item>
+  </div>
 </ion-content>

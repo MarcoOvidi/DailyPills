@@ -24,8 +24,15 @@ export class HomepagePage implements OnInit {
   }
 
   ngOnInit() {
-    // moment.locale('it');
-    // this.todaystring$ = moment(new Date()).format('LL');
+    moment.locale('it');
+    this.todaystring$ = moment(new Date()).format('LL');
+  }
+
+  refreshHome(event) {
+    setTimeout(() => {
+      this.farmacipiani$ = this.pianoService.allfarmaci();
+      event.target.complete();
+    }, 1500);
   }
 
   farmacoDetailNav(farmaco: FarmacoPiano) {

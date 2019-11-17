@@ -10,6 +10,14 @@
   "EDIT_BUTTON" : "Edit",
   "OK_BTN" : "OK",
 
+  "LUNEDI" : "Monday",
+  "MARTEDI" : "Tuesday",
+  "MERCOLEDI": "Wednesday",
+  "GIOVEDI": "Thursday",
+  "VENERDI": "Friday",
+  "SABATO": "Saturday",
+  "DOMENICA" : "Sunday",
+
   "LOGIN_TITLE": "Login",
   "LOGIN_ERROR_TITLE": "Login error",
   "LOGIN_ERROR_SUB_TITLE": "Username and/or password Wrong!",
@@ -146,25 +154,36 @@
   "Inglese" : "English",
   "Italiano" : "Italian",
 
-  "ERRORE_INSERIMENTO" : "Errore inserimento",
-  "MSG_ERRORE_INSERIMENTO" : "Il formato scelto è stato inserito nel tuo armadietto",
-  "FARMACO_INSERITO" : "Farmaco Inserito OK",
-  "MSG_FARMACO_INSERITO" : "Il formato scelto è stato inserito nel tuo armadietto",
+  "ERRORE_INSERIMENTO" : "Entry error",
+  "MSG_ERRORE_INSERIMENTO" : "The chosen format could not be entered in your box",
+  "FARMACO_INSERITO" : "Medicine added",
+  "MSG_FARMACO_INSERITO" : "The chosen medicine has been entered in your box",
 
-  "ELIMINA_FARMACO_ARMADIETTO" : "Elimina Farmaco",
-  "MSG_ELIMINA_FARMACO_ARMADIETTO" : "Sei sicuro di voler eliminare",
-  "CONFIRMATION_BUTTON" : "Conferma",
+  "ELIMINA_FARMACO_ARMADIETTO" : "Delete Medicine",
+  "MSG_ELIMINA_FARMACO_ARMADIETTO" : "Are you sure that you want to remove",
+  "CONFIRMATION_BUTTON" : "Confirm",
 
-  "MODIFICA_PIANO" : "Modifica Piano",
-  "MAG_MODIFICA_PIANO " : "Sei sicuro di voler modificare il piano",
+  "MODIFICA_PIANO" : "Edit Plan",
+  "MAG_MODIFICA_PIANO " : "Are you sure that you want to edit",
 
-  "MSG_ERRORE_CREAZIONE_PIANO" : "Errore creazione piano",
+  "MSG_ERRORE_CREAZIONE_PIANO" : "Plan creation error",
 
-  "CONFERMA_ASSUNZIONE" : "Conferma Assunzione",
-  "MSG_CONFERMA_ASSUNZIONE" : "Sei sicuro di voler confermare l'assunzione?",
+  "CONFERMA_ASSUNZIONE" : "Confirm Assumption",
+  "MSG_CONFERMA_ASSUNZIONE" : "Are you sure you want to confirm the hiring?",
 
-  "ERRORE_CONFERMA_ASSUNZIONE" : "Errore conferma assunzione",
+  "ERRORE_CONFERMA_ASSUNZIONE" : "Assumption confirmation error",
 
-  "ELIMINA_PIANO" : "Elimina Piano",
-  "MSG_ELIMINA_PIANO" : "Sei sicuro di voler eliminare il piano"
+  "ELIMINA_PIANO" : "Delete Plan",
+  "MSG_ELIMINA_PIANO" : "Are you sure you want to delete the plan?",
+
+  "CREA_NUOVO_PIANO" : "Create Plan",
+  "MSG_CREA_NUOVO_PIANO" : "Are you sure you want to create a plan?",
+  "INSERT_BUTTON" : "Insert",
+  "ERRORE_CREAZIONE_PIANO" : "Plan creation error",
+
+  "AGGIUNGI_FARMACO_P" : "Add medicine",
+  "MSG_1_AGGIUNGI_FARMACO_P" : "Do you want to add",
+  "MSG_2_AGGIUNGI_FARMACO_P" : "to the plan?",
+
+  "ERRORE_REGISTRAZIONE" : "Registration Error"
 }

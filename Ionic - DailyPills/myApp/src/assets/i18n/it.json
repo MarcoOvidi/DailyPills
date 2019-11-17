@@ -11,6 +11,14 @@
   "EDIT_BUTTON" : "Modifica",
   "OK_BTN" : "OK",
 
+  "LUNEDI" : "Lunedi",
+  "MARTEDI" : "Martedi",
+  "MERCOLEDI": "Mercoledi",
+  "GIOVEDI": "Giovedi",
+  "VENERDI": "Venerdi",
+  "SABATO": "Sabato",
+  "DOMENICA" : "Domenica",
+
   "LOGIN_TITLE": "Login",
   "LOGIN_ERROR_TITLE": "Errore Login",
   "LOGIN_ERROR_SUB_TITLE": "Username e/o password errate!",
@@ -168,6 +176,16 @@
   "ERRORE_CONFERMA_ASSUNZIONE" : "Errore conferma assunzione",
 
   "ELIMINA_PIANO" : "Elimina Piano",
-  "MSG_ELIMINA_PIANO" : "Sei sicuro di voler eliminare il piano"
+  "MSG_ELIMINA_PIANO" : "Sei sicuro di voler eliminare il piano",
 
+  "CREA_NUOVO_PIANO" : "Crea piano",
+  "MSG_CREA_NUOVO_PIANO" : "Sei sicuro di voler creare un nuovo piano?",
+  "INSERT_BUTTON" : "Inserisci",
+  "ERRORE_CREAZIONE_PIANO" : "Errore creazione piano",
+
+  "AGGIUNGI_FARMACO_P" : "Aggiungi farmaco",
+  "MSG_1_AGGIUNGI_FARMACO_P" : "Vuoi aggiungere",
+  "MSG_2_AGGIUNGI_FARMACO_P" : "al piano?",
+
+  "ERRORE_REGISTRAZIONE" : "Errore registrazione"
 }

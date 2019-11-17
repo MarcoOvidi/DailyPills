@@ -4,6 +4,7 @@ import {Registrazione, UtenteService} from '../../services/utente.service';
 import { AlertController, NavController } from '@ionic/angular';
 import {User} from '../../models/user.model';
 import {HttpErrorResponse} from '@angular/common/http';
+import {TranslateService} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-registration',
@@ -19,6 +20,7 @@ export class RegistrationPage implements OnInit {
       private utenteService: UtenteService,
       private navController: NavController,
       private alertController: AlertController,
+      private tsService : TranslateService,
   ) {
 
   }
@@ -63,9 +65,9 @@ export class RegistrationPage implements OnInit {
 
   async showRegistrationError(error) {
     const alert = await this.alertController.create({
-      header: 'Errore registrazione',
+      header: this.tsService.instant('ERRORE_REGISTRAZIONE'),
       message: Object.values(error).toLocaleString(),
-      buttons: ['OK']
+      buttons: [this.tsService.instant('OK_BTN')]
     });
 
     await alert.present();

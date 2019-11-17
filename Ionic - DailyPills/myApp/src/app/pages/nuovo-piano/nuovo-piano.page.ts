@@ -4,6 +4,7 @@ import { AlertController, NavController } from '@ionic/angular';
 import { AggiungiPiano, PianoServices } from '../../services/piano.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import * as moment from 'moment';
+import {TranslateService} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-nuovo-piano',
@@ -20,7 +21,8 @@ export class NuovoPianoPage implements OnInit {
       private formBuilder: FormBuilder,
       private alertCtrl: AlertController,
       private pianoService: PianoServices,
-      private navCtrl: NavController
+      private navCtrl: NavController,
+      private tsService: TranslateService,
   ) { }
 
   ngOnInit() {
@@ -42,11 +44,11 @@ export class NuovoPianoPage implements OnInit {
 
   async submitPiano() {
     const alert =  await this.alertCtrl.create({
-      header: 'Crea nuovo piano',
-      message: 'Sei sicuro di voler creare un nuovo piano?',
+      header: this.tsService.instant('CREA_NUOVO_PIANO'),
+      message: this.tsService.instant('MSG_CREA_NUOVO_PIANO'),
       buttons: [
         {
-          text: 'Annulla',
+          text: this.tsService.instant('CANCEL_BUTTON'),
           role: 'cancel',
           cssClass: 'secondary',
           handler: () => {
@@ -54,7 +56,7 @@ export class NuovoPianoPage implements OnInit {
           }
         },
         {
-          text: 'Inserisci',
+          text: this.tsService.instant('INSERT_BUTTON'),
           handler: () => {
             const parameters: AggiungiPiano = this.insertpianoform.value;
             parameters.inizio = moment(parameters.inizio, 'YYYY-MM-DD').format('YYYY-MM-DD');
@@ -75,9 +77,9 @@ export class NuovoPianoPage implements OnInit {
 
   async showInsertPianoErrore(error: HttpErrorResponse) {
     const errorAlert = await this.alertCtrl.create({
-      header: 'Errore creazione piano',
+      header: this.tsService.instant('ERRORE_CREAZIONE_PIANO'),
       message: Object.values(error).toLocaleString(),
-      buttons: ['OK']
+      buttons: [this.tsService.instant('OK_BTN')]
     });
 
     await errorAlert.present();

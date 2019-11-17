@@ -4,6 +4,7 @@ import { AlertController, ModalController, PickerController } from '@ionic/angul
 import { FarmacoServices } from '../../services/farmaco.services';
 import * as moment from 'moment';
 import { AggiungiMedicina, PianoServices } from '../../services/piano.service';
+import {TranslateService} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-popup',
@@ -28,12 +29,13 @@ export class PopupPage implements OnInit {
       private farmacoService: FarmacoServices,
       private alertController: AlertController,
       private pianoServices: PianoServices,
+      private tsService: TranslateService,
   ) {}
 
   ngOnInit(): void {
     this.selectedorarioassunzione$ = moment(new Date(), 'YYYY-MM-DD HH:mm').format('HH:mm');
     this.selectedquantitaassunzione$ = '1';
-    this.selectedDays$ = 'Lunedi';
+    this.selectedDays$ = this.tsService.instant('LUNEDI');
   }
 
   closeModal() {
@@ -59,11 +61,11 @@ export class PopupPage implements OnInit {
 
   async addFarmacoPiano() {
     const addAlert = await this.alertController.create({
-      header: 'Aggiungi farmaco',
-      message: `Vuoi aggiungere "${this.farmacoName} ${this.specifica.formato} ${this.specifica.quantita}gr" al piano?`,
+      header: this.tsService.instant('AGGIUNGI_FARMACO_P'),
+      message: `${this.tsService.instant('MSG_1_AGGIUNGI_FARMACO_P')} "${this.farmacoName} ${this.specifica.formato} ${this.specifica.quantita}gr" ${this.tsService.instant('MSG_2_AGGIUNGI_FARMACO_P')}`,
       buttons: [
         {
-          text: 'Annulla',
+          text: this.tsService.instant('CANCEL_BUTTON'),
           role: 'cancel',
           cssClass: 'secondary',
           handler: (blah) => {
@@ -71,7 +73,7 @@ export class PopupPage implements OnInit {
           }
         },
         {
-          text: 'Conferma',
+          text: this.tsService.instant('CONFIRMATION_BUTTON'),
           handler: () => {
             const medicina: AggiungiMedicina = {
               idmedtype: this.idmedtype,

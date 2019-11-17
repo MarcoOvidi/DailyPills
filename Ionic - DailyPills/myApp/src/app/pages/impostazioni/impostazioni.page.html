@@ -20,8 +20,13 @@
 <!--        <ion-label position="floating">{{ 'TELEFONO' | translate }}</ion-label>-->
 <!--        <ion-input type="text" formControlName="telefono"></ion-input>-->
 <!--      </ion-item>-->
+        <ion-item>
+            <ion-label position="fixed" color="primary">{{ 'USERNAME' | translate }}</ion-label>
+            pippo
+        </ion-item>
+
       <ion-item>
-        <ion-label position="fixed">{{ 'LANGUAGE' | translate }}</ion-label>
+        <ion-label position="fixed" color="primary">{{ 'LANGUAGE' | translate }}</ion-label>
         <ion-select formControlName="linguaPreferita" okText="{{ 'SAVE_BUTTON' | translate }}" cancelText="{{ 'CANCEL_BUTTON' | translate }}">
           <ion-select-option *ngFor="let lingua of lingue" [value]="lingua.valore">{{lingua.etichetta}}</ion-select-option>
         </ion-select>

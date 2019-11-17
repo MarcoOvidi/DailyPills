@@ -114,9 +114,9 @@ export class HomepagePage implements OnInit {
 
   async showAssunzioneError(error: HttpErrorResponse) {
     const errorAlert = await this.altCtrl.create({
-      header: this.tsService.instant('ERRORE_CONFERMA_ASSUNZIONE')
+      header: this.tsService.instant('ERRORE_CONFERMA_ASSUNZIONE'),
       message: Object.values(error).toLocaleString(),
-      buttons: [this.tsService.instant('OK_BTN')]
+      buttons: ['OK']
     });
 
     await errorAlert.present();

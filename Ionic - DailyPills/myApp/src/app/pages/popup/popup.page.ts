@@ -33,6 +33,7 @@ export class PopupPage implements OnInit {
   ngOnInit(): void {
     this.selectedorarioassunzione$ = moment(new Date(), 'YYYY-MM-DD HH:mm').format('HH:mm');
     this.selectedquantitaassunzione$ = '1';
+    this.selectedDays$ = 'Lunedi';
   }
 
   closeModal() {

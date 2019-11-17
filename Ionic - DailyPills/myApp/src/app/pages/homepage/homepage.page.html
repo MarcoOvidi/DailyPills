@@ -4,7 +4,7 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-progress-bar color="secondary" value="0.3">30</ion-progress-bar>
+<ion-progress-bar color="secondary" value="{{progressBar}}"></ion-progress-bar>
 
 
 <ion-content>
@@ -29,7 +29,7 @@
       </ion-label>
       <div *ngIf="!farmaco.assunto">
         <ion-item>
-          <ion-icon (click)="addAssunzione(farmaco.id)" name="square-outline"></ion-icon>
+          <ion-icon (click)="alertAssunzione(farmaco.id)" name="square-outline"></ion-icon>
         </ion-item>
       </div>
       <div *ngIf="farmaco.assunto">

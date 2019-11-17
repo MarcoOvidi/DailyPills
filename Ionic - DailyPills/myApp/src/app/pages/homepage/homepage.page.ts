@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { FarmacoPiano } from '../../models/farmacopiano.model';
 import { NavigationExtras } from '@angular/router';
 import { NavController } from '@ionic/angular';
+import {map} from 'rxjs/operators';
 
 @Component({
   selector: 'app-homepage',
@@ -26,6 +27,7 @@ export class HomepagePage implements OnInit {
   ngOnInit() {
     moment.locale('it');
     this.todaystring$ = moment(new Date()).format('LL');
+    this.farmacipiani$.subscribe((val) => val);
   }
 
   refreshHome(event) {
@@ -46,7 +48,16 @@ export class HomepagePage implements OnInit {
   }
 
     addAssunzione(id: number) {
-      console.log('clicked checkbod');
+      console.log(id);
+      this.farmacipiani$.pipe(
+            map((farmaco: FarmacoPiano[]) => {
+              return farmaco.map((farmacosin) => {
+                // if (farmacosin.id === id) {
+                //   farmacosin.assunto = true;
+                // }
+              });
+            })
+        );
     }
 
 

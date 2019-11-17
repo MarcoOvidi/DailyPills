@@ -21,9 +21,9 @@
            <img id="icon" src="assets/icon/piano.png">
           </ion-thumbnail>
           <ion-label>
-            <h2>{{piano.nome}}</h2>
-            <p><ion-text color="dark">{{ 'DATA_INIZIO' | translate }} : </ion-text> <ion-text color="medium">{{piano.inizio}} </ion-text></p>
-            <p><ion-text color="dark">{{ 'DATA_FINE' | translate }} :</ion-text> <ion-text color="medium">{{piano.fine}}</ion-text> </p>
+            <h2><ion-text color="primary">{{piano.nome}}</ion-text></h2>
+            <p><ion-icon name="arrow-round-forward" id="success"></ion-icon> &nbsp;<ion-text color="medium">{{piano.inizio}} </ion-text></p>
+            <p><ion-icon name="arrow-round-back" color="danger"></ion-icon>&nbsp;<ion-text color="medium">{{piano.fine}}</ion-text> </p>
           </ion-label>
           <ion-icon name="arrow-dropright"></ion-icon>
         </ion-item>

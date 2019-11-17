@@ -142,5 +142,8 @@
   "NO_MED_OGGI" : "Oggi non devi assumere nessun medicinale!",
   "NO_PIANI" : "Non hai piani terapeutici ... aggiungine uno!",
   "NO_MED_ARMADIETTO" : "Non hai medicine nel tuo armadietto ... aggiungine una!",
-  "NO_MED_ARMADIETTO_SCEGLI_FARMACO" : "Non hai medicine da aggiungere al piano perchè il tuo armadietto è vuoto!"
+  "NO_MED_ARMADIETTO_SCEGLI_FARMACO" : "Non hai medicine da aggiungere al piano perchè il tuo armadietto è vuoto!",
+
+  "Inglese" : "Inglese",
+  "Italiano" : "Italiano"
 }

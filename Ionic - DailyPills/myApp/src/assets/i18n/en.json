@@ -140,5 +140,8 @@
   "NO_MED_OGGI" : "Today you don't have to take any medication!",
   "NO_PIANI" : "You have no treatment plans ... Add one!",
   "NO_MED_ARMADIETTO" : "You have no medicines in your box ... Add one!",
-  "NO_MED_ARMADIETTO_SCEGLI_FARMACO" : "You can not add medicines because your box is empty!"
+  "NO_MED_ARMADIETTO_SCEGLI_FARMACO" : "You can not add medicines because your box is empty!",
+
+  "Inglese" : "English",
+  "Italiano" : "Italian"
 }

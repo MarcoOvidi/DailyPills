@@ -22,7 +22,7 @@
         <p>#: {{farmaco.quantitagiorno}} pezzi</p>
       </ion-label>
       <ion-item>
-        <ion-checkbox></ion-checkbox>
+        <ion-checkbox (click)="addAssunzione(farmaco.id)" [disabled]="farmaco.assunto" [checked]="farmaco.assunto"></ion-checkbox>
       </ion-item>
     </ion-item>
   </ion-list>

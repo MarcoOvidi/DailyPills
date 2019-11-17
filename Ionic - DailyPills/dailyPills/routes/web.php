@@ -42,6 +42,7 @@ $router->group(['prefix' => 'api'], function () use ($router) {
         $router->delete('/removefarmaco/{idpiano}/{medidallfarmacipiano}', 'PianiController@removeFarmaco');
         $router->post('/insertfarmaco/{idpiano}', 'PianiController@insertFarmaco');
         $router->post('/modifypiano/{idpiano}', 'PianiController@modify');
+        $router->get('/assunzione/{idfarmacopiano}', 'PianiController@confirmAssunzione');
 
     });
 

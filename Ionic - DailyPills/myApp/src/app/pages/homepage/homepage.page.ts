@@ -38,5 +38,9 @@ export class HomepagePage implements OnInit {
     this.navController.navigateForward(['tabs/homepage/dettaglio-assunzione'], navigationExtras);
   }
 
+    addAssunzione(id: number) {
+      console.log('clicked checkbod');
+    }
+
 
 }

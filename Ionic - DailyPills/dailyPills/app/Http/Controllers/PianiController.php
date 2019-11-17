@@ -6,6 +6,7 @@ use App\Piani;
 use App\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class PianiController extends Controller
 {
@@ -189,6 +190,16 @@ class PianiController extends Controller
         $idpiano->farmaci()->detach($medid);
 
         return response()->json(["success" => true, "message" => ["message" => "Farmaco rimosso correttamente"]], 200);
+    }
+
+    public function confirmAssunzione($idfarmacopiano, Request $request) {
+
+        DB::table('pianisfarmaci')
+            ->where('id', $idfarmacopiano)
+            ->update(array("assunto" => 1));
+
+        return response()->json(["success" => true, "message" => ["mess" => "Farmaco assunto"]], 200);
+
     }
 
 }

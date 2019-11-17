@@ -28,6 +28,13 @@ export class HomepagePage implements OnInit {
     this.todaystring$ = moment(new Date()).format('LL');
   }
 
+  refreshHome(event) {
+    setTimeout(() => {
+      this.farmacipiani$ = this.pianoService.allfarmaci();
+      event.target.complete();
+    }, 1500);
+  }
+
   farmacoDetailNav(farmaco: FarmacoPiano) {
     const navigationExtras: NavigationExtras = {
       queryParams: {

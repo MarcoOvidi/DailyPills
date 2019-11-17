@@ -8,6 +8,7 @@
   "DELETE_BUTTON": "Delete",
   "ADD_BUTTON" : "Add",
   "EDIT_BUTTON" : "Edit",
+  "OK_BTN" : "OK",
 
   "LOGIN_TITLE": "Login",
   "LOGIN_ERROR_TITLE": "Login error",
@@ -143,5 +144,27 @@
   "NO_MED_ARMADIETTO_SCEGLI_FARMACO" : "You can not add medicines because your box is empty!",
 
   "Inglese" : "English",
-  "Italiano" : "Italian"
+  "Italiano" : "Italian",
+
+  "ERRORE_INSERIMENTO" : "Errore inserimento",
+  "MSG_ERRORE_INSERIMENTO" : "Il formato scelto è stato inserito nel tuo armadietto",
+  "FARMACO_INSERITO" : "Farmaco Inserito OK",
+  "MSG_FARMACO_INSERITO" : "Il formato scelto è stato inserito nel tuo armadietto",
+
+  "ELIMINA_FARMACO_ARMADIETTO" : "Elimina Farmaco",
+  "MSG_ELIMINA_FARMACO_ARMADIETTO" : "Sei sicuro di voler eliminare",
+  "CONFIRMATION_BUTTON" : "Conferma",
+
+  "MODIFICA_PIANO" : "Modifica Piano",
+  "MAG_MODIFICA_PIANO " : "Sei sicuro di voler modificare il piano",
+
+  "MSG_ERRORE_CREAZIONE_PIANO" : "Errore creazione piano",
+
+  "CONFERMA_ASSUNZIONE" : "Conferma Assunzione",
+  "MSG_CONFERMA_ASSUNZIONE" : "Sei sicuro di voler confermare l'assunzione?",
+
+  "ERRORE_CONFERMA_ASSUNZIONE" : "Errore conferma assunzione",
+
+  "ELIMINA_PIANO" : "Elimina Piano",
+  "MSG_ELIMINA_PIANO" : "Sei sicuro di voler eliminare il piano"
 }

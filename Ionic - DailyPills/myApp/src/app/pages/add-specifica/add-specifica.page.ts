@@ -3,6 +3,7 @@ import {AlertController, ModalController} from '@ionic/angular';
 import { Specifica } from '../../models/specifica.model';
 import { PickerController } from '@ionic/angular';
 import { FarmacoServices } from '../../services/farmaco.services';
+import {TranslateService} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-add-specifica',
@@ -24,6 +25,7 @@ export class AddSpecificaPage implements OnInit {
     private pickCtrl: PickerController,
     private farmacoService: FarmacoServices,
     private alertController: AlertController,
+    private tsService: TranslateService
   ) {}
 
   ngOnInit(): void {
@@ -118,9 +120,9 @@ export class AddSpecificaPage implements OnInit {
 
   async showAddError() {
     const alert = await this.alertController.create({
-      header: 'Errore inserimento',
-      message: 'Formato già presente nel proprio armadietto',
-      buttons: ['OK']
+      header: this.tsService.instant('ERRORE_INSERIMENTO'),
+      message: this.tsService.instant('MSG_ERRORE_INSERIMENTO'),
+      buttons: [this.tsService.instant('OK_BTN')]
     });
 
     await alert.present();
@@ -130,9 +132,9 @@ export class AddSpecificaPage implements OnInit {
 
   async showAddSuccess() {
     const alert = await this.alertController.create({
-      header: 'Farmaco Inserito',
-      message: 'Il formato scelto è stato inserito nel tuo armadietto',
-      buttons: ['OK']
+      header: this.tsService.instant('FARMACO_INSERITO'),
+      message: this.tsService.instant('MSG_FARMACO_INSERITO'),
+      buttons: [this.tsService.instant('OK_BTN')]
     });
 
     await alert.present();

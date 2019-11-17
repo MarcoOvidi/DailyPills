@@ -6,6 +6,7 @@ import { AggiungiPiano, PianoServices } from '../../services/piano.service';
 import * as moment from 'moment';
 import { HttpErrorResponse } from '@angular/common/http';
 import { AlertController, NavController } from '@ionic/angular';
+import {TranslateService} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-edit-info-piano',
@@ -23,7 +24,8 @@ export class EditInfoPianoPage implements OnInit {
       private formBuilder: FormBuilder,
       private alertCtrl: AlertController,
       private pianoService: PianoServices,
-      private navCtrl: NavController
+      private navCtrl: NavController,
+      private tsService : TranslateService,
   ) { }
 
   ngOnInit() {
@@ -48,11 +50,11 @@ export class EditInfoPianoPage implements OnInit {
 
   async updatePiano() {
     const alert =  await this.alertCtrl.create({
-      header: 'Modifica Piano',
-      message:  `Sei sicuro di voler modificare il piano "${this.pianodetail.nome}"?`,
+      header: this.tsService.instant('MODIFICA_PIANO'),
+      message:  `${this.tsService.instant('MSG_MODIFICA_PIANO')} "${this.pianodetail.nome}"?`,
       buttons: [
         {
-          text: 'Annulla',
+          text: this.tsService.instant('CANCEL_BUTTON'),
           role: 'cancel',
           cssClass: 'secondary',
           handler: () => {
@@ -60,7 +62,7 @@ export class EditInfoPianoPage implements OnInit {
           }
         },
         {
-          text: 'Modifica',
+          text: this.tsService.instant('UPDATE_BUTTON'),
           handler: () => {
             const parameters: AggiungiPiano = this.insertpianoform.value;
             parameters.inizio = moment(parameters.inizio, 'YYYY-MM-DD').format('YYYY-MM-DD');
@@ -81,9 +83,9 @@ export class EditInfoPianoPage implements OnInit {
 
   async showInsertPianoErrore(error: HttpErrorResponse) {
     const errorAlert = await this.alertCtrl.create({
-      header: 'Errore creazione piano',
+      header: this.tsService.instant('MSG_ERRORE_CREAZIONE_PIANO'),
       message: Object.values(error).toLocaleString(),
-      buttons: ['OK']
+      buttons: [this.tsService.instant('OK_BTN')]
     });
 
     await errorAlert.present();

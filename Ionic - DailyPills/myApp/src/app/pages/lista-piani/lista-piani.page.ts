@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import {AlertController, NavController} from '@ionic/angular';
 import {NavigationExtras} from '@angular/router';
 import {Preferito} from '../../models/preferito.model';
+import {TranslateService} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-lista-piani',
@@ -18,7 +19,8 @@ export class ListaPianiPage implements OnInit {
   constructor(
       private pianoService: PianoServices,
       private navController: NavController,
-      private alertCtrl: AlertController
+      private alertCtrl: AlertController,
+      private tsService: TranslateService,
   ) { }
 
   ngOnInit() {
@@ -44,11 +46,11 @@ export class ListaPianiPage implements OnInit {
 
     async delete(piano: Piano) {
         const alert = await this.alertCtrl.create({
-            header: 'Elimina piano',
-            message: `Sei sicuro di voler eliminare il piano "${piano.nome}"?`,
+            header: this.tsService.instant('ELIMINA_PIANO'),
+            message: `${this.tsService.instant('MSG_ELIMINA_PIANO')} "${piano.nome}"?`,
             buttons: [
                 {
-                    text: 'Annulla',
+                    text: this.tsService.instant('CANCEL_BUTTON'),
                     role: 'cancel',
                     cssClass: 'secondary',
                     handler: (blah) => {
@@ -56,7 +58,7 @@ export class ListaPianiPage implements OnInit {
                     }
                 },
                 {
-                    text: 'Conferma',
+                    text: this.tsService.instant('CONFIRMATION_BUTTON'),
                     handler: () => {
                         this.pianoService.removePiano(piano.id);
                         this.pianilist$ = this.pianoService.listPiani();

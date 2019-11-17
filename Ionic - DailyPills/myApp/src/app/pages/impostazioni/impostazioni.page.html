@@ -1,42 +1,83 @@
 
+
+<!-- NEW -->
 <ion-header translucent text-center>
-  <ion-toolbar color="primary" mode="ios">
-    <ion-title color="light">{{'IMPOSTAZIONI_TAB' | translate}}</ion-title>
-  </ion-toolbar>
+    <ion-toolbar color="primary" mode="ios">
+        <ion-title color="light">{{'IMPOSTAZIONI_TAB' | translate}}</ion-title>
+    </ion-toolbar>
 
 </ion-header>
 
-<ion-content padding>
-  <form [formGroup]="profiloFormModel">
-    <ion-list no-lines>
-<!--      <ion-item class="animated fadeInUp">-->
-<!--        <ion-label position="floating">{{ 'EMAIL' | translate }}</ion-label>-->
-<!--        <ion-input type="email" formControlName="email"></ion-input>-->
-<!--      </ion-item>-->
-<!--      <p ion-text class="text08" *ngIf="profiloFormModel.get('email').touched && profiloFormModel.get('email').invalid">-->
-<!--        <ion-text color="danger">{{ 'EMAIL_REQUIRED' | translate }}</ion-text>-->
-<!--      </p>-->
-<!--      <ion-item class="animated fadeInUp">-->
-<!--        <ion-label position="floating">{{ 'TELEFONO' | translate }}</ion-label>-->
-<!--        <ion-input type="text" formControlName="telefono"></ion-input>-->
-<!--      </ion-item>-->
-        <ion-item>
-            <ion-label position="fixed" color="primary">{{ 'USERNAME' | translate }}</ion-label>
-            pippo
-        </ion-item>
 
-      <ion-item>
-        <ion-label position="fixed" color="primary">{{ 'LANGUAGE' | translate }}</ion-label>
-        <ion-select formControlName="linguaPreferita" okText="{{ 'SAVE_BUTTON' | translate }}" cancelText="{{ 'CANCEL_BUTTON' | translate }}">
-          <ion-select-option *ngFor="let lingua of lingue" [value]="lingua.valore">{{lingua.etichetta | translate}}</ion-select-option>
-        </ion-select>
-      </ion-item>
-    </ion-list>
-    <div margin-top="30px" align="center">
-      <ion-button icon-left size="medium" shape="round" color="primary" (click)="onSubmit()" [disabled]="!profiloFormModel.valid" tappable>
+<ion-content>
+    <ion-grid>
+        <ion-row>
+            <ion-col style="">
+                    <form [formGroup]="profiloFormModel">
+                        <ion-row>
+                            <ion-col size="12">
+                                <ion-item class="ion-item-border">
+                                    <ion-label color="primary" position="floating">{{ 'REGISTER_NAME' | translate }}</ion-label>
+                                    <ion-input formControlName="surname" autocorrect="on" autofocus="on" clearInput="true" clearOnEdit="true" color="primary" inputmode="text" placeholder="{{ 'REGISTER_NAME_STRING' | translate }}" required="true"></ion-input>
+                                    <ion-icon name="person" color="primary" slot="end"></ion-icon>
+                                </ion-item>
+                            </ion-col>
+                        </ion-row>
+                        <ion-row>
+                            <ion-col size="12">
+                                <ion-item class="ion-item-border">
+                                    <ion-label color="primary" position="floating">{{ 'REGISTER_SURNAME' | translate }}</ion-label>
+                                    <ion-input formControlName="surname" autocorrect="on" autofocus="on" clearInput="true" clearOnEdit="true" color="primary" inputmode="text" placeholder="{{ 'REGISTER_SURNAME_STRING' | translate }}" required="true"></ion-input>
+                                    <ion-icon name="person" color="primary" slot="end"></ion-icon>
+                                </ion-item>
+                            </ion-col>
+                        </ion-row>
+                        <ion-row>
+                            <ion-col size="12">
+                                <ion-item class="ion-item-border">
+                                    <ion-label color="primary" position="floating">{{ 'EMAIL' | translate }}</ion-label>
+                                    <ion-input formControlName="surname" autocorrect="on" autofocus="on" clearInput="true" clearOnEdit="true" color="primary" inputmode="text" placeholder="{{ 'REGISTER_EMAIL_STRING' | translate }}" required="true"></ion-input>
+                                    <ion-icon name="mail" color="primary" slot="end"></ion-icon>
+                                </ion-item>
+                            </ion-col>
+                        </ion-row>
+                        <ion-row>
+                            <ion-col size="12">
+                                <ion-item class="ion-item-border">
+                                    <ion-label color="primary" position="floating">{{ 'LANGUAGE' | translate }}</ion-label>
+                                    <ion-select formControlName="linguaPreferita" okText="{{ 'SAVE_BUTTON' | translate }}" cancelText="{{ 'CANCEL_BUTTON' | translate }}">
+                                        <ion-select-option *ngFor="let lingua of lingue" [value]="lingua.valore">{{lingua.etichetta | translate}}</ion-select-option>
+                                    </ion-select>
+                                    <ion-icon name="globe" color="primary" slot="end"></ion-icon>
+                                </ion-item>
+                            </ion-col>
+                        </ion-row>
+                    <!--
+                    <ion-row>
+                        <ion-col size="12">
+                            <ion-item class="ion-item-border">
+                                <ion-label color="primary" position="floating">{{ 'DATA_FINE_PIANO' | translate }}</ion-label>
+                                <ion-datetime  max="2050-12-31" formControlName="fine" displayFormat="DD-MM-YYYY"></ion-datetime>
+                                <ion-icon name="calendar" color="primary" slot="end"></ion-icon>
+                            </ion-item>
+                        </ion-col>
+                    </ion-row>
+                    <ion-row>
+                        <ion-col size="12">
+                            <ion-item class="ion-item-border">
+                                <ion-label color="primary" position="floating">{{ 'DESCRIZIONE_PIANO' | translate}}</ion-label>
+                                <ion-textarea  color="medium" formControlName="descrizione" placeholder="{{ 'DESCRIZIONE_PIANO_STRING' | translate}}"></ion-textarea>
+                                <ion-icon name="calendar" color="primary" slot="end"></ion-icon>
+                            </ion-item>
+                        </ion-col>
+                    </ion-row>-->
+               </form>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+    <ion-button id="editB" type="submit" expand="full" color="primary" (click)="onSubmit()" [disabled]="!profiloFormModel.valid" tappable>
         {{ 'SAVE_BUTTON' | translate }}
-      </ion-button>
-    </div>
-  </form>
+    </ion-button>
+
 </ion-content>
 

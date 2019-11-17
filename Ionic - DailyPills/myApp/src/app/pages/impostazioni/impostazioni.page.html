@@ -28,7 +28,7 @@
       <ion-item>
         <ion-label position="fixed" color="primary">{{ 'LANGUAGE' | translate }}</ion-label>
         <ion-select formControlName="linguaPreferita" okText="{{ 'SAVE_BUTTON' | translate }}" cancelText="{{ 'CANCEL_BUTTON' | translate }}">
-          <ion-select-option *ngFor="let lingua of lingue" [value]="lingua.valore">{{lingua.etichetta}}</ion-select-option>
+          <ion-select-option *ngFor="let lingua of lingue" [value]="lingua.valore">{{lingua.etichetta | translate}}</ion-select-option>
         </ion-select>
       </ion-item>
     </ion-list>

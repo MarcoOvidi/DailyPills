@@ -51,7 +51,8 @@ export class DettaglioPianoPage implements OnInit {
       }
     };
 
-    this.navCtrl.navigateForward(['tabs/homepage/dettaglio-assunzione'], navigationExtras);
+    //piani/dettaglio-piano/dettaglio-assunzione
+    this.navCtrl.navigateForward(['tabs/piani/dettaglio-piano/dettaglio-assunzione'], navigationExtras);
   }
 
 

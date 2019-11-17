@@ -27,11 +27,6 @@
         <p><ion-icon name="filing"></ion-icon>  {{farmaco.specifica.formato}} {{farmaco.specifica.quantita}}gr</p>
         <p><ion-icon name="medical"></ion-icon>  {{farmaco.quantitagiorno}} pezzi</p>
       </ion-label>
-<<<<<<< HEAD
-      <ion-item>
-        <ion-checkbox (click)="addAssunzione(farmaco.id)" [(ngModel)]="farmaco.assunto"></ion-checkbox>
-      </ion-item>
-=======
       <div *ngIf="!farmaco.assunto">
         <ion-item>
           <ion-icon name="square-outline"></ion-icon>
@@ -44,7 +39,6 @@
           <!--<ion-checkbox (click)="addAssunzione(farmaco.id)" [disabled]="farmaco.assunto" [checked]="farmaco.assunto"></ion-checkbox>-->
         </ion-item>
       </div>
->>>>>>> 279fa91d2e17baa4c0ff043187ed12bcce373d08
     </ion-item>
   </ion-list>
 

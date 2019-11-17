@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Lingua, LinguaService } from '../../services/lingua.service';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-impostazioni',
@@ -13,6 +14,7 @@ export class ImpostazioniPage implements OnInit {
   private profiloFormModel: FormGroup;
 
   constructor(
+      private translateService: TranslateService,
       private lingService: LinguaService,
       private formBuilder: FormBuilder
   ) { }
@@ -32,6 +34,7 @@ export class ImpostazioniPage implements OnInit {
   }
 
   onSubmit(): void {
+    this.translateService.use(this.profiloFormModel.value.linguaPreferita);
     this.lingService.updateLingua(this.profiloFormModel.value.linguaPreferita);
   }
 

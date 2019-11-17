@@ -16,12 +16,16 @@ export class HomepagePage implements OnInit {
 
   private todaystring$: string;
   private farmacipiani$: Observable<FarmacoPiano[]>;
+  private arrayFarmaci: FarmacoPiano[];
 
   constructor(
       private pianoService: PianoServices,
       private navController: NavController
   ) {
     this.farmacipiani$ = this.pianoService.allfarmaci();
+    this.farmacipiani$.subscribe((val) => {
+      this.arrayFarmaci = val;
+    });
   }
 
   ngOnInit() {
@@ -48,16 +52,14 @@ export class HomepagePage implements OnInit {
   }
 
     addAssunzione(id: number) {
-      console.log(id);
-      this.farmacipiani$.pipe(
-            map((farmaco: FarmacoPiano[]) => {
-              return farmaco.map((farmacosin) => {
-                // if (farmacosin.id === id) {
-                //   farmacosin.assunto = true;
-                // }
-              });
-            })
-        );
+    console.log(id);
+    this.arrayFarmaci.map((farm) => {
+        if (farm.id === id) {
+          farm.assunto = true;
+          console.log('true');
+        }
+        return farm;
+      });
     }
 
 

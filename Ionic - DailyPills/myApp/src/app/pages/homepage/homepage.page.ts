@@ -34,17 +34,27 @@ export class HomepagePage implements OnInit {
     moment.locale('it');
     this.todaystring$ = moment(new Date()).format('LL');
     this.farmacipiani$.subscribe((val) => {
-      this.arrayFarmaci = val;
+      this.arrayFarmaci = this.getCurrentDay(val);
       this.progressCounter();
     });
     this.progressBar = 0;
+  }
+
+  getCurrentDay(farmaci: FarmacoPiano[]): FarmacoPiano[] {
+    return farmaci.filter((farmaco) => {
+      let bool = false;
+      farmaco.giornosettimana.split(';').forEach((day) => {
+        if (moment(new Date(), 'dddd').format('dddd') === day) { bool = true; }
+      });
+      return bool;
+    });
   }
 
   refreshHome(event) {
     setTimeout(() => {
       this.farmacipiani$ = this.pianoService.allfarmaci();
       this.farmacipiani$.subscribe((val) => {
-        this.arrayFarmaci = val;
+        this.arrayFarmaci = this.getCurrentDay(val);
         this.progressCounter();
       });
       event.target.complete();
@@ -62,7 +72,6 @@ export class HomepagePage implements OnInit {
   }
 
     addAssunzione(id: number) {
-    console.log(id);
     this.arrayFarmaci.map((farm) => {
         if (farm.id === id) {
           farm.assunto = 1;
@@ -83,7 +92,7 @@ export class HomepagePage implements OnInit {
             role: 'cancel',
             cssClass: 'secondary',
             handler: () => {
-              console.log('Piano non inserito');
+              console.log('Annulla assunzione');
             }
           },
           {
@@ -120,6 +129,10 @@ export class HomepagePage implements OnInit {
     });
 
     await errorAlert.present();
+  }
+
+  replace(giorni: string) {
+    return giorni.replace(/;/gi, ', ');
   }
 
 

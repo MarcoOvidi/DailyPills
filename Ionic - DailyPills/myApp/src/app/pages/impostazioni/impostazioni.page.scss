@@ -10,7 +10,8 @@ ion-datetime {
 }
 
 #logout {
-  background-color: transparent;
+  background-color: transparent !important;
   --box-shadow: transparent;
   box-shadow: none !important;
+  color: transparent !important;
 }

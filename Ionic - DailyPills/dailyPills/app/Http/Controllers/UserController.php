@@ -55,4 +55,32 @@ class UserController extends Controller
         return $utente;
 
     }
+
+    public function updateUserInfo(Request $request) {
+
+        $messages = [
+            'required' => 'il campo :attribute non può essere vuoto',
+            'alpha' => 'il campo :attribute deve contenere solo caratteri',
+            'unique' => 'il campo :attribute è già presente nel sistema',
+            'min:8' => 'il campo :attribute deve contenere almeno 8 caratteri',
+            'alpha_num' => 'il campo :attribute deve contenere caratteri alfa-numerici',
+            'confirmed' => 'le password inserite non corrispondono'
+        ];
+
+        $this->validate($request, [
+            'name' => 'required|alpha',
+            'surname' => 'required',
+            'email' => 'required|email',
+        ], $messages);
+
+        $user = User::where('api_token', $request->header('api_token'))->first();
+        $user->name = $request->input('name');
+        $user->surname = $request->input('surname');
+        $user->email = $request->input('email');
+        $user->update();
+
+        return response()->json(["success" => true, "message" => "User update successfully"], 200);
+
+    }
+
 }

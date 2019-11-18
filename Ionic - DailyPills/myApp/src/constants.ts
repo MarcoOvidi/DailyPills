@@ -15,6 +15,7 @@ export const URL = {
     ADD_PIANO: URL_BASE + '/createpiano',
     LOGIN: URL_BASE + '/login',
     REGISTER: URL_BASE + '/register',
+    UPDATE: URL_BASE + '/update',
     PIANO_FARMACIS: URL_BASE + '/farmacipiano',
     REMOVE_PIANO: URL_BASE + '/removepiano',
     INSERT_FARMACO_PIANO: URL_BASE + '/insertfarmaco',

@@ -21,6 +21,12 @@ export interface Registrazione {
     email: string;
 }
 
+export interface Updateuser {
+    name: string;
+    surname: string;
+    email: string;
+}
+
 @Injectable({
     providedIn: 'root'
 })
@@ -69,6 +75,10 @@ export class UtenteService {
                 return res.body;
             })
         );
+    }
+
+    update(newvalue: Updateuser): Observable<any> {
+        return this.http.post(URL.UPDATE, newvalue, {observe: 'response'})
     }
 
     getAuthToken(): string {

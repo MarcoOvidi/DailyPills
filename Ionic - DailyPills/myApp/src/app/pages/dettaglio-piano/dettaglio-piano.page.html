@@ -108,7 +108,7 @@
 
 
     <div *ngIf="(farmacipiani$ | async)?.length==0 && !showLeftTab">
-        <ion-item lines="none" text-center="true" style="padding-top: 50%">
+        <ion-item id="errore" lines="none" text-center="true" style="padding-top: 50%">
           <ion-text color="medium">{{'NO_MED_PIANO' | translate}}</ion-text>
         </ion-item>
     </div>

@@ -4,8 +4,11 @@
 <ion-header translucent text-center>
     <ion-toolbar color="primary" mode="ios">
         <ion-title color="light">{{'IMPOSTAZIONI_TAB' | translate}}</ion-title>
+        <ion-button id="logout" slot="end">
+            <ion-icon name="log-out" color="light"></ion-icon>
+            <ion-label color="light">{{'LOGOUT_MENU' | translate}}</ion-label>
+        </ion-button>
     </ion-toolbar>
-
 </ion-header>
 
 
@@ -75,9 +78,9 @@
             </ion-col>
         </ion-row>
     </ion-grid>
+
     <ion-button id="editB" type="submit" expand="full" color="primary" (click)="onSubmit()" [disabled]="!profiloFormModel.valid" tappable>
         {{ 'SAVE_BUTTON' | translate }}
     </ion-button>
-
 </ion-content>
 

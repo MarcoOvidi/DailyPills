@@ -185,5 +185,8 @@
   "MSG_1_AGGIUNGI_FARMACO_P" : "Do you want to add",
   "MSG_2_AGGIUNGI_FARMACO_P" : "to the plan?",
 
-  "ERRORE_REGISTRAZIONE" : "Registration Error"
+  "ERRORE_REGISTRAZIONE" : "Registration Error",
+
+  "MSG_AGGIORNA_PROFILO" : "Are you sure that you want to update your profile?",
+  "AGGIORNA_PROFILO" : "Update Profile"
 }

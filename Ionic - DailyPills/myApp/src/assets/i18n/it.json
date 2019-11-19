@@ -187,5 +187,8 @@
   "MSG_1_AGGIUNGI_FARMACO_P" : "Vuoi aggiungere",
   "MSG_2_AGGIUNGI_FARMACO_P" : "al piano?",
 
-  "ERRORE_REGISTRAZIONE" : "Errore registrazione"
+  "ERRORE_REGISTRAZIONE" : "Errore registrazione",
+
+  "MSG_AGGIORNA_PROFILO" : "Sei sicuro di voler modificare il profilo?",
+  "AGGIORNA_PROFILO" : "Aggiorno Profilo"
 }

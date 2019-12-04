@@ -3,7 +3,7 @@ import { Lingua, LinguaService } from '../../services/lingua.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 import { User } from '../../models/user.model';
-import {Registrazione, Updateuser, UtenteService} from '../../services/utente.service';
+import { Updateuser, UtenteService } from '../../services/utente.service';
 import {AlertController, NavController} from '@ionic/angular';
 import {HttpErrorResponse} from '@angular/common/http';
 
@@ -65,8 +65,6 @@ export class ImpostazioniPage implements OnInit {
 
   async onSubmit() {
     const alert = await this.alrtCtrl.create({
-      // header: this.tsService.instant('CONFERMA_ASSUNZIONE'),       /*****   DA MODIFICARE *****/
-      // message: this.tsService.instant('MSG_CONFERMA_ASSUNZIONE'),
       header: 'Aggiorna Profilo',
       message: 'Sei sicuro di voler modificare il proflo?',
       buttons: [
@@ -82,6 +80,32 @@ export class ImpostazioniPage implements OnInit {
           text: this.tsService.instant('CONFIRMATION_BUTTON'),
           handler: () => {
             this.Update();
+          }
+        }
+      ]
+    });
+
+    await alert.present();
+  }
+
+  async LogOut() {
+    const alert = await this.alrtCtrl.create({
+      header: 'Esci dall\'applicazione',
+      message: 'Sei sicuro di voler effettuare il logout?',
+      buttons: [
+        {
+          text: this.tsService.instant('CANCEL_BUTTON'),
+          role: 'cancel',
+          cssClass: 'secondary',
+          handler: () => {
+            console.log('Annulla logout');
+          }
+        },
+        {
+          text: this.tsService.instant('CONFIRMATION_BUTTON'),
+          handler: () => {
+            this.usrService.logout();
+            this.navCtrl.navigateRoot('/login');
           }
         }
       ]

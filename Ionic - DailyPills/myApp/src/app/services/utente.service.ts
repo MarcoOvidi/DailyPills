@@ -77,6 +77,13 @@ export class UtenteService {
         );
     }
 
+    logout() {
+        this.authToken = null;
+        this.loggedIn$.next(true);
+        this.storage.remove(AUTH_TOKEN);
+        this.storage.remove(UTENTE_STORAGE);
+    }
+
     update(newvalue: Updateuser): Observable<any> {
         return this.http.post(URL.UPDATE, newvalue, {observe: 'response'})
     }

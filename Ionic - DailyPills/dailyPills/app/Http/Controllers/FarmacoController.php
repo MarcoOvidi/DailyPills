@@ -64,7 +64,6 @@ class FarmacoController extends Controller
            $typo->numero = $typo->pivot->quantity;
         }
 
-
         return $result->favorites;
 
     }

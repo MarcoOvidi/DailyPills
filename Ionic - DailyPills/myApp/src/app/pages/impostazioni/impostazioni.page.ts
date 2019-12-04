@@ -65,13 +65,8 @@ export class ImpostazioniPage implements OnInit {
 
   async onSubmit() {
     const alert = await this.alrtCtrl.create({
-<<<<<<< HEAD
-      header: 'Aggiorna Profilo',
-      message: 'Sei sicuro di voler modificare il proflo?',
-=======
       header: this.tsService.instant('AGGIORNA_PROFILO'),       /*****   DA MODIFICARE *****/
       message: this.tsService.instant('MSG_AGGIORNA_PROFILO'),
->>>>>>> 7ebbdb64d6bdce25dcfc2dc32b2144efb828582d
       buttons: [
         {
           text: this.tsService.instant('CANCEL_BUTTON'),

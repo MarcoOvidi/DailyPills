@@ -41,6 +41,16 @@ export class DettaglioPianoPage implements OnInit {
     this.showLeftTab = true;
   }
 
+  ionViewWillEnter() {
+    this.route.queryParams.subscribe(params => {
+        this.pianodetail = JSON.parse(params.preferito);
+        console.log(params.preferito);
+    });
+    this.farmacipiani$ = this.pianoService.pianoFarmacis(this.pianodetail.id);
+    this.farmacipiani$.subscribe(val => { this.items = val; this.countFarmaci = this.items.length; });
+    this.showLeftTab = true;
+  }
+
 
   changeTab(left: boolean) {
     this.showLeftTab = left;
@@ -53,7 +63,7 @@ export class DettaglioPianoPage implements OnInit {
       }
     };
 
-    //piani/dettaglio-piano/dettaglio-assunzione
+    // piani/dettaglio-piano/dettaglio-assunzione
     this.navCtrl.navigateForward(['tabs/piani/dettaglio-piano/dettaglio-assunzione'], navigationExtras);
   }
 

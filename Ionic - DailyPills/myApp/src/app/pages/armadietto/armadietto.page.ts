@@ -28,6 +28,10 @@ export class ArmadiettoPage implements OnInit {
     this.listfavorites$ = this.farmacoServices.favoritesFarmaci();
   }
 
+  ionViewWillEnter() {
+      this.listfavorites$ = this.farmacoServices.favoritesFarmaci();
+  }
+
   addFarmaco() {
     this.navController.navigateForward('tabs/armadietto/addFarmaco');
   }

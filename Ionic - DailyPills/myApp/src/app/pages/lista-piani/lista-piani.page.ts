@@ -27,6 +27,10 @@ export class ListaPianiPage implements OnInit {
     this.pianilist$ = this.pianoService.listPiani();
   }
 
+  ionViewWillEnter() {
+    this.pianilist$ = this.pianoService.listPiani();
+  }
+
   refreshPiani(event) {
     setTimeout(() => {
       this.pianilist$ = this.pianoService.listPiani();

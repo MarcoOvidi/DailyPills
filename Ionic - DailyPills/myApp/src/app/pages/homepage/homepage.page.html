@@ -40,7 +40,7 @@
     </ion-item>
   </ion-list>
 
-  <div *ngIf="(farmacipiani$ | async)?.length==0">
+  <div *ngIf="arrayFarmaci?.length==0">
     <ion-item id="errore" lines="none" text-center="true" style="padding-top: 50%">
       <ion-text color="medium">{{'NO_MED_OGGI' | translate}}</ion-text>
     </ion-item>

@@ -40,6 +40,16 @@ export class HomepagePage implements OnInit {
     this.progressBar = 0;
   }
 
+  ionViewWillEnter() {
+    moment.locale('it');
+    this.todaystring$ = moment(new Date()).format('LL');
+    this.farmacipiani$.subscribe((val) => {
+        this.arrayFarmaci = this.getCurrentDay(val);
+        this.progressCounter();
+    });
+    this.progressBar = 0;
+  }
+
   getCurrentDay(farmaci: FarmacoPiano[]): FarmacoPiano[] {
     return farmaci.filter((farmaco) => {
       let bool = false;

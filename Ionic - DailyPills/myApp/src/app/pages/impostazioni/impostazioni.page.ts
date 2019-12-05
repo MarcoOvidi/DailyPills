@@ -105,7 +105,7 @@ export class ImpostazioniPage implements OnInit {
           text: this.tsService.instant('CONFIRMATION_BUTTON'),
           handler: () => {
             this.usrService.logout();
-            this.navCtrl.navigateRoot('/login');
+            this.navCtrl.navigateRoot('login');
           }
         }
       ]
@@ -116,7 +116,7 @@ export class ImpostazioniPage implements OnInit {
 
   async showRegistrationError(error) {
     const alert = await this.alrtCtrl.create({
-      header: this.tsService.instant('ERRORE_REGISTRAZIONE'), //DA MODIFICARE
+      header: this.tsService.instant('ERRORE_REGISTRAZIONE'),
       message: Object.values(error).toLocaleString(),
       buttons: [this.tsService.instant('OK_BTN')]
     });

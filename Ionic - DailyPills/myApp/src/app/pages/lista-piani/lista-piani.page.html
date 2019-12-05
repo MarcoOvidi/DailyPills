@@ -32,7 +32,7 @@
   </div>
   <div *ngIf="(pianilist$ | async)?.length==0">
     <ion-item id="errore" lines="none" text-center="true" style="padding-top: 50%">
-      <ion-text color="medium">{{'NO_PIANI' | translate}}</ion-text>
+      <ion-label color="medium">{{'NO_PIANI' | translate}}</ion-label>
     </ion-item>
   </div>
   <div *ngIf="!pianilist$">
